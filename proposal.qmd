@@ -17,6 +17,10 @@ library(tidyverse)
 #| message: false
 ```
 
+## Overview
+
+Creation of a interactive dashboard for visualization of asteroids and describe individual asteroid data based on NASA's asteroid data set.
+
 ## Did You Know?
 
 Did you know that Tucson, Arizona, is a hotspot for asteroid discoveries, with its clear skies and advanced observatories playing a key role in identifying new celestial bodies?
@@ -81,41 +85,54 @@ The website will be developed using HTML, CSS, and JavaScript. The D3.js library
 
 A key challenge is the availability of the data set since it has been removed from NASA website. Also, the presentation of the inconsistencies in the data set, such as varying name presentations and location specifics will be challenging. We will need to decide whether to standardize these entries for consistency or to present them as they are, maintaining the data set's authenticity. Finally, the limitation of data stopping at 1999 requires a clear communication to the users that more recent discoveries will not be included.
 
-#### Conclusion
-
-This interactive website will not only fulfill the requirements for our final project but also serve as a bridge between historical astronomical data and modern-day data visualization techniques. It will contribute to the greater public understanding of Tucson's role in asteroid discovery and the importance of data visualization in narrating the story of our skies.
-
 ## Plan Of Attack
 
--   Week 1: (Data gathering and preparation)
+-   **Week 1: (Data gathering and preparation)**
 
-    -   Data gathering from the NASA website for asteroids and data validation of all relevant variables like - Catalog number, name, Principal Provisional Designation, Discovery Date, Discovery Location, Discoverer(s) Name.
-    -   Begin the initial data cleaning process.
-    -   Create a shared repository or document to organize the collected data efficiently.
-    -   Document the sources and formats of the collected data sets.
+    -   Deema & Shakir - Data gathering from the NASA website for asteroids and data validation of all relevant variables like - Catalog number, name, Principal Provisional Designation, Discovery Date, Discovery Location, Discoverer(s) Name.
+    -   Ansh & Rahul - Begin the initial data cleaning process.
+    -   Swati - Create a shared repository or document to organize the collected data efficiently.
+    -   Everyone - Document the sources and formats of the collected data sets.
 
--   Week 2: (Data Exploration and Visualization)
+-   **Week 2: (Data Exploration and Visualization)**
 
-    -   Analyse the cleaned data set to understand its structure.
-    -   Begin the process of designing the initial map visualizations of asteroids' positions.
-    -   Experiment with basic visualization techniques and work on creating visual representations.
+    -   Everyone - Analyse the cleaned data set to understand its structure.
+    -   Shakir, Ansh & Deema - Begin the process of designing the initial map visualizations of asteroids' positions.
+    -   Swati & Rahul - Experiment with basic visualization techniques and work on creating visual representations.
 
--   Week 3: (Interactive Features Development)
+-   **Week 3: (Interactive Features Development)**
 
-    -   Work on data integration for the interactive features within the dashboard visualization.
-    -   Try and implement wireframes for the interactive features.
-    -   Perform initial rounds of testing to validate the data from user perspective.
-    -   Peer review code and ensure smooth operation.
-    -   Dynamically come up with ways (ideas) to make the user experience better.
+    -   Shakir, Ansh & Deema - Work on data integration for the interactive features within the dashboard visualization.
+    -   Swati & Rahul - Try and implement wireframes for the interactive features.
+    -   Everyone - Perform initial rounds of testing to validate the data from user perspective.
+    -   Swati & Ansh - Peer review code and ensure smooth operation.
+    -   Everyone - Dynamically come up with ways (ideas) to make the user experience better.
 
--   Week 4: (Testing, Refinement, and Documentation)
+-   **Week 4: (Testing, Refinement, and Documentation)**
 
-    -   Address any issues or bugs identified during testing.
-    -   Enhance the aesthetics and user experience of the map visualizations based on user feedback.
-    -   Work on final testing and quality assurance to guarantee a bug-free release.
-    -   Write comprehensive guide and complete documentation for the project in GitHub.
-    -   Work on final project presentation.
-    -   Team huddle and a pat on the back.
+    -   Everyone - Address any issues or bugs identified during testing.
+    -   Shakir, Swati & Ansh - Enhance the aesthetics and user experience of the map visualizations based on user feedback.
+    -   Raul & Deema - Work on final testing and quality assurance to guarantee a bug-free release.
+    -   Everyone - Write comprehensive guide and complete documentation for the project in GitHub.
+    -   Everyone - Work on final project presentation.
+
+## Organization
+
+The following are the folders involved in the Project repository.
+
+-   **'data/':** Used for storing any necessary data files for the project, such as input files.
+
+-   **'images/':** Used for storing image files used in the project.
+
+-   **'\_extra/':** Used to experiment on analysis which won't impact our project workflow.
+
+-   **'\_freeze/':** This folder is used to store the generated files during the build process. These files represent the frozen state of the website at a specific point in time.
+
+-   **'.github/':** Folder for storing github templates and workflow.
+
+## Conclusion
+
+This interactive website will not only fulfill the requirements for our final project but also serve as a bridge between historical astronomical data and modern-day data visualization techniques. It will contribute to the greater public understanding of Tucson's role in asteroid discovery and the importance of data visualization in narrating the story of our skies.
 
 ::: callout-note
 ## Note:
