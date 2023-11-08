@@ -1,6 +1,7 @@
 ---
-title: "Proposal title"
+title: "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson"
 subtitle: "Proposal"
+author: "Data Dynamos"
 format: html
 editor: visual
 ---
@@ -11,25 +12,79 @@ editor: visual
 library(tidyverse)
 ```
 
-## Dataset
-
 ```{r}
 #| label: load-dataset
 #| message: false
 ```
 
-In the boundless expanse of the solar system, a hidden  universe of rocky wanderers awaits for exploration. The secrets to solving the riddles surrounding the genesis and evolution of the solar system can be found within these space nomads, also known as asteroids, which are frequently written off as nothing more than stray pieces of a chaotic universe. In this project, we aim to create an interactive website to examine the asteroids from the discoveries made in Tucson Research Centre.
+## Did You Know?
+
+Did you know that Tucson, Arizona, is a hotspot for asteroid discoveries, with its clear skies and advanced observatories playing a key role in identifying new celestial bodies?
+
+## Introduction
+
+In the boundless expanse of the solar system, a hidden universe of rocky wanderers awaits for exploration. The secrets to solving the riddles surrounding the genesis and evolution of the solar system can be found within these space nomads, also known as asteroids, which are frequently written off as nothing more than stray pieces of a chaotic universe. In this project, we aim to create an interactive website to examine the asteroids from the discoveries made in Tucson Research Centre.
 
 For countless years, astrophysicists and enthusiasts have been enthralled with the fascinating universe of asteroids. These cosmic nomads captivate us with their enduring mystique; they are frequently perceived as leftovers of the birth of our solar system. This topic is brought to light by the enigmatic nature of asteroids and the mysteries they hold that have not yet been discovered. Motivated by the universe's fascination and secrets, our research team discovered a shared passion for investigating the asteroidal realm. It will provide a unique opportunity to look into the unexplored regions of space and learn more about them.
 
+## Project Overview
+
+The website will serve as an educational and exploratory tool for both astronomy enthusiasts and the general public. It will feature interactive visualizations that allow users to explore various aspects of the asteroids discovered in Tucson, including their names, designations, discovery dates, locations, and the names of discoverers. 
+
 ## Data Utilization
 
-The NASA Data Portal is the source of the Asteroid Dataset for the Project. The dataset offers  information about the asteroids, including their names, designation, discovery date, discovery location and the names of the individuals or institutions responsible for the discoveries. The dataset retains its original presentation, without alterations to account for the loss of diacritical marks due to limitations in the ASCII character set. This version of dataset includes 9999 entries and contains the information for all asteroids numbered as of 2nd February 1999 batch of Minor planet Circulars. These informations were either supplied by the Minor Planet Center or taken from the Minor Planet Circular, which the organization distributed on behalf of Commission 20 of the International Astronomical Union.
+The NASA Data Portal is the source of the Asteroid Dataset for the Project. The dataset offers information about the asteroids, including their names, designation, discovery date, discovery location and the names of the individuals or institutions responsible for the discoveries. The dataset retains its original presentation, without alterations to account for the loss of diacritical marks due to limitations in the ASCII character set. This version of dataset includes 9999 entries and contains the information for all asteroids numbered as of 2nd February 1999 batch of Minor planet Circulars. These informations were either supplied by the Minor Planet Center or taken from the Minor Planet Circular, which the organization distributed on behalf of Commission 20 of the International Astronomical Union.
 
-## Questions
+We Will be Utilizing these entries
 
-The two questions you want to answer.
+• **Catalog Number**: The unique identifier for each asteroid, allowing us to track and reference them systematically.
 
-## Analysis plan
+• **Name**: The official name of the asteroid, which can offer insights into cultural and historical contexts of the discovery.
+
+• **Principal Provisional Designation**: The initial temporary label given to the asteroid, crucial for cross-referencing with historical records and scientific literature.
+
+• **Discovery Date**: The date each asteroid was discovered, which will be used to create the temporal component of our visualizations.
+
+• **Discovery Location**: The geographic location where the asteroid was first observed, a key element in mapping the discoveries.
+
+• **Discoverer(s) Name**: Information about who discovered the asteroid, highlighting the human element in the field of astronomy.
+
+## Goal
+
+This project aims to create an interactive website, focusing on the visualization of data from asteroid discoveries made in Tucson, as detailed in the dataset "Asteroid Names and Discovery V4.0" (DATA_SET_ID: EAR-A-5-DDR-ASTNAMES-DISCOVERY-V4.0).
+
+Various Components of dashboard includes:
+
+#### 1. Timeline Visualization:
+
+An interactive timeline will showcase the dates of asteroid discoveries. Users can slide through time to see the pace of discovery and significant milestones.
+
+#### 2. Map Integration:
+
+Utilizing the discovery location data, we will provide a map visualization where users can zoom in on Tucson and surrounding discovery sites, providing a spatial context to the data.
+
+#### 3. Discovery Details:
+
+By selecting individual asteroids, users will be able to view detailed information such as the asteroid's catalog number, provisional designation, and the name(s) of the discoverer(s).
+
+#### 4. Educational Information:
+
+The website will also include educational resources about asteroids, their significance in our solar system, and the history of asteroid discovery in Tucson.
+
+## Implementation Plan
+
+#### Technical Considerations:
+
+The website will be developed using HTML, CSS, and JavaScript. The D3.js library will be instrumental for creating the data-driven visualizations. We will ensure the site is responsive and accessible across various devices and browsers. 
+
+#### Challenges and Limitations
+
+A key challenge is the availability of the dataset since it has been removed from Nasa's website. Also, the presentation of the inconsistencies in the dataset, such as varying name presentations and location specifics will be challenging. We will need to decide whether to standardize these entries for consistency or to present them as they are, maintaining the dataset's authenticity. Finally, the limitation of data stopping at 1999 requires a clear communication to the users that more recent discoveries will not be included.
+
+#### Conclusion
+
+This interactive website will not only fulfill the requirements for our final project but also serve as a bridge between historical astronomical data and modern-day data visualization techniques. It will contribute to the greater public understanding of Tucson's role in asteroid discovery and the importance of data visualization in narrating the story of our skies.
+
+## Plan Of Attack
 
 -   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).

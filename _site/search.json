@@ -1,0 +1,121 @@
+[
+  {
+    "objectID": "proposal.html",
+    "href": "proposal.html",
+    "title": "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson",
+    "section": "",
+    "text": "library(tidyverse)"
+  },
+  {
+    "objectID": "proposal.html#dataset",
+    "href": "proposal.html#dataset",
+    "title": "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson",
+    "section": "Dataset",
+    "text": "Dataset"
+  },
+  {
+    "objectID": "proposal.html#did-you-know",
+    "href": "proposal.html#did-you-know",
+    "title": "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson",
+    "section": "Did You Know?",
+    "text": "Did You Know?\nDid you know that Tucson, Arizona, is a hotspot for asteroid discoveries, with its clear skies and advanced observatories playing a key role in identifying new celestial bodies?"
+  },
+  {
+    "objectID": "proposal.html#introduction",
+    "href": "proposal.html#introduction",
+    "title": "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson",
+    "section": "Introduction",
+    "text": "Introduction\nIn the boundless expanse of the solar system, a hidden universe of rocky wanderers awaits for exploration. The secrets to solving the riddles surrounding the genesis and evolution of the solar system can be found within these space nomads, also known as asteroids, which are frequently written off as nothing more than stray pieces of a chaotic universe. In this project, we aim to create an interactive website to examine the asteroids from the discoveries made in Tucson Research Centre.\nFor countless years, astrophysicists and enthusiasts have been enthralled with the fascinating universe of asteroids. These cosmic nomads captivate us with their enduring mystique; they are frequently perceived as leftovers of the birth of our solar system. This topic is brought to light by the enigmatic nature of asteroids and the mysteries they hold that have not yet been discovered. Motivated by the universe’s fascination and secrets, our research team discovered a shared passion for investigating the asteroidal realm. It will provide a unique opportunity to look into the unexplored regions of space and learn more about them."
+  },
+  {
+    "objectID": "proposal.html#project-overview",
+    "href": "proposal.html#project-overview",
+    "title": "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson",
+    "section": "Project Overview",
+    "text": "Project Overview\nThe website will serve as an educational and exploratory tool for both astronomy enthusiasts and the general public. It will feature interactive visualizations that allow users to explore various aspects of the asteroids discovered in Tucson, including their names, designations, discovery dates, locations, and the names of discoverers."
+  },
+  {
+    "objectID": "proposal.html#data-utilization",
+    "href": "proposal.html#data-utilization",
+    "title": "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson",
+    "section": "Data Utilization",
+    "text": "Data Utilization\nThe NASA Data Portal is the source of the Asteroid Dataset for the Project. The dataset offers information about the asteroids, including their names, designation, discovery date, discovery location and the names of the individuals or institutions responsible for the discoveries. The dataset retains its original presentation, without alterations to account for the loss of diacritical marks due to limitations in the ASCII character set. This version of dataset includes 9999 entries and contains the information for all asteroids numbered as of 2nd February 1999 batch of Minor planet Circulars. These informations were either supplied by the Minor Planet Center or taken from the Minor Planet Circular, which the organization distributed on behalf of Commission 20 of the International Astronomical Union.\nWe Will be Utilizing these entries\n• Catalog Number: The unique identifier for each asteroid, allowing us to track and reference them systematically.\n• Name: The official name of the asteroid, which can offer insights into cultural and historical contexts of the discovery.\n• Principal Provisional Designation: The initial temporary label given to the asteroid, crucial for cross-referencing with historical records and scientific literature.\n• Discovery Date: The date each asteroid was discovered, which will be used to create the temporal component of our visualizations.\n• Discovery Location: The geographic location where the asteroid was first observed, a key element in mapping the discoveries.\n• Discoverer(s) Name: Information about who discovered the asteroid, highlighting the human element in the field of astronomy."
+  },
+  {
+    "objectID": "proposal.html#section",
+    "href": "proposal.html#section",
+    "title": "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson",
+    "section": "",
+    "text": "Goal\nThis project aims to create an interactive website, focusing on the visualization of data from asteroid discoveries made in Tucson, as detailed in the dataset \"Asteroid Names and Discovery V4.0\" (DATA_SET_ID: EAR-A-5-DDR-ASTNAMES-DISCOVERY-V4.0).\nVarious Components of dashboard includes:\n\n1. Timeline Visualization:\nAn interactive timeline will showcase the dates of asteroid discoveries. Users can slide through time to see the pace of discovery and significant milestones.\n\n\n2. Map Integration:\nUtilizing the discovery location data, we will provide a map visualization where users can zoom in on Tucson and surrounding discovery sites, providing a spatial context to the data.\n\n\n3. Discovery Details:\nBy selecting individual asteroids, users will be able to view detailed information such as the asteroid's catalog number, provisional designation, and the name(s) of the discoverer(s).\n\n\n4. Educational Information:\nThe website will also include educational resources about asteroids, their significance in our solar system, and the history of asteroid discovery in Tucson."
+  },
+  {
+    "objectID": "proposal.html#implementation-plan",
+    "href": "proposal.html#implementation-plan",
+    "title": "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson",
+    "section": "Implementation Plan",
+    "text": "Implementation Plan\n\nTechnical Considerations:\nThe website will be developed using HTML, CSS, and JavaScript. The D3.js library will be instrumental for creating the data-driven visualizations. We will ensure the site is responsive and accessible across various devices and browsers. \n\n\nChallenges and Limitations\nA key challenge is the availability of the dataset since it has been removed from Nasa's website. Also, the presentation of the inconsistencies in the dataset, such as varying name presentations and location specifics will be challenging. We will need to decide whether to standardize these entries for consistency or to present them as they are, maintaining the dataset’s authenticity. Finally, the limitation of data stopping at 1999 requires a clear communication to the users that more recent discoveries will not be included.\n\n\nConclusion\nThis interactive website will not only fulfill the requirements for our final project but also serve as a bridge between historical astronomical data and modern-day data visualization techniques. It will contribute to the greater public understanding of Tucson’s role in asteroid discovery and the importance of data visualization in narrating the story of our skies."
+  },
+  {
+    "objectID": "proposal.html#plan-of-attack",
+    "href": "proposal.html#plan-of-attack",
+    "title": "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson",
+    "section": "Plan Of Attack",
+    "text": "Plan Of Attack\n\nA plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any)."
+  },
+  {
+    "objectID": "presentation.html",
+    "href": "presentation.html",
+    "title": "Project title",
+    "section": "",
+    "text": "The presentation is created using the Quarto CLI\n## sets the start of a new slide\n\n\n\n\nYou can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\n\nlike\nthis\n\n\n\n\n\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic       p.value\n  <chr>          <dbl>     <dbl>     <dbl>         <dbl>\n1 (Intercept)   25.3      3.08        8.22 0.00000000358\n2 speed         -0.116    0.0642     -1.81 0.0806       \n\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC\n      <dbl>         <dbl> <dbl>     <dbl>   <dbl> <dbl>  <dbl> <dbl> <dbl>\n1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.\n# ℹ 3 more variables: deviance <dbl>, df.residual <int>, nobs <int>\n\n\n\n\n\n\n\nWarning: Removed 2 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\nSome text\ngoes here"
+  },
+  {
+    "objectID": "presentation.html#tables",
+    "href": "presentation.html#tables",
+    "title": "Project title",
+    "section": "Tables",
+    "text": "Tables\nIf you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,\n\n\n\n\n \n  \n    species \n    island \n    bill_length_mm \n    bill_depth_mm \n    flipper_length_mm \n    body_mass_g \n    sex \n  \n \n\n  \n    Adelie \n    Torgersen \n    39.1 \n    18.7 \n    181 \n    3750 \n    male \n  \n  \n    Adelie \n    Torgersen \n    39.5 \n    17.4 \n    186 \n    3800 \n    female \n  \n  \n    Adelie \n    Torgersen \n    40.3 \n    18.0 \n    195 \n    3250 \n    female \n  \n  \n    Adelie \n    Torgersen \n    NA \n    NA \n    NA \n    NA \n    NA \n  \n  \n    Adelie \n    Torgersen \n    36.7 \n    19.3 \n    193 \n    3450 \n    female \n  \n  \n    Adelie \n    Torgersen \n    39.3 \n    20.6 \n    190 \n    3650 \n    male"
+  },
+  {
+    "objectID": "presentation.html#images",
+    "href": "presentation.html#images",
+    "title": "Project title",
+    "section": "Images",
+    "text": "Images\n\n\n\nImage credit: Danielle Navarro, Percolate."
+  },
+  {
+    "objectID": "presentation.html#math-expressions",
+    "href": "presentation.html#math-expressions",
+    "title": "Project title",
+    "section": "Math Expressions",
+    "text": "Math Expressions\nYou can write LaTeX math expressions inside a pair of dollar signs, e.g. $\\alpha+\\beta$ renders \\(\\alpha + \\beta\\). You can use the display style with double dollar signs:\n$$\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i$$\n\\[\n\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i\n\\]\nLimitations:\n\nThe source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting $$ must appear in the very beginning of a line, followed immediately by a non-space character, and the ending $$ must be at the end of a line, led by a non-space character;\nThere should not be spaces after the opening $ or before the closing $."
+  },
+  {
+    "objectID": "presentation.html#feeling-adventurous",
+    "href": "presentation.html#feeling-adventurous",
+    "title": "Project title",
+    "section": "Feeling adventurous?",
+    "text": "Feeling adventurous?\n\nYou are welcomed to use the default styling of the slides. In fact, that’s what I expect majority of you will do. You will differentiate yourself with the content of your presentation.\nBut some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This project was developed by [Team Name] For INFO 526 - Data Analysis & Visualization at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.\n\nTeam member 1: One sentence description of Team member 1 (e.g., year, major, etc.).\nTeam member 2: One sentence description of Team member 2 (e.g., year, major, etc.).\nTeam member 3: One sentence description of Team member 3 (e.g., year, major, etc.).\nTeam member 4: One sentence description of Team member 4 (e.g., year, major, etc.)."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Project title",
+    "section": "",
+    "text": "Add project abstract here."
+  },
+  {
+    "objectID": "proposal.html#goal",
+    "href": "proposal.html#goal",
+    "title": "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson",
+    "section": "Goal",
+    "text": "Goal\nThis project aims to create an interactive website, focusing on the visualization of data from asteroid discoveries made in Tucson, as detailed in the dataset \"Asteroid Names and Discovery V4.0\" (DATA_SET_ID: EAR-A-5-DDR-ASTNAMES-DISCOVERY-V4.0).\nVarious Components of dashboard includes:\n\n1. Timeline Visualization:\nAn interactive timeline will showcase the dates of asteroid discoveries. Users can slide through time to see the pace of discovery and significant milestones.\n\n\n2. Map Integration:\nUtilizing the discovery location data, we will provide a map visualization where users can zoom in on Tucson and surrounding discovery sites, providing a spatial context to the data.\n\n\n3. Discovery Details:\nBy selecting individual asteroids, users will be able to view detailed information such as the asteroid's catalog number, provisional designation, and the name(s) of the discoverer(s).\n\n\n4. Educational Information:\nThe website will also include educational resources about asteroids, their significance in our solar system, and the history of asteroid discovery in Tucson."
+  }
+]
