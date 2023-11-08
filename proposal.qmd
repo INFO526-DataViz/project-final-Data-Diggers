@@ -18,15 +18,9 @@ library(tidyverse)
 #| message: false
 ```
 
-## Introduction 
+A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.
 
-In the boundless expanse of the solar system, a hidden  universe of rocky wanderers awaits for exploration. The secrets to solving the riddles surrounding the genesis and evolution of the solar system can be found within these space nomads, also known as asteroids, which are frequently written off as nothing more than stray pieces of a chaotic universe. In this project, we aim to create an interactive website to examine the asteroids from the discoveries made in Tucson Research Center.
-
-For countless years, astrophysicists and enthusiasts have been enthralled with the fascinating universe of asteroids. These cosmic nomads captivate us with their enduring mystique; they are frequently perceived as leftovers of the birth of our solar system. This topic is brought to light by the enigmatic nature of asteroids and the mysteries they hold that have not yet been discovered. Motivated by the universe's fascination and secrets, our team discovered a shared passion for investigating the asteroidal realm. It will provide a unique opportunity to look into the unexplored regions of space and learn more about them.
-
-## Data Utilization
-
-The NASA Data Portal is the source of the Asteroid Dataset for the Project. The dataset offers  information about the asteroids, including their names, designation, discovery date, discovery location and the names of the individuals or institutions responsible for the discoveries. The dataset retains its original presentation, without alterations to account for the loss of diacritical marks due to limitations in the ASCII character set. This version of dataset includes 9999 entries and contains the information for all asteroids numbered as of 2nd February 1999 batch of Minor planet Circulars. These informations were either supplied by the Minor Planet Center or taken from the Minor Planet Circular, which the organization distributed on behalf of Commission 20 of the International Astronomical Union.
+Make sure to load the data and use inline code for some of this information.
 
 ## Questions
 
