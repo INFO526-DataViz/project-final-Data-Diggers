@@ -1,6 +1,6 @@
 ---
-title: "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson"
-subtitle: "Proposal"
+title: "Visualising the Heavens" 
+subtitle: "An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson"
 author: "Data Dynamos"
 format: html
 editor: visual
@@ -19,7 +19,7 @@ library(tidyverse)
 
 ## Overview
 
-Creation of a interactive dashboard for visualization of asteroids and describe individual asteroid data based on NASA's asteroid data set.
+Creation of a interactive website for visualization of asteroids and describe individual asteroid data based on NASA's asteroid data set.
 
 ## Did You Know?
 
