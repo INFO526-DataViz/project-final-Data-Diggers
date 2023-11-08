@@ -1,12 +1,14 @@
 ---
-title: "About"
+title: "Visualising the Heavens" 
+subtitle: " An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson"
+author: "Data Dynamos"
 format: html
 editor: visual
 ---
 
 This project was developed by **Data Dynamos** For [INFO 526 - Data Analysis & Visualization](https://datavizaz.org/) at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.
 
--   Deema Albluwi (Computational Linguistics, 2nd year PhD).
+-   Deema Albluwi (Computational Linguistics, PhD).
 
 -   Rahul Bangad (Data Science, Master's).
 

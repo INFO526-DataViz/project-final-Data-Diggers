@@ -1,6 +1,6 @@
 ---
-title: "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson"
-subtitle: "Proposal"
+title: "Visualising the Heavens" 
+subtitle: "An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson"
 author: "Data Dynamos"
 format: html
 editor: visual
@@ -9,7 +9,7 @@ editor: visual
 ```{r}
 #| label: load-pkgs
 #| message: false
-library(tidyverse)
+
 ```
 
 ```{r}
@@ -19,7 +19,7 @@ library(tidyverse)
 
 ## Overview
 
-Creation of a interactive dashboard for visualization of asteroids and describe individual asteroid data based on NASA's asteroid data set.
+Creation of a interactive website for visualization of asteroids and describe individual asteroid data based on NASA's asteroid data set.
 
 ## Did You Know?
 
@@ -53,11 +53,13 @@ We will be utilizing the following entries:
 
 • **Discoverer(s) Name**: Information about who discovered the asteroid, highlighting the human element in the field of astronomy.
 
+The dataset’s ASCII character set limitation, which led to the loss of diacritical marks, will be addressed through a standardization process to ensure that names are searchable and display correctly. We will also be vigilant about the consistency in presenting names and locations, recognizing that some entries may include initials while others do not, and that the specificity of locations can vary.
+
 ## Goal
 
 This project aims to create an interactive website, focusing on the visualization of data from asteroid discoveries made in Tucson, as detailed in the data set "Asteroid Names and Discovery V4.0" (DATA_SET_ID: EAR-A-5-DDR-ASTNAMES-DISCOVERY-V4.0).
 
-Various Components of dashboard includes:
+Proposed Features:
 
 #### 1. Timeline Visualization:
 
@@ -65,7 +67,7 @@ An interactive timeline will showcase the dates of asteroid discoveries. Users c
 
 #### 2. Map Integration:
 
-Utilizing the discovery location data, we will provide a map visualization where users can zoom in on Tucson and surrounding discovery sites, providing a spatial context to the data.
+Utilizing the discovery location data, we will provide a map visualization where users can zoom in the discovery sites, providing a spatial context to the data.
 
 #### 3. Discovery Details:
 
