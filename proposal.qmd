@@ -87,4 +87,38 @@ This interactive website will not only fulfill the requirements for our final pr
 
 ## Plan Of Attack
 
--   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+-   Week 1: (Data gathering and preparation)
+
+    -   Data gathering from the NASA website for asteroids and data validation of all relevant variables like - Catalog number, name, Principal Provisional Designation, Discovery Date, Discovery Location, Discoverer(s) Name.
+    -   Begin the initial data cleaning process.
+    -   Create a shared repository or document to organize the collected data efficiently.
+    -   Document the sources and formats of the collected data sets.
+
+-   Week 2: (Data Exploration and Visualization)
+
+    -   Analyse the cleaned data set to understand its structure.
+    -   Begin the process of designing the initial map visualizations of asteroids' positions.
+    -   Experiment with basic visualization techniques and work on creating visual representations.
+
+-   Week 3: (Interactive Features Development)
+
+    -   Work on data integration for the interactive features within the dashboard visualization.
+    -   Try and implement wireframes for the interactive features.
+    -   Perform initial rounds of testing to validate the data from user perspective.
+    -   Peer review code and ensure smooth operation.
+    -   Dynamically come up with ways (ideas) to make the user experience better.
+
+-   Week 4: (Testing, Refinement, and Documentation)
+
+    -   Address any issues or bugs identified during testing.
+    -   Enhance the aesthetics and user experience of the map visualizations based on user feedback.
+    -   Work on final testing and quality assurance to guarantee a bug-free release.
+    -   Write comprehensive guide and complete documentation for the project in GitHub.
+    -   Work on final project presentation.
+    -   Team huddle and a pat on the back.
+
+::: callout-note
+## Note:
+
+These are the planned approaches, and we intend to explore and solve the problem statement which we came up with. Parts of our approach might change in the final project.
+:::
