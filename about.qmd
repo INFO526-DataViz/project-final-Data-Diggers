@@ -6,12 +6,12 @@ editor: visual
 
 This project was developed by **Data Dynamos** For [INFO 526 - Data Analysis & Visualization](https://datavizaz.org/) at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.
 
--   Deema (e.g., year, major, etc.).
+-   Deema Albluwi (Computational Linguistics, 2nd year PhD).
 
--   Rahul Bangad (e.g., year, major, etc.).
+-   Rahul Bangad (Data Science, Master's).
 
--   Swati Das (e.g., year, major, etc.).
+-   Swati Das (Data Science, Master's).
 
--   Ansh (e.g., year, major, etc.).
+-   Ansh Kumar Dev (Data Science, Master's).
 
--   Shakir Ahmed (Master's in Data Science, Semester 1)
+-   Shakir Ahmed (Data Science, Master's)
