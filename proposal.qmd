@@ -23,9 +23,9 @@ Did you know that Tucson, Arizona, is a hotspot for asteroid discoveries, with i
 
 ## Introduction
 
-In the boundless expanse of the solar system, a hidden universe of rocky wanderers awaits for exploration. The secrets to solving the riddles surrounding the genesis and evolution of the solar system can be found within these space nomads, also known as asteroids, which are frequently written off as nothing more than stray pieces of a chaotic universe. In this project, we aim to create an interactive website to examine the asteroids from the discoveries made in Tucson Research Centre.
+In the boundless expanse of the solar system, a hidden universe of rocky wanderers awaits for exploration. The secrets to solving the riddles surrounding the genesis and evolution of the solar system can be found within these space nomads, also known as asteroids, which are frequently written off as nothing more than stray pieces of a chaotic universe. In this project, we aim to create an interactive website to examine the asteroids from the discoveries made in Tucson Research centre.
 
-For countless years, astrophysicists and enthusiasts have been enthralled with the fascinating universe of asteroids. These cosmic nomads captivate us with their enduring mystique; they are frequently perceived as leftovers of the birth of our solar system. This topic is brought to light by the enigmatic nature of asteroids and the mysteries they hold that have not yet been discovered. Motivated by the universe's fascination and secrets, our research team discovered a shared passion for investigating the asteroidal realm. It will provide a unique opportunity to look into the unexplored regions of space and learn more about them.
+For countless years, astrophysicists and enthusiasts have been enthralled with the fascinating universe of asteroids. These cosmic nomads captivate us with their enduring mystique; they are frequently perceived as leftovers of the birth of our solar system. This topic is brought to light by the enigmatic nature of asteroids and the mysteries they hold that have not yet been discovered. Motivated by the universe's fascination and secrets, our research team discovered a shared passion for investigating the asteroid realm. It will provide a unique opportunity to look into the unexplored regions of space and learn more about them.
 
 ## Project Overview
 
@@ -33,9 +33,9 @@ The website will serve as an educational and exploratory tool for both astronomy
 
 ## Data Utilization
 
-The NASA Data Portal is the source of the Asteroid Dataset for the Project. The dataset offers information about the asteroids, including their names, designation, discovery date, discovery location and the names of the individuals or institutions responsible for the discoveries. The dataset retains its original presentation, without alterations to account for the loss of diacritical marks due to limitations in the ASCII character set. This version of dataset includes 9999 entries and contains the information for all asteroids numbered as of 2nd February 1999 batch of Minor planet Circulars. These informations were either supplied by the Minor Planet Center or taken from the Minor Planet Circular, which the organization distributed on behalf of Commission 20 of the International Astronomical Union.
+The NASA data portal is the source of the asteroid data set for the project. The data set offers information about the asteroids, including their names, designation, discovery date, discovery location and the names of the individuals or institutions responsible for the discoveries. The data set retains its original presentation, without alterations to account for the loss of diacritical marks due to limitations in the ASCII character set. This version of data set includes 9999 entries and contains the information for all asteroids numbered as of 2nd February 1999 batch of Minor planet Circulars. These information were either supplied by the Minor Planet Center or taken from the Minor Planet Circular, which the organization distributed on behalf of Commission 20 of the International Astronomical Union.
 
-We Will be Utilizing these entries
+We will be utilizing the following entries:
 
 • **Catalog Number**: The unique identifier for each asteroid, allowing us to track and reference them systematically.
 
@@ -51,7 +51,7 @@ We Will be Utilizing these entries
 
 ## Goal
 
-This project aims to create an interactive website, focusing on the visualization of data from asteroid discoveries made in Tucson, as detailed in the dataset "Asteroid Names and Discovery V4.0" (DATA_SET_ID: EAR-A-5-DDR-ASTNAMES-DISCOVERY-V4.0).
+This project aims to create an interactive website, focusing on the visualization of data from asteroid discoveries made in Tucson, as detailed in the data set "Asteroid Names and Discovery V4.0" (DATA_SET_ID: EAR-A-5-DDR-ASTNAMES-DISCOVERY-V4.0).
 
 Various Components of dashboard includes:
 
@@ -79,7 +79,7 @@ The website will be developed using HTML, CSS, and JavaScript. The D3.js library
 
 #### Challenges and Limitations
 
-A key challenge is the availability of the dataset since it has been removed from Nasa's website. Also, the presentation of the inconsistencies in the dataset, such as varying name presentations and location specifics will be challenging. We will need to decide whether to standardize these entries for consistency or to present them as they are, maintaining the dataset's authenticity. Finally, the limitation of data stopping at 1999 requires a clear communication to the users that more recent discoveries will not be included.
+A key challenge is the availability of the data set since it has been removed from NASA website. Also, the presentation of the inconsistencies in the data set, such as varying name presentations and location specifics will be challenging. We will need to decide whether to standardize these entries for consistency or to present them as they are, maintaining the data set's authenticity. Finally, the limitation of data stopping at 1999 requires a clear communication to the users that more recent discoveries will not be included.
 
 #### Conclusion
 
