@@ -1,0 +1,163 @@
+[
+  {
+    "objectID": "proposal.html",
+    "href": "proposal.html",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
+    "section": "",
+    "text": "Installed Packages\n# GETTING THE LIBRARIES\nif (!require(pacman))\n  install.packages(pacman)\n\npacman::p_load(dplyr,\n               dlookr,\n               tidyverse,\n               ggplot2,\n               here,\n               janitor\n)\nBackup data file\n# Reading the data using read_csv\nmeteorite &lt;- read_csv(here(\"data\", \"Meteorite_Landings.csv\"))\n\nhead(meteorite)\n\n\n# A tibble: 6 × 10\n  name        id nametype recclass    `mass (g)` fall   year reclat reclong\n  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;\n1 Aachen       1 Valid    L5                  21 Fell   1880   50.8    6.08\n2 Aarhus       2 Valid    H6                 720 Fell   1951   56.2   10.2 \n3 Abee         6 Valid    EH4             107000 Fell   1952   54.2 -113   \n4 Acapulco    10 Valid    Acapulcoite       1914 Fell   1976   16.9  -99.9 \n5 Achiras    370 Valid    L6                 780 Fell   1902  -33.2  -65.0 \n6 Adhi Kot   379 Valid    EH4               4239 Fell   1919   32.1   71.8 \n# ℹ 1 more variable: GeoLocation &lt;chr&gt;"
+  },
+  {
+    "objectID": "proposal.html#overview",
+    "href": "proposal.html#overview",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
+    "section": "Overview",
+    "text": "Overview\nCreation of an interactive website for visualization of asteroids and visualize the location of asteroid impact on Earth, based on NASA’s asteroid data set."
+  },
+  {
+    "objectID": "proposal.html#did-you-know",
+    "href": "proposal.html#did-you-know",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
+    "section": "Did You Know?",
+    "text": "Did You Know?\nDid you know that Tucson, Arizona, is a hotspot for asteroid discoveries and impact, with its clear skies and advanced observatories playing a key role in identifying the path and impact of these celestial bodies?"
+  },
+  {
+    "objectID": "proposal.html#introduction",
+    "href": "proposal.html#introduction",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
+    "section": "Introduction",
+    "text": "Introduction\nIn the boundless expanse of the solar system, a hidden universe of rocky wanderers awaits for exploration. The secrets to solving the riddles surrounding the genesis and evolution of the solar system can be found within these space nomads, also known as asteroids, which are frequently written off as nothing more than stray pieces of a chaotic universe. In this project, we aim to create an interactive website to examine the asteroids impacts on Earth identified by Research centers.\nFor countless years, astrophysicists and enthusiasts have been enthralled with the fascinating universe of asteroids. These cosmic nomads captivate us with their enduring mystique; they are frequently perceived as leftovers of the birth of our solar system. This topic is brought to light by the enigmatic nature of asteroids and the mysteries they hold that have not yet been discovered. Motivated by the universe’s fascination and secrets, our research team discovered a shared passion for investigating the asteroid impact. It will provide a unique opportunity to look into the frequencies of these impacts and learn more about them."
+  },
+  {
+    "objectID": "proposal.html#project-overview",
+    "href": "proposal.html#project-overview",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
+    "section": "Project Overview",
+    "text": "Project Overview\nThe website will serve as an educational and exploratory tool for both astronomy enthusiasts and the general public. It will feature interactive visualizations that allow users to explore various aspects of the impacted asteroids, including the details of these asteroids."
+  },
+  {
+    "objectID": "proposal.html#data-utilization",
+    "href": "proposal.html#data-utilization",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
+    "section": "Data Utilization",
+    "text": "Data Utilization\n\n1. Original data set:\nThe NASA data portal is the source of the asteroid data set for the project. The data set offers information about the asteroids, including their names, designation, discovery date, discovery location and the names of the individuals or institutions responsible for the discoveries. The data set retains its original presentation, without alterations to account for the loss of diacritical marks due to limitations in the ASCII character set. This version of data set includes 9999 entries and contains the information for all asteroids numbered as of 2nd February 1999 batch of Minor planet Circulars. These information were either supplied by the Minor Planet Center or taken from the Minor Planet Circular, which the organization distributed on behalf of Commission 20 of the International Astronomical Union.\nWe will be utilizing the following entries:\n• Catalog Number: The unique identifier for each asteroid, allowing us to track and reference them systematically.\n• Name: The official name of the asteroid, which can offer insights into cultural and historical contexts of the discovery.\n• Principal Provisional Designation: The initial temporary label given to the asteroid, crucial for cross-referencing with historical records and scientific literature.\n• Discovery Date: The date each asteroid was discovered, which will be used to create the temporal component of our visualizations.\n• Discovery Location: The geographic location where the asteroid was first observed, a key element in mapping the discoveries.\n• Discoverer(s) Name: Information about who discovered the asteroid, highlighting the human element in the field of astronomy.\nThe dataset’s ASCII character set limitation, which led to the loss of diacritical marks, will be addressed through a standardization process to ensure that names are searchable and display correctly. We will also be vigilant about the consistency in presenting names and locations, recognizing that some entries may include initials while others do not, and that the specificity of locations can vary.\n\n\n2. Backup Data set:\nWe are in the process of obtaining the above mentioned comprehensive data set from NASA. However, in case we are unsuccessful in doing so, we are going to use another data set from NASA for plotting of asteroid impact on Earth.\nLink: https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh\n\n\nExtracting relevant information from dataset\n#Extracting relevant columns from data\n\nmeteorite &lt;- subset(meteorite, select = -c(nametype, fall))\n\ndiagnose(meteorite)\n\n\n# A tibble: 8 × 6\n  variables   types     missing_count missing_percent unique_count unique_rate\n  &lt;chr&gt;       &lt;chr&gt;             &lt;int&gt;           &lt;dbl&gt;        &lt;int&gt;       &lt;dbl&gt;\n1 name        character             0           0            45716     1      \n2 id          numeric               0           0            45716     1      \n3 recclass    character             0           0              455     0.00995\n4 mass (g)    numeric             131           0.287        12577     0.275  \n5 year        numeric             291           0.637          266     0.00582\n6 reclat      numeric            7315          16.0          12739     0.279  \n7 reclong     numeric            7315          16.0          14641     0.320  \n8 GeoLocation character          7315          16.0          17101     0.374  \n\n\nFrom the above, we are going to use the name, id, mass to calculate the diameter of crater, year to create an interactive map visualization, geolocation to plot the location of the impact on a map plot.\nFrom the diagnosis, we can see that there are some missing values, but since our data set contains over 45,000 entries, it is negligible."
+  },
+  {
+    "objectID": "proposal.html#goal",
+    "href": "proposal.html#goal",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
+    "section": "Goal",
+    "text": "Goal\nThis project aims to create an interactive website, focusing on the visualization of data from asteroid impact discoveries, as detailed in the data set “Asteroid Names and Discovery V4.0” (DATA_SET_ID: EAR-A-5-DDR-ASTNAMES-DISCOVERY-V4.0) and the “Meteorite Landings” data set in NASA.\nProposed Features:\n\n1. Timeline Visualization:\nAn interactive timeline will showcase the dates of asteroid discoveries. Users can slide through time to see the varying trends in asteroid impacts over the years.\n\n\n2. Map Integration:\nUtilizing the geo-location data, we will provide a map visualization where users can zoom in to the sites, providing a spatial context to the data.\n\n\n3. Asteroid Details:\nBy selecting individual asteroids, users will be able to view detailed information including the position, names, crater diameter and class of the asteroid.\n4. R Shiny application development:\nIntegrating and rendering of these asteroid impact for a more user friendly design and visualization. This will be useful for easy comprehension and accessibility to the general public.\n\n\n5. Educational Information:\nThe website will also include educational resources about asteroids, their significance in our solar system, and the history of asteroid discovery in Tucson."
+  },
+  {
+    "objectID": "proposal.html#implementation-plan",
+    "href": "proposal.html#implementation-plan",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
+    "section": "Implementation Plan",
+    "text": "Implementation Plan\n\nOriginal Data set:\n\nTechnical Considerations:\nThe website will be developed using HTML, CSS, and JavaScript. The D3.js library will be instrumental for creating the data-driven visualizations. We will ensure the site is responsive and accessible across various devices and browsers. \n\n\nChallenges and Limitations\nA key challenge is the availability of the data set since it has been removed from NASA website. Also, the presentation of the inconsistencies in the data set, such as varying name presentations and location specifics will be challenging. We will need to decide whether to standardize these entries for consistency or to present them as they are, maintaining the data set’s authenticity. Finally, the limitation of data stopping at 1999 requires a clear communication to the users that more recent discoveries will not be included.\n\n\n\nBackup data set:\nWe want to visualize how the asteroid impact has changed over the years. To represent the available data best, we will be creating a geom map of the world that displays the impacts of various asteroids across the world. The comparison of the plot will be done through for each year from year 860 to year 2101 (in the future). We are planning to clean it further to only get certain parts that are required using dplyr. Additionally, data cleaning and preparation will be performed in order to account or omit the missing data.\n\nData load:\nThe shiny package enables the creation of interactive web applications, with leaflet being a powerful tool for handling spatial data visualizations. sf is used for working with spatial data objects, and shinythemes provides a range of Bootstrap themes for customization.\n\n\nCreating Shiny UI:\nWe wiill define the user interface (UI) of the Shiny app. In this step, we will choose a Bootstrap theme using shinythemes to enhance the overall visual appeal. We will add a title panel and navbar for easy navigation between different sections of your app. Inclusion of custom styling will be performed, such as changing the navbar color, can be achieved using additional HTML and CSS.\n\n\nCreating shiny app server:\nDevelop the server logic for your Shiny app. In this approach, we will use the leaflet package to create an interactive map displaying asteroid impact data. The renderleaflet function generates the leaflet map dynamically based on the input data. Additional server logic will be added to handle interactions and updates as users interact with the app.\n\n\nAdding branding and responsive design:\nEnhance the app’s aesthetics by incorporating branding elements. Adjust the navbar styling to ensure consistent color schemes and improve overall branding. Additionally, we will ensure that the app has a responsive design, making it accessible and visually appealing across various devices and screen sizes. This can be achieved through Bootstrap’s inherent responsiveness and further customizations.\n\n\nRunning Shiny app:\nSaving of shiny app code in a script file (e.g., “app.R”) and run it using the runApp(\"app.r\") command. This will launch a local web server and open the app in your default web browser."
+  },
+  {
+    "objectID": "proposal.html#plan-of-attack",
+    "href": "proposal.html#plan-of-attack",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
+    "section": "Plan Of Attack",
+    "text": "Plan Of Attack\n\nWeek 1: (Data gathering and preparation)\n\nDeema & Shakir - Data gathering from the NASA website for asteroids and data validation of all relevant variables.\nAnsh & Rahul - Begin the initial data cleaning process.\nSwati - Create a shared repository or document to organize the collected data efficiently.\nEveryone - Document the sources and formats of the collected data sets.\n\nWeek 2: (Data Exploration and Visualization)\n\nEveryone - Analyse the cleaned data set to understand its structure.\nShakir, Ansh & Deema - Begin the process of designing the initial map visualizations of asteroids’ positions.\nSwati & Rahul - Experiment with basic visualization techniques and work on creating visual representations.\n\nWeek 3: (Interactive Features Development)\n\nShakir, Ansh & Deema - Work on data integration for the interactive features within the dashboard visualization. Create R Shiny app code integration to render the app.\nSwati & Rahul - Try and implement additional enhencement features for the interactive plot.\nEveryone - Perform initial rounds of testing to validate the data from user perspective.\nSwati & Ansh - Peer review code and ensure smooth operation.\nEveryone - Dynamically come up with ways (ideas) to make the user experience better.\n\nWeek 4: (Testing, Refinement, and Documentation)\n\nEveryone - Address any issues or bugs identified during testing.\nShakir, Swati & Ansh - Enhance the aesthetics and user experience of the map visualizations based on user feedback.\nRaul & Deema - Work on final testing and quality assurance to guarantee a bug-free release.\nEveryone - Write comprehensive guide and complete documentation for the project in GitHub.\nEveryone - Work on final project presentation."
+  },
+  {
+    "objectID": "proposal.html#organization",
+    "href": "proposal.html#organization",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
+    "section": "Organization",
+    "text": "Organization\nThe following are the folders involved in the Project repository.\n\n‘data/’: Used for storing any necessary data files for the project, such as input files.\n‘images/’: Used for storing image files used in the project.\n‘_extra/’: Used to experiment on analysis which won’t impact our project workflow.\n‘_freeze/’: This folder is used to store the generated files during the build process. These files represent the frozen state of the website at a specific point in time.\n‘.github/’: Folder for storing github templates and workflow."
+  },
+  {
+    "objectID": "proposal.html#conclusion",
+    "href": "proposal.html#conclusion",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
+    "section": "Conclusion",
+    "text": "Conclusion\nThis interactive website will not only fulfill the requirements for our final project but also serve as a bridge between historical astronomical data and modern-day data visualization techniques. It will contribute to the greater public understanding of the trends in asteroid impact and the importance of data visualization in narrating the story of our skies.\n\n\n\n\n\n\nNote:\n\n\n\nThese are the planned approaches, and we intend to explore and solve the problem statement which we came up with. Parts of our approach might change in the final project."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Visualising the Heavens",
+    "section": "",
+    "text": "Journey into the depths of our solar system and unveil the hidden realm of asteroids, often overlooked as mere space wanderers. These celestial nomads, scattered across the cosmos, hold the keys to unlocking the mysteries of our solar system’s origins. In our latest endeavor, we introduce an interactive website dedicated to exploring these fascinating celestial bodies, drawing from discoveries made at the Tucson Research Center.\nAstronomy enthusiasts and the wider public alike will find our website to be an educational and immersive tool. Through interactive visualizations, users can delve into various aspects of Tucson’s asteroid discoveries, from their names and designations to discovery dates, locations, and the remarkable individuals and institutions behind these revelations. Our project utilizes data from NASA’s comprehensive asteroid dataset, retaining the original presentation while encompassing nearly 10,000 entries. These asteroids are an integral part of our cosmic history, offering a window into the profound mysteries of our solar system’s evolution. Join us on this celestial odyssey and rediscover the wonders of asteroids."
+  },
+  {
+    "objectID": "index.html#abstract",
+    "href": "index.html#abstract",
+    "title": "Visualising the Heavens",
+    "section": "",
+    "text": "Journey into the depths of our solar system and unveil the hidden realm of asteroids, often overlooked as mere space wanderers. These celestial nomads, scattered across the cosmos, hold the keys to unlocking the mysteries of our solar system’s origins. In our latest endeavor, we introduce an interactive website dedicated to exploring these fascinating celestial bodies, drawing from discoveries made at the Tucson Research Center.\nAstronomy enthusiasts and the wider public alike will find our website to be an educational and immersive tool. Through interactive visualizations, users can delve into various aspects of Tucson’s asteroid discoveries, from their names and designations to discovery dates, locations, and the remarkable individuals and institutions behind these revelations. Our project utilizes data from NASA’s comprehensive asteroid dataset, retaining the original presentation while encompassing nearly 10,000 entries. These asteroids are an integral part of our cosmic history, offering a window into the profound mysteries of our solar system’s evolution. Join us on this celestial odyssey and rediscover the wonders of asteroids."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Visualising the Heavens",
+    "section": "",
+    "text": "This project was developed by Data Dynamos For INFO 526 - Data Analysis & Visualization at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.\n\nDeema Albluwi (Computational Linguistics, PhD).\nRahul Bangad (Data Science, Master’s).\nSwati Das (Data Science, Master’s).\nAnsh Kumar Dev (Data Science, Master’s).\nShakir Ahmed (Data Science, Master’s)"
+  },
+  {
+    "objectID": "presentation.html#quarto",
+    "href": "presentation.html#quarto",
+    "title": "Project title",
+    "section": "Quarto",
+    "text": "Quarto\n\nThe presentation is created using the Quarto CLI\n## sets the start of a new slide"
+  },
+  {
+    "objectID": "presentation.html#layouts",
+    "href": "presentation.html#layouts",
+    "title": "Project title",
+    "section": "Layouts",
+    "text": "Layouts\nYou can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\n\nlike\nthis\n\nAnd add footnotes"
+  },
+  {
+    "objectID": "presentation.html#code",
+    "href": "presentation.html#code",
+    "title": "Project title",
+    "section": "Code",
+    "text": "Code\n\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic       p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 (Intercept)   25.3      3.08        8.22 0.00000000358\n2 speed         -0.116    0.0642     -1.81 0.0806       \n\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;"
+  },
+  {
+    "objectID": "presentation.html#plots",
+    "href": "presentation.html#plots",
+    "title": "Project title",
+    "section": "Plots",
+    "text": "Plots"
+  },
+  {
+    "objectID": "presentation.html#plot-and-text",
+    "href": "presentation.html#plot-and-text",
+    "title": "Project title",
+    "section": "Plot and text",
+    "text": "Plot and text\n\n\n\nSome text\ngoes here"
+  },
+  {
+    "objectID": "presentation.html#tables",
+    "href": "presentation.html#tables",
+    "title": "Project title",
+    "section": "Tables",
+    "text": "Tables\nIf you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\n\n\n\n\nAdelie\nTorgersen\n39.1\n18.7\n181\n3750\nmale\n\n\nAdelie\nTorgersen\n39.5\n17.4\n186\n3800\nfemale\n\n\nAdelie\nTorgersen\n40.3\n18.0\n195\n3250\nfemale\n\n\nAdelie\nTorgersen\nNA\nNA\nNA\nNA\nNA\n\n\nAdelie\nTorgersen\n36.7\n19.3\n193\n3450\nfemale\n\n\nAdelie\nTorgersen\n39.3\n20.6\n190\n3650\nmale"
+  },
+  {
+    "objectID": "presentation.html#images",
+    "href": "presentation.html#images",
+    "title": "Project title",
+    "section": "Images",
+    "text": "Images\n\nImage credit: Danielle Navarro, Percolate."
+  },
+  {
+    "objectID": "presentation.html#math-expressions",
+    "href": "presentation.html#math-expressions",
+    "title": "Project title",
+    "section": "Math Expressions",
+    "text": "Math Expressions\nYou can write LaTeX math expressions inside a pair of dollar signs, e.g. $\\alpha+\\beta$ renders \\(\\alpha + \\beta\\). You can use the display style with double dollar signs:\n$$\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i$$\n\\[\n\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i\n\\]\nLimitations:\n\nThe source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting $$ must appear in the very beginning of a line, followed immediately by a non-space character, and the ending $$ must be at the end of a line, led by a non-space character;\nThere should not be spaces after the opening $ or before the closing $."
+  },
+  {
+    "objectID": "presentation.html#feeling-adventurous",
+    "href": "presentation.html#feeling-adventurous",
+    "title": "Project title",
+    "section": "Feeling adventurous?",
+    "text": "Feeling adventurous?\n\nYou are welcomed to use the default styling of the slides. In fact, that’s what I expect majority of you will do. You will differentiate yourself with the content of your presentation.\nBut some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs."
+  }
+]
