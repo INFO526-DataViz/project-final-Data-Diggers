@@ -3,8 +3,9 @@
 .RData
 .Ruserdata
 project-final.rproj
-/presentation_files/figure-revealjs/
-/_site/
+
 
 
 /.quarto/
+/presentation_files/figure-revealjs/
+/_site/
