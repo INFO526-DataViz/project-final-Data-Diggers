@@ -1,6 +1,6 @@
 ---
-title: "Visualising the Heavens" 
-subtitle: "An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson"
+title: "Celestial Convergence: Echoes of Impact and Revelation" 
+subtitle: "An Interactive Visualization of Asteroids"
 author: "Data Dynamos"
 format: html
 editor: visual
