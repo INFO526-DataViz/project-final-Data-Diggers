@@ -44,7 +44,7 @@ Creation of an interactive website for visualization of asteroids and visualize 
 
 ## Did You Know?
 
-Did you know that Tucson, Arizona, is a hotspot for asteroid discoveries and impact, with its clear skies and advanced observatories playing a key role in identifying the path and impact of these celestial bodies?
+Did you know that Tucson, Arizona, is a hotspot for asteroid discoveries, with its clear skies and advanced observatories playing a key role in identifying the path and impact of these celestial bodies?
 
 ## Introduction
 
@@ -54,13 +54,13 @@ For countless years, astrophysicists and enthusiasts have been enthralled with t
 
 ## Project Overview
 
-The website will serve as an educational and exploratory tool for both astronomy enthusiasts and the general public. It will feature interactive visualizations that allow users to explore various aspects of the impacted asteroids, including the details of these asteroids.
+The website will serve as an educational and exploratory tool for both astronomy enthusiasts and the general public. It will feature interactive visualizations that allow users to explore various aspects of the discovered asteroids, including the details of these asteroids.
 
 ## Data Utilization
 
-### 1. Original data set:
-
 The NASA data portal is the source of the asteroid data set for the project. The data set offers information about the asteroids, including their names, designation, discovery date, discovery location and the names of the individuals or institutions responsible for the discoveries. The data set retains its original presentation, without alterations to account for the loss of diacritical marks due to limitations in the ASCII character set. This version of data set includes 9999 entries and contains the information for all asteroids numbered as of 2nd February 1999 batch of Minor planet Circulars. These information were either supplied by the Minor Planet Center or taken from the Minor Planet Circular, which the organization distributed on behalf of Commission 20 of the International Astronomical Union.
+
+Data Link: <https://sbn.psi.edu/pds/resource/discover.html>
 
 We will be utilizing the following entries:
 
@@ -78,27 +78,6 @@ We will be utilizing the following entries:
 
 The dataset's ASCII character set limitation, which led to the loss of diacritical marks, will be addressed through a standardization process to ensure that names are searchable and display correctly. We will also be vigilant about the consistency in presenting names and locations, recognizing that some entries may include initials while others do not, and that the specificity of locations can vary.
 
-### 2. Backup Data set:
-
-We are in the process of obtaining the above mentioned comprehensive data set from NASA. However, in case we are unsuccessful in doing so, we are going to use another data set from NASA for plotting of asteroid impact on Earth.
-
-Link: <https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh>
-
-```{r pre-process, message=FALSE, warning=FALSE}
-#| code-fold: true
-#| code-summary: "Extracting relevant information from dataset"
-
-#Extracting relevant columns from data
-
-meteorite <- subset(meteorite, select = -c(nametype, fall))
-
-diagnose(meteorite)
-```
-
-From the above, we are going to use the `name`, `id`, `mass` to calculate the diameter of crater, `year` to create an interactive map visualization, `geolocation` to plot the location of the impact on a map plot.
-
-From the diagnosis, we can see that there are some missing values, but since our data set contains over 45,000 entries, it is negligible.
-
 ## Goal
 
 This project aims to create an interactive website, focusing on the visualization of data from asteroid impact discoveries, as detailed in the data set "Asteroid Names and Discovery V4.0" (DATA_SET_ID: EAR-A-5-DDR-ASTNAMES-DISCOVERY-V4.0) and the "Meteorite Landings" data set in NASA.
@@ -107,27 +86,21 @@ This project aims to create an interactive website, focusing on the visualizatio
 
 #### 1. Timeline Visualization:
 
-An interactive timeline will showcase the dates of asteroid discoveries. Users can slide through time to see the varying trends in asteroid impacts over the years.
+An interactive timeline will showcase the dates of asteroid discoveries. Users can slide through time to see the asteroid path.
 
-#### 2. Map Integration:
+#### 2. Geo spatial integration:
 
-Utilizing the geo-location data, we will provide a map visualization where users can zoom in to the sites, providing a spatial context to the data.
+Utilizing the details from the dataset, we will plot the asteroid path and show the progression of the asteroid along with the speed of the asteroid.
 
 #### 3. Asteroid Details:
 
-By selecting individual asteroids, users will be able to view detailed information including the position, names, crater diameter and class of the asteroid.
+By selecting individual asteroids, users will be able to view detailed information including the position, names, class of the asteroid and discoverer names as well as the data of discovery.
 
-**4. R Shiny application development:**
-
-Integrating and rendering of these asteroid impact for a more user friendly design and visualization. This will be useful for easy comprehension and accessibility to the general public.
-
-#### 5. Educational Information:
+#### 4. Educational Information:
 
 The website will also include educational resources about asteroids, their significance in our solar system, and the history of asteroid discovery in Tucson.
 
 ## Implementation Plan
-
-### Original Data set:
 
 #### Technical Considerations:
 
@@ -135,31 +108,31 @@ The website will be developed using HTML, CSS, and JavaScript. The D3.js library
 
 #### Challenges and Limitations
 
-A key challenge is the availability of the data set since it has been removed from NASA website. Also, the presentation of the inconsistencies in the data set, such as varying name presentations and location specifics will be challenging. We will need to decide whether to standardize these entries for consistency or to present them as they are, maintaining the data set's authenticity. Finally, the limitation of data stopping at 1999 requires a clear communication to the users that more recent discoveries will not be included.
+The presentation of the inconsistencies in the data set, such as varying name presentations and location specifics will be challenging. We will need to decide whether to standardize these entries for consistency or to present them as they are, maintaining the data set's authenticity. Finally, the limitation of data stopping at 1999 requires a clear communication to the users that more recent discoveries will not be included.
 
-### Backup data set:
+#### Steps to attack the project:
 
-We want to visualize how the asteroid impact has changed over the years. To represent the available data best, we will be creating a geom map of the world that displays the impacts of various asteroids across the world. The comparison of the plot will be done through for each year from year 860 to year 2101 (in the future). We are planning to clean it further to only get certain parts that are required using `dplyr`. Additionally, data cleaning and preparation will be performed in order to account or omit the missing data.
+1\. **Project Setup:** Create a new project directory and set up HTML, CSS, and JavaScript files (index.html, style.css, script.js).
 
-#### Data load:
+2\. **Include D3.js and HTML structure:** Download and include HTML style to be rendered as a GitHub page.
 
-The `shiny` package enables the creation of interactive web applications, with `leaflet` being a powerful tool for handling spatial data visualizations. `sf` is used for working with spatial data objects, and `shinythemes` provides a range of Bootstrap themes for customization.
+3\. **JavaScript (D3.js) Implementation:**
 
-#### Creating Shiny UI:
+a\) Use D3.js to create a data-driven visualization of the asteroid path.
 
-We wiill define the user interface (UI) of the Shiny app. In this step, we will choose a Bootstrap theme using `shinythemes` to enhance the overall visual appeal. We will add a title panel and navbar for easy navigation between different sections of your app. Inclusion of custom styling will be performed, such as changing the navbar color, can be achieved using additional HTML and CSS.
+b\) Include asteroid path data.
 
-#### Creating shiny app server: 
+c\) Use D3.js functions to bind data, create SVG elements, and update the visualization.
 
-Develop the server logic for your Shiny app. In this approach, we will use the `leaflet` package to create an interactive map displaying asteroid impact data. The `renderleaflet` function generates the leaflet map dynamically based on the input data. Additional server logic will be added to handle interactions and updates as users interact with the app.
+4\. **Responsive Design:** Ensure that the visualization adapts to different screen sizes and utilize D3.js and CSS media queries for responsiveness.
 
-#### Adding branding and responsive design:
+5\. **Testing:** Test the visualization on various devices and browsers to ensure compatibility.
 
-Enhance the app's aesthetics by incorporating branding elements. Adjust the navbar styling to ensure consistent color schemes and improve overall branding. Additionally, we will ensure that the app has a responsive design, making it accessible and visually appealing across various devices and screen sizes. This can be achieved through Bootstrap's inherent responsiveness and further customizations.
+6\. **Documentation:** Provide clear documentation for the code and data sources used.
 
-#### Running Shiny app:
+7\. **Deployment:** Deploy the project as a GitHub page.
 
-Saving of shiny app code in a script file (e.g., "app.R") and run it using the `runApp("app.r")` command. This will launch a local web server and open the app in your default web browser.
+8\. **Presentation:** Create a presentation for final project.
 
 ## Plan Of Attack
 
@@ -178,8 +151,8 @@ Saving of shiny app code in a script file (e.g., "app.R") and run it using the `
 
 -   **Week 3: (Interactive Features Development)**
 
-    -   Shakir, Ansh & Deema - Work on data integration for the interactive features within the dashboard visualization. Create R Shiny app code integration to render the app.
-    -   Swati & Rahul - Try and implement additional enhencement features for the interactive plot.
+    -   Shakir, Ansh & Deema - Work on data integration for the interactive features within the visualization.
+    -   Swati & Rahul - Try and implement additional enhancement features for the interactive plot.
     -   Everyone - Perform initial rounds of testing to validate the data from user perspective.
     -   Swati & Ansh - Peer review code and ensure smooth operation.
     -   Everyone - Dynamically come up with ways (ideas) to make the user experience better.
@@ -188,7 +161,7 @@ Saving of shiny app code in a script file (e.g., "app.R") and run it using the `
 
     -   Everyone - Address any issues or bugs identified during testing.
     -   Shakir, Swati & Ansh - Enhance the aesthetics and user experience of the map visualizations based on user feedback.
-    -   Raul & Deema - Work on final testing and quality assurance to guarantee a bug-free release.
+    -   Rahul & Deema - Work on final testing and quality assurance to guarantee a bug-free release. Host the project as a GitHub page and ensure no render issues.
     -   Everyone - Write comprehensive guide and complete documentation for the project in GitHub.
     -   Everyone - Work on final project presentation.
 
