@@ -181,7 +181,7 @@ The following are the folders involved in the Project repository.
 
 ## Conclusion
 
-This interactive website will not only fulfill the requirements for our final project but also serve as a bridge between historical astronomical data and modern-day data visualization techniques. It will contribute to the greater public understanding of the trends in asteroid impact and the importance of data visualization in narrating the story of our skies.
+This interactive website will not only fulfill the requirements for our final project but also serve as a bridge between historical astronomical data and modern-day data visualization techniques. It will contribute to the greater public understanding of the trends in asteroid impact and the importance of data visualization in narrating the story of our sky.
 
 ::: callout-note
 ## Note:
