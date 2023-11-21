@@ -40,7 +40,7 @@ head(meteorite)
 
 ## Overview
 
-Creation of an interactive website for visualization of asteroids and visualize the location of asteroid impact on Earth, based on NASA's asteroid data set.
+The project aims to build an interactive website for visualizing asteroid impacts on Earth, using NASA's comprehensive asteroid data set. The focus is on creating a user-friendly platform that simplifies complex space data for educational and informative purposes.
 
 ## Did You Know?
 
@@ -101,7 +101,7 @@ From the diagnosis, we can see that there are some missing values, but since our
 
 ## Goal
 
-This project aims to create an interactive website, focusing on the visualization of data from asteroid impact discoveries, as detailed in the data set "Asteroid Names and Discovery V4.0" (DATA_SET_ID: EAR-A-5-DDR-ASTNAMES-DISCOVERY-V4.0) and the "Meteorite Landings" data set in NASA.
+The objective of this project is to develop an interactive web platform dedicated to visualizing data derived from asteroid impact discoveries. This will be achieved by utilizing information from two specific data sets: "Asteroid Names and Discovery V4.0" (DATA_SET_ID: EAR-A-5-DDR-ASTNAMES-DISCOVERY-V4.0) and the "Meteorite Landings" data set provided by NASA. The focus is on presenting this data in an engaging and accessible manner for users interested in astronomical phenomena and space research.
 
 **Proposed Features:**
 
@@ -149,7 +149,7 @@ The `shiny` package enables the creation of interactive web applications, with `
 
 We wiill define the user interface (UI) of the Shiny app. In this step, we will choose a Bootstrap theme using `shinythemes` to enhance the overall visual appeal. We will add a title panel and navbar for easy navigation between different sections of your app. Inclusion of custom styling will be performed, such as changing the navbar color, can be achieved using additional HTML and CSS.
 
-#### Creating shiny app server: 
+#### Creating shiny app server:
 
 Develop the server logic for your Shiny app. In this approach, we will use the `leaflet` package to create an interactive map displaying asteroid impact data. The `renderleaflet` function generates the leaflet map dynamically based on the input data. Additional server logic will be added to handle interactions and updates as users interact with the app.
 
