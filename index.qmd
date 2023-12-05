@@ -11,3 +11,144 @@ editor: visual
 Journey into the depths of our solar system and unveil the hidden realm of asteroids, often overlooked as mere space wanderers. These celestial nomads, scattered across the cosmos, hold the keys to unlocking the mysteries of our solar system's origins. In our latest endeavor, we introduce an interactive website dedicated to exploring these fascinating celestial bodies, drawing from discoveries made at the Tucson Research Center.
 
 Astronomy enthusiasts and the wider public alike will find our website to be an educational and immersive tool. Through interactive visualizations, users can delve into various aspects of Tucson's asteroid discoveries, from their names and designations to discovery dates, locations, and the remarkable individuals and institutions behind these revelations. Our project utilizes data from NASA's comprehensive asteroid dataset, retaining the original presentation while encompassing nearly 10,000 entries. These asteroids are an integral part of our cosmic history, offering a window into the profound mysteries of our solar system's evolution. Join us on this celestial odyssey and rediscover the wonders of asteroids.
+
+```{r setup, warning=FALSE, message=FALSE}
+
+# GETTING THE LIBRARIES
+if (!require("pacman"))
+  install.packages("pacman")
+
+pacman::p_load(tidyverse,
+               here,
+               ggpubr,
+               janitor,
+               colorspace,
+               magick,
+               dplyr,
+               sf,
+               leaflet,
+               ggplot2,
+               rnaturalearth,
+               dlookr,
+               IRdisplay,
+               ggmap
+)
+
+theme_set(theme_minimal(base_size = 11))
+
+# setting theme for ggplot2
+ggplot2::theme_set(ggplot2::theme_minimal(base_size = 14))
+
+# setting width of code output
+options(width = 70)
+
+# setting figure parameters for knitr
+knitr::opts_chunk$set(
+  fig.width = 12,        # 7" width
+  fig.asp = 0.618,      # the golden ratio
+  fig.retina = 4,       # dpi multiplier for displaying HTML output on retina
+  fig.align = "center", # center align figures
+  dpi = 500             # higher dpi, sharper image
+)
+
+```
+
+```{r read, warning=FALSE, message=FALSE}
+
+meteorite = read_csv("https://raw.githubusercontent.com/INFO526-DataViz/project-final-Data-Dynamos/main/data/Meteorite_Landings.csv")
+
+meteorite
+```
+
+```{r process, warning= FALSE, message=FALSE}
+
+
+# Rename columns using dplyr::rename
+meteorite <- na.omit(meteorite) |>
+ clean_names() |>
+ rename(mass = mass_g, class= recclass)
+
+# Drop unnecessary columns
+meteorite <- meteorite[, !(names(meteorite) %in% c("nametype", "fall"))]
+
+
+# Create the 'decade' column
+meteorite <- meteorite %>%
+  mutate(decade = case_when(
+    year < 1950 ~ "Before 1950",
+    between(year, 1951, 1960) ~ "Decade 1951-1960",
+    between(year, 1961, 1970) ~ "Decade 1961-1970",
+    between(year, 1971, 1980) ~ "Decade 1971-1980",
+    between(year, 1981, 1990) ~ "Decade 1981-1990",
+    between(year, 1991, 2000) ~ "Decade 1991-2000",
+    between(year, 2001, 2010) ~ "Decade 2001-2010",
+    between(year, 2011, 2020) ~ "Decade 2011-2020",  # Replace 'n' with the appropriate value for the last decade
+    TRUE ~ "NA"  # Default case if none of the conditions are met
+  ))
+
+```
+
+```{r plot1, warning=FALSE, message=FALSE}
+
+# Count meteorites per year
+meteor_count <- table(meteorite$Year)
+
+# Create a world map
+world <- ne_countries(scale = "medium", returnclass = "sf")
+
+# Plot meteorite impacts on the map
+p1 <- ggplot() +
+  geom_sf(data = world, fill = "lightgrey") +
+  geom_point(data = meteorite, aes(x = reclong, y = reclat), color = "red", size = 1, alpha = 0.5) +
+  labs(title = "World Map: Meteorite Impacts",
+       x= "Longiude",
+       y= "Latitude") +
+  theme_minimal()
+
+# Set custom plot size for R Studio display
+knitr::opts_chunk$set(fig.width = 12, fig.height = 8)
+
+# Display the plot
+print(p1)
+
+```
+
+```{r}
+# Count meteorites per year
+meteor_count <- table(meteorite$year)
+
+# Create a world map
+world <- ne_countries(scale = "medium", returnclass = "sf")
+
+# Plot meteorite impacts on the map with density color scale
+p2 <- ggplot() +
+  geom_sf(data = world, fill = "lightgrey") +
+  geom_density_2d(data = meteorite, aes(x = reclong, y = reclat)) +
+  labs(title = "Thermal Map: Meteorite Impacts Density",
+       x="Longitude",
+       y="Latitude") +
+  theme_minimal()
+
+# Display the plot
+print(p2)
+```
+
+```{r}
+
+library(leaflet)
+
+leaflet() %>%
+  addProviderTiles("Esri.WorldImagery") %>%
+  addMarkers(data = meteorite, ~reclong, ~reclat, popup = ~paste("Name: ", name))
+
+```
+
+```{r}
+
+library(leaflet)
+
+leaflet() %>%
+  addProviderTiles("Esri.WorldImagery") %>%
+  addMarkers(data = meteorite, ~reclong, ~reclat, popup = ~paste("Name: ", Name))
+
+```
