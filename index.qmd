@@ -24,6 +24,7 @@ pacman::p_load(tidyverse,
                janitor,
                colorspace,
                magick,
+               hexbin,
                dplyr,
                sf,
                leaflet,
@@ -114,6 +115,9 @@ print(p1)
 ```
 
 ```{r}
+
+## THERMAL DENSITY MAP## 
+
 # Count meteorites per year
 meteor_count <- table(meteorite$year)
 
@@ -123,7 +127,7 @@ world <- ne_countries(scale = "medium", returnclass = "sf")
 # Plot meteorite impacts on the map with density color scale
 p2 <- ggplot() +
   geom_sf(data = world, fill = "lightgrey") +
-  geom_density_2d(data = meteorite, aes(x = reclong, y = reclat)) +
+  geom_density_2d(data = meteorite, aes(x = reclong, y = reclat), color= "red") +
   labs(title = "Thermal Map: Meteorite Impacts Density",
        x="Longitude",
        y="Latitude") +
@@ -135,20 +139,49 @@ print(p2)
 
 ```{r}
 
-library(leaflet)
+#####BUBBLE PLOT#####
 
-leaflet() %>%
-  addProviderTiles("Esri.WorldImagery") %>%
-  addMarkers(data = meteorite, ~reclong, ~reclat, popup = ~paste("Name: ", name))
+library(ggplot2)
 
+ggplot() +
+  geom_sf(data = world, fill = "lightgrey") +
+  geom_point(data = meteorite, aes(x = reclong, y = reclat, size = mass), color = "blue", alpha= 0.5) +
+  labs(title = "Bubble Map of Meteorite Mass")
 ```
 
 ```{r}
 
-library(leaflet)
+######HEAT MAP######
 
-leaflet() %>%
-  addProviderTiles("Esri.WorldImagery") %>%
-  addMarkers(data = meteorite, ~reclong, ~reclat, popup = ~paste("Name: ", Name))
+library(ggplot2)
 
+ggplot() +
+  geom_sf(data = world, fill = "lightgrey") +
+  geom_bin2d(data = meteorite, aes(x = reclong, y = reclat, fill = ..count..), bins = 170) +
+  scale_fill_viridis_c() +
+  labs(title = "Heatmap of Meteorite Impacts")
+```
+
+```{r}
+
+######HEXBIN PLOT#####
+
+library(ggplot2)
+library(hexbin)
+
+hex_meteorite <- hexbin(meteorite$reclong, meteorite$reclat, xbins = 30)
+
+# Get hexagon data
+hex_df <- data.frame(
+  x = hex_meteorite@xcm,
+  y = hex_meteorite@ycm,
+  count = hex_meteorite@count
+)
+
+# Plot hexbin map with ggplot2
+ggplot(hex_df, aes(x = x, y = y)) +
+  geom_hex(stat = "identity") +
+  geom_point(data = meteorite, aes(x = reclong, y = reclat), color = "red", size = 2, alpha = 0.5) +
+  scale_fill_viridis_c() +
+  labs(title = "Hexbin Map of Meteorite Impacts")
 ```
