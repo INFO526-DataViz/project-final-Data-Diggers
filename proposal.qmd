@@ -32,13 +32,13 @@ Creation of an interactive application for visualization of meteor landings and 
 
 ## Did You Know?
 
-Did you know that Tucson, Arizona, is a hotspot for asteroid discoveries, with its clear skies and advanced observatories playing a key role in identifying the path and impact of these celestial bodies?
+Did you know that Tucson, Arizona, stands as a pivotal hub for celestial revelations? Its pristine skies and cutting-edge observatories serve as crucial elements in discerning the trajectories and impact patterns of these cosmic entities.
 
 ## Introduction
 
-In the boundless expanse of the solar system, a hidden universe of rocky wanderers awaits for exploration. The secrets to solving the riddles surrounding the genesis and evolution of the solar system can be found within these space nomads, also known as asteroids, which are frequently written off as nothing more than stray pieces of a chaotic universe. In this project, we aim to create an interactive website to examine the asteroids impacts on Earth identified by Research centers.
+In the boundless expanse of the solar system, a hidden universe of rocky wanderers awaits for exploration. The secrets to solving the riddles surrounding the genesis and evolution of the solar system can be found within these space nomads, also known as meteorites, which are frequently written off as nothing more than stray pieces of a chaotic universe. In this project, we aim to create an interactive website to examine the meteorites impacts on Earth identified by Research centers.
 
-For countless years, astrophysicists and enthusiasts have been enthralled with the fascinating universe of asteroids. These cosmic nomads captivate us with their enduring mystique; they are frequently perceived as leftovers of the birth of our solar system. This topic is brought to light by the enigmatic nature of asteroids and the mysteries they hold that have not yet been discovered. Motivated by the universe's fascination and secrets, our research team discovered a shared passion for investigating the asteroid impact. It will provide a unique opportunity to look into the frequencies of these impacts and learn more about them.
+For countless years, astrophysicists and enthusiasts have been enthralled with the fascinating universe of meteorites. These cosmic nomads captivate us with their enduring mystique; they are frequently perceived as leftovers of the birth of our solar system. This topic is brought to light by the enigmatic nature of meteorites and the mysteries they hold that have not yet been discovered. Motivated by the universe's fascination and secrets, our research team discovered a shared passion for investigating the meteorites impact. It will provide a unique opportunity to look into the frequencies of these impacts and learn more about them.
 
 ## Project Overview
 
@@ -46,7 +46,7 @@ The website will serve as an educational and exploratory tool for both astronomy
 
 ## Data Utilization
 
-The NASA data portal is the source of the asteroid data set for the project. The data set offers information about the asteroids, including their names, designation, discovery date, discovery location and the names of the individuals or institutions responsible for the discoveries. The data set retains its original presentation, without alterations to account for the loss of diacritical marks due to limitations in the ASCII character set. This version of data set includes 9999 entries and contains the information for all asteroids numbered as of 2nd February 1999 batch of Minor planet Circulars. These information were either supplied by the Minor Planet Center or taken from the Minor Planet Circular, which the organization distributed on behalf of Commission 20 of the International Astronomical Union.
+The NASA data portal is the source of the Meteorite Landings data set for the project. Collected by Javier de la Torre, this dataset is accessible in Fusion Table and XLS formats, documenting 34,513 meteorites and encompassing essential fields crucial for analysis and exploration purposes. The dataset provides information about meteorites, featuring details such as their names, IDs, name types, recclass, masses (in grams), fall occurrences, discovery years, reclat (latitude of the landing site), relong (longitude of the landing site), and precise geolocations.
 
 Data Link: <https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh>
 
@@ -72,17 +72,15 @@ diagnose(meteorite)
 
 From the above, we are going to use the \`name\`, \`id\`, \`mass\` to calculate the diameter of crater, \`year\` to create an interactive map visualization, \`geolocation\` to plot the location of the impact on a map plot.
 
-From the diagnosis, we can see that there are some missing values, but since our data set contains over 45,000 entries, it is negligible.
-
 ## Goal
 
-This project aims to create an interactive website, focusing on the visualization of data from asteroid impact discoveries, as detailed in the data set "Asteroid Names and Discovery V4.0" (DATA_SET_ID: Meteorite Landings) in NASA.
+This project aims to create an interactive website, focusing on the visualization of data from asteroid impact discoveries, as detailed in the data set "Meteorite Landings" (DATA_SET_ID: Meteorite Landings) in NASA.
 
 **Proposed Features:**
 
 #### 1. Timeline Visualization:
 
-An interactive timeline will showcase the dates of asteroid discoveries. Users can slide through time to see the varying trends in asteroid impacts over the years.
+An interactive timeline will showcase the dates of Meteorite discoveries. Users can slide through time to see the varying trends in meteorite impacts over the years.
 
 #### 2. Map integration:
 
@@ -90,7 +88,7 @@ Utilizing the geo-location data, we will provide a map visualization where users
 
 #### 3. Asteroid Details:
 
-By selecting individual asteroids, users will be able to view detailed information including the position, names, crater diameter and class of the asteroid.
+By selecting individual meteorite, users will be able to view detailed information including the position, names, crater diameter and class of the asteroid.
 
 **4. R Shiny app development:**
 
@@ -98,15 +96,15 @@ Integrating and rendering of these asteroid impact for a more user friendly desi
 
 #### 5. Educational Information:
 
-The website will also include educational resources about asteroids, their significance in our solar system, and the history of asteroid discovery in Tucson.
+The website will also include educational resources about meteorite, their significance in our solar system, and the history of asteroid discovery in Tucson.
 
 ## Plan of attack:
 
-We want to visualize how the asteroid impact has changed over the years. To represent the available data best, we will be creating a geom map of the world that displays the impacts of various asteroids across the world. The comparison of the plot will be done through for each year from year 860 to year 2101 (in the future). We are planning to clean it further to only get certain parts that are required using \`dplyr\`. Additionally, data cleaning and preparation will be performed in order to account or omit the missing data.
+We want to visualize how the meteorite impact has changed over the years. To represent the available data best, we will be creating a geom map of the world that displays the impacts of various meteorite across the world. The comparison of the plot will be done through for each year from year 860 to year 2101 (in the future). We are planning to clean it further to only get certain parts that are required using \`dplyr\`. Additionally, data cleaning and preparation will be performed in order to account or omit the missing data.
 
 **1.** **Data Load:** The `shiny` package enables the creation of interactive web applications, with `leaflet` being a powerful tool for handling spatial data visualizations. `sf` is used for working with spatial data objects, and `shinythemes` provides a range of Bootstrap themes for customization.
 
-**2. Creating Shiny UI:** We wiill define the user interface (UI) of the Shiny app. In this step, we will choose a Bootstrap theme using `shinythemes` to enhance the overall visual appeal. We will add a title panel and navbar for easy navigation between different sections of your app. Inclusion of custom styling will be performed, such as changing the navbar color, can be achieved using additional HTML and CSS.
+**2. Creating Shiny UI:** We will define the user interface (UI) of the Shiny app. In this step, we will choose a Bootstrap theme using `shinythemes` to enhance the overall visual appeal. We will add a title panel and navbar for easy navigation between different sections of your app. Inclusion of custom styling will be performed, such as changing the navbar color, can be achieved using additional HTML and CSS.
 
 **3. Create Shiny app server:** Develop the server logic for your Shiny app. In this approach, we will use the `leaflet` package to create an interactive map displaying asteroid impact data. The `renderleaflet` function generates the leaflet map dynamically based on the input data. Additional server logic will be added to handle interactions and updates as users interact with the app.
 
@@ -118,7 +116,7 @@ We want to visualize how the asteroid impact has changed over the years. To repr
 
 -   **Week 1: (Data gathering and preparation)**
 
-    -   Deema & Shakir - Data gathering from the NASA website for asteroids and data validation of all relevant variables.
+    -   Deema & Shakir - Data gathering from the NASA website for meteorite and data validation of all relevant variables.
     -   Ansh & Rahul - Begin the initial data cleaning process.
     -   Swati - Create a shared repository or document to organize the collected data efficiently.
     -   Everyone - Document the sources and formats of the collected data sets.
@@ -126,7 +124,7 @@ We want to visualize how the asteroid impact has changed over the years. To repr
 -   **Week 2: (Data Exploration and Visualization)**
 
     -   Everyone - Analyse the cleaned data set to understand its structure.
-    -   Shakir, Ansh & Deema - Begin the process of designing the initial map visualizations of asteroids' positions.
+    -   Shakir, Ansh & Deema - Begin the process of designing the initial map visualizations of meteorites' positions.
     -   Swati & Rahul - Experiment with basic visualization techniques and work on creating visual representations.
 
 -   **Week 3: (Interactive Features Development)**
