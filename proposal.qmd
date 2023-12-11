@@ -166,5 +166,5 @@ This interactive website will not only fulfill the requirements for our final pr
 ::: callout-note
 ## Note:
 
-These are the planned approaches, and we intend to explore and solve the problem statement which we came up with. Parts of our approach might change in the final project.
+These are the planned approaches, and we intend to explore and solve the problem statement which we came up with. Parts of our approach maychange in the final project.
 :::
