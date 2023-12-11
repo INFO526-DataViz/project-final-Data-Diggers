@@ -1,6 +1,6 @@
 ---
 title: "Celestial Convergence: Echoes of Impact and Revelation" 
-subtitle: "An Interactive Visualization of Asteroids"
+subtitle: "An Interactive Visualization of Meteorites"
 author: "Data Dynamos"
 format: html
 editor: visual
@@ -42,7 +42,7 @@ For countless years, astrophysicists and enthusiasts have been enthralled with t
 
 ## Project Overview
 
-The website will serve as an educational and exploratory tool for both astronomy enthusiasts and the general public. It will feature interactive visualizations that allow users to explore various aspects of the impacted asteroids.
+The website will serve as an educational and exploratory tool for both astronomy enthusiasts and the general public. It will feature interactive visualizations that allow users to explore various aspects of the impacted meteorites.
 
 ## Data Utilization
 
