@@ -49,7 +49,8 @@ pacman::p_load(tidyverse,
                IRdisplay,
                ggmap,
                shiny,
-               shinydashboard
+               shinydashboard,
+               shinythemes
 )
 
 theme_set(theme_minimal(base_size = 11))
@@ -71,7 +72,7 @@ knitr::opts_chunk$set(
 
 ```
 
-```{r read, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results='hide'}
+```{r read, warning=FALSE, error=FALSE}
 #| code-fold: true
 #| code-summary: "Data Read"
 
@@ -82,7 +83,7 @@ diagnose(meteorite)
 
 In our approach for preparing and processing the data, we first ensured the necessary libraries were loaded using the `pacman` package in R. After importing the data, we began the pre-processing phase. This involved renaming certain columns and eliminating irrelevant columns like 'nametype' and `fall`. Furthermore, we introduced a new column, `decade`, to categorize meteorite landings based on their respective years. This meticulous process aimed to refine the dataset, setting the groundwork for subsequent analysis and visualization steps.
 
-```{r process, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results='hide'}
+```{r process, warning=FALSE, message=FALSE}
 #| code-fold: true
 #| code-summary: "Data Pre-Processing"
 
@@ -115,9 +116,9 @@ meteorite <- meteorite %>%
 
 The `sf` package is employed to showcase the locations of meteorite landings on a global map. It begins by tabulating meteorites on an annual basis. Subsequently, the `ne_countries()` function from the `rnaturalearth` package is employed to construct a world map, specifying the desired scale `normal` and return class. The `geom_sf()` function is then applied to layer this map, visually depicting meteorite impacts with longitude and latitude coordinates.
 
-```{r plot1, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r plot1, warning=FALSE, message=FALSE}
 #| code-fold: true
-#| code-summary: "Installed Packages"
+#| code-summary: "Point plot of meteorite impact"
 
 #####Point plot of meteor#####
 
@@ -150,7 +151,9 @@ print(p1)
 
 Subsequently, we created a thermal density map illustrating the concentration of meteorite impacts across various geographical locations. Using the `ne_countries()` function from the `rnaturalearth` package, we generated a world map with a `medium` scale and specified return class. These maps were then overlaid with density contours formed by the `geom_density_2d()` function, visually depicting the meteorite impact density based on longitude and latitude coordinates.
 
-```{r plot2, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r plot2, warning=FALSE, message=FALSE}
+#| code-fold: true
+#| code-summary: "Thermal density plot"
 
 #####THERMAL DENSITY MAP##### 
 
@@ -179,7 +182,9 @@ print(p2)
 
 Next, we have constructed a bubble map showcasing meteorite mass distribution across various geographic locations. It integrates a world map as the base layer using `geom_sf()`, and then plots meteorite landings as individual points. Each point's size represents the meteorite's mass, creating a bubble map effect to visualize mass distribution.
 
-```{r plot3, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r plot3, warning=FALSE, message=FALSE}
+#| code-fold: true
+#| code-summary: "Bubble plot"
 
 #####BUBBLE PLOT#####
 
@@ -240,6 +245,9 @@ ggplot() +
 Finally, the Shiny app integrates user interaction with visual representations to enable a comprehensive exploration of meteorite impacts over different periods and mass ranges. It includes diverse visualizations like World Maps, Density Maps, and Bubble Maps, displaying the geographical spread, size, and density of meteorite impacts. Users have the option to choose specific criteria like year ranges and meteorite mass through sliders. Dropdown menus are integrated to select different map types, allowing the app to dynamically update the visualizations. This provides a comprehensive view of meteorite impacts on a global scale.
 
 ```{r shiny_app_render, warning=FALSE, message=FALSE}
+
+#| code-fold: true
+#| code-summary: "R Shiny app code"
 
 #install.packages("shinythemes")
 library(shinythemes)
