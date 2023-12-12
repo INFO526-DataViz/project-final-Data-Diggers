@@ -12,19 +12,17 @@ Journey into the depths of our solar system and unveil the hidden realm of meteo
 
 Astronomy enthusiasts and the wider public alike will find our website to be an educational and immersive tool. Users can explore diverse facets of meteorite discoveries through interactive visualizations, accessing information such as names, IDs, name types, recclass classifications, masses measured in grams, fall occurrences, discovery years, reclat (latitude of the landing site), relong (longitude of the landing site), and exact geolocations. Our project utilizes data from NASA's comprehensive Meteorite Landings dataset, encompassing 34,513 meteorites. These meteorites are an integral part of our cosmic history, offering a window into the profound mysteries of our solar system's evolution. Join us on this celestial odyssey and rediscover the wonders of meteorites.
 
-## Introduction 
+## Introduction
 
-Meteorites act as cosmic time capsules, preserving the mysteries of our solar system's formation. These celestial travelers have voyaged through space, bearing witness to ancient cosmic events, their rocky surfaces preserving stories of our cosmic past. Scattered across the universe, these wanderers hold untold narratives that illuminate the genesis of our solar system. Our latest venture introduces an interactive online platform, drawn from Javier de la Torre's dataset which is taken from NASA's website, dedicated to unveiling the captivating world of these celestial marvels. Our objective is to present an interactive visualization spotlighting the annual distribution of meteorite falls across diverse global regions.
+Meteorites act as cosmic time capsules, preserving the mysteries of our solar system's formation. These celestial travelers have voyaged through space, bearing witness to ancient cosmic events, their rocky surfaces preserving stories of our cosmic past. Scattered across the universe, these wanderers hold untold narratives that illuminate the genesis of our solar system. Our latest venture introduces an interactive online platform, drawn from Javier de la Torre's dataset [Meteorite Landings](https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh/about_data) which is taken from NASA's website, dedicated to unveiling the captivating world of these celestial marvels. Our objective is to present an interactive visualization spotlighting the annual distribution of meteorite falls across diverse global regions.
 
-Our dataset encompasses 34,513 meteorites, offering essential insights including names, IDs, classifications, masses, fall occurrences, discovery years, and precise landing locations. Leveraging this data, our primary aim is to create an interactive display illustrating the yearly patterns of meteorite falls worldwide, painting a vivid picture of these cosmic wanderers' profound influence on Earth's history.
+Our dataset encompasses 34,513 meteorites, offering essential insights including `name` for meteorite identification, `recclass` denoting its classification, `mass (g)` providing mass specifics, `fall` characterizing the status of descent, `year` signifying the landing date, and `reclat` and `reclong` pinpointing latitude and longitude and precise `geolocation`. Using this data, our main goal is to build an interactive exhibit showing the yearly trends of meteorite falls globally. This aims to vividly depict how these celestial travelers have significantly impacted Earth's history. It also enables a comprehensive comprehension of how these celestial remains are dispersed, their concentration, and their diverse sizes. 
 
 ## Approach
 
+In our Shiny app, we've integrated three primary visualizations: a world map, a density map, and a bubble map, each depicting the meteorite landings across various regions over time. These visual representations offer distinct insights into the geographical distribution, concentration density, and mass significance of meteorite impacts. We initiated data exploration to extract relevant information and identify interesting details. The overall plan involves initially preparing and processing the data, followed by creating comprehensive visualizations. These visualizations are then seamlessly integrated into the Shiny app, providing an interactive user experience.
 
-
-## Code setup:
-
-```{r setup, warning=FALSE, message=FALSE}
+```{r setup, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results='hide'}
 
 # GETTING THE LIBRARIES
 if (!require("pacman"))
@@ -67,15 +65,16 @@ knitr::opts_chunk$set(
 
 ```
 
-```{r read, warning=FALSE, message=FALSE}
+```{r read, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results='hide'}
 
 meteorite = read_csv("https://raw.githubusercontent.com/INFO526-DataViz/project-final-Data-Dynamos/main/data/Meteorite_Landings.csv")
 
 meteorite
 ```
 
-```{r process, warning= FALSE, message=FALSE}
+In our approach for preparing and processing the data, we first ensured the necessary libraries were loaded using the `pacman` package in R. After importing the data, we began the pre-processing phase. This involved renaming certain columns and eliminating irrelevant columns like 'nametype' and `fall`. Furthermore, we introduced a new column, `decade`, to categorize meteorite landings based on their respective years. This meticulous process aimed to refine the dataset, setting the groundwork for subsequent analysis and visualization steps.
 
+```{r process, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results='hide'}
 
 # Rename columns using dplyr::rename
 meteorite <- na.omit(meteorite) |>
@@ -104,7 +103,9 @@ meteorite <- meteorite %>%
 
 ```
 
-```{r plot1, warning=FALSE, message=FALSE}
+The `sf` package is employed to showcase the locations of meteorite landings on a global map. It begins by tabulating meteorites on an annual basis. Subsequently, the `ne_countries()` function from the `rnaturalearth` package is employed to construct a world map, specifying the desired scale `normal` and return class. The `geom_sf()` function is then applied to layer this map, visually depicting meteorite impacts with longitude and latitude coordinates.
+
+```{r plot1, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 # Count meteorites per year
 meteor_count <- table(meteorite$Year)
@@ -129,7 +130,9 @@ print(p1)
 
 ```
 
-```{r plot2, warning=FALSE, message=FALSE}
+Subsequently, we created a thermal density map illustrating the concentration of meteorite impacts across various geographical locations. Using the `ne_countries()` function from the `rnaturalearth` package, we generated a world map with a `medium` scale and specified return class. These maps were then overlaid with density contours formed by the `geom_density_2d()` function, visually depicting the meteorite impact density based on longitude and latitude coordinates.
+
+```{r plot2, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 ## THERMAL DENSITY MAP## 
 
@@ -152,7 +155,9 @@ p2 <- ggplot() +
 print(p2)
 ```
 
-```{r plot3, warning=FALSE, message=FALSE}
+Next, we have constructed a bubble map showcasing meteorite mass distribution across various geographic locations. It integrates a world map as the base layer using `geom_sf()`, and then plots meteorite landings as individual points. Each point's size represents the meteorite's mass, creating a bubble map effect to visualize mass distribution.
+
+```{r plot3, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 #####BUBBLE PLOT#####
 
@@ -206,7 +211,12 @@ ggplot() +
   coord_fixed()
 ```
 
+Finally, the Shiny app integrates user interaction with visual representations to enable a comprehensive exploration of meteorite impacts over different periods and mass ranges. It includes diverse visualizations like World Maps, Density Maps, and Bubble Maps, displaying the geographical spread, size, and density of meteorite impacts. Users have the option to choose specific criteria like year ranges and meteorite mass through sliders. Dropdown menus are integrated to select different map types, allowing the app to dynamically update the visualizations. This provides a comprehensive view of meteorite impacts on a global scale.
+
 ```{r shiny_app_render, warning=FALSE, message=FALSE}
+
+#install.packages("shinythemes")
+library(shinythemes)
 
 # Load your data
 meteorite <- read_csv("https://raw.githubusercontent.com/INFO526-DataViz/project-final-Data-Dynamos/main/data/Meteorite_Landings.csv")
@@ -239,6 +249,7 @@ meteorite <- meteorite %>%
 
 # UI logic
 ui <- fluidPage(
+  theme = shinytheme("darkly"),
   titlePanel("Meteorite Impact Visualization"),
   
   sidebarLayout(
@@ -289,7 +300,7 @@ server <- function(input, output) {
     ggplot() +
       geom_sf(data = ne_countries(scale = "medium", returnclass = "sf"), fill = "lightgrey") +
       geom_point(data = data, aes(x = reclong, y = reclat), color = "red", size = 1, alpha = 0.5) +
-      labs(title = "World Map : Meteorite Impacts", x = "Longitude", y = "Latitude") +
+      labs(title = "World Map : Meteorite Impacts", x = NULL, y = NULL) +
       theme_minimal()
   }
   
@@ -297,7 +308,7 @@ server <- function(input, output) {
     ggplot() +
       geom_sf(data = ne_countries(scale = "medium", returnclass = "sf"), fill = "lightgrey") +
       geom_density_2d(data = data, aes(x = reclong, y = reclat), color = "red") +
-      labs(title = "Density Map : Meteorite Impacts Density", x = "Longitude", y = "Latitude") +
+      labs(title = "Density Map : Meteorite Impacts Density", x = NULL, y = NULL) +
       theme_minimal()
   }
   
@@ -305,7 +316,7 @@ server <- function(input, output) {
     ggplot() +
       geom_sf(data = ne_countries(scale = "medium", returnclass = "sf"), fill = "lightgrey") +
       geom_point(data = data, aes(x = reclong, y = reclat, size = mass), color = "blue", alpha = 0.5) +
-      labs(title = "Bubble Map : Meteorite Mass", x = "Longitude", y = "Latitude")
+      labs(title = "Bubble Map : Meteorite Mass", x = NULL, y = NULL)
   }
   
   heatmap <- function(data) {
@@ -313,7 +324,7 @@ server <- function(input, output) {
       geom_sf(data = ne_countries(scale = "medium", returnclass = "sf"), fill = "lightgrey") +
       geom_bin2d(data = data, aes(x = reclong, y = reclat, fill = ..count..), bins = 100) +
       scale_fill_viridis_c() +
-      labs(title = "Heatmap : Meteorite Impacts", x = "Longitude", y = "Latitude")
+      labs(title = "Heatmap : Meteorite Impacts", x = NULL, y = NULL)
   }
   
   hexbin_map <- function(data) {
@@ -329,7 +340,7 @@ server <- function(input, output) {
       geom_hex(data = hex_df, aes(x = x, y = y, fill = count), stat = "identity") +
       scale_fill_viridis_c() +
       geom_point(data = data, aes(x = reclong, y = reclat), color = "red", size = 2, alpha = 0.5) +
-      labs(title = "Hexbin Map : Meteorite Impacts", x = "Longitude", y = "Latitude") +
+      labs(title = "Hexbin Map : Meteorite Impacts", x = NULL, y = NULL) +
       coord_fixed()
   }
 }
@@ -338,3 +349,13 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 
 ```
+
+## Discussion
+
+The Shiny app serves as an interactive platform, empowering users to explore and gain insights into the intricate details of meteorite landings across the globe. It facilitates a comprehensive understanding of the distribution, density, and diverse sizes of these celestial remnants. By providing adjustable parameters and varied visualizations, users can dynamically tailor their explorations. The interactive sliders allow for the specific selection of years or meteorite mass ranges, offering a refined focus for analysis.
+
+Through its visual representations, the app unfolds an array of maps: the World Map, a canvas revealing the precise locations of meteorite landings globally; Density maps, outlining concentration patterns across regions with distinct contour insights; and Bubble maps, where bubble sizes correspond to meteorite masses, offering a visual spectrum for understanding the range of meteorite sizes. These maps serve distinct analytical purposes, enabling users to delve deeper into the fascinating realm of meteorite impacts and uncover nuanced patterns and trends present in these cosmic phenomena.
+
+## Future Scope
+
+Enhancing the app's interactivity might involve directly integrating precise meteorite details into the user interface. Enabling a feature where users can access comprehensive information about individual meteorites by hovering over impact sites would grant access to crucial data like the meteorite's name, formation year, and other relevant attributes. This improvement would elevate the exploration of meteorite impacts, providing a more engaging and informative experience that allows users to explore the specifics of each meteorite seamlessly through the app's interface.
