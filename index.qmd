@@ -1,7 +1,7 @@
 ---
 title: "Visualising the Heavens" 
 subtitle: " An Interactive Spatio-Temporal Visualization of Meteorites Discoveries"
-author: "Data Dynamos"
+author: "Data Dynamos - Deema, Rahul, Swati, Ansh & Shakir"
 format: html
 editor: visual
 ---
