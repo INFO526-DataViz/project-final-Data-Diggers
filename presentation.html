@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
+<link href="./images/logo2.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/tabby.min.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -10,8 +11,8 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.433">
 
-  <meta name="author" content="Author names">
-  <title>Data Dynamos - Project title</title>
+  <meta name="author" content="Data Dynamos - Deema, Rahul, Swati, Ansh &amp; Shakir">
+  <title>Data Dynamos - Visualizing Space</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -243,6 +244,7 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
+      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -319,214 +321,165 @@
       margin-right: 0; 
     }
   </style>
-  
-  <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-  <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="images/watercolour_sys02_img34_teacup-ocean.jpg" data-background-opacity="0.7" data-background-size="stretch" data-slide-number="none" class="quarto-title-block center">
-  <h1 class="title">Project title</h1>
-  <p class="subtitle">INFO 526 - Fall 2023 - Project Final</p>
+<section id="title-slide" data-background-image="images/slide_background.jpg" data-background-opacity="0.7" data-background-size="stretch" data-slide-number="none" class="quarto-title-block center">
+  <h1 class="title">Visualizing Space</h1>
+  <p class="subtitle">An Interactive Spatio-Temporal Visualization of Meteorites Discoveries</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Author names 
+Data Dynamos - Deema, Rahul, Swati, Ansh &amp; Shakir 
 </div>
 </div>
 </div>
 
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<p></p><div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div><p></p>
+</div>
+</div>
+</section>
+<section id="introduction" class="slide level2 smaller">
+<h2>Introduction:</h2>
+<ul>
+<li>Meteorites are like celestial time capsules, encapsulate the enigmatic history of our solar system.</li>
+<li>Our initiative introduces an interactive platform sourced from NASA’s Meteorite Landings, aiming to unveil the enthralling saga of these cosmic wonders.</li>
+</ul>
+</section>
+<section id="goal-and-problem-statement" class="slide level2 smaller">
+<h2>Goal and problem statement:</h2>
+<ul>
+<li><p>Our Shiny app features three key visualizations—world map, density map, and bubble map—showcasing meteorite landings across regions, offering insights into their distribution, density, and mass&nbsp;significance.</p></li>
+<li><p>The question we will be answering is- “What are the noticeable trends in meteor impact on Earth?”</p></li>
+</ul>
+</section>
+<section id="execution-of-plan" class="slide level2 smaller">
+<h2>Execution of plan:</h2>
+<ul>
+<li><p>Plotting of individual impact of meteor with various parameters like- mass and year.</p></li>
+<li><p>Integration into an R Shiny application.</p></li>
+<li><p>Revision and building on responsiveness of plot.</p></li>
+</ul>
+</section>
+<section id="data-overview" class="slide level2 smaller">
+<h2>Data Overview:</h2>
+<ul>
+<li>Data source: NASA’s Meteorite Landings dataset.</li>
+<li>Data Scope : Name, Recclass, Mass (g), Fall, Year</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 6
+   variables   types     missing_count missing_percent unique_count
+   &lt;chr&gt;       &lt;chr&gt;             &lt;int&gt;           &lt;dbl&gt;        &lt;int&gt;
+ 1 name        character             0           0            45716
+ 2 id          numeric               0           0            45716
+ 3 nametype    character             0           0                2
+ 4 recclass    character             0           0              455
+ 5 mass (g)    numeric             131           0.287        12577
+ 6 fall        character             0           0                2
+ 7 year        numeric             291           0.637          266
+ 8 reclat      numeric            7315          16.0          12739
+ 9 reclong     numeric            7315          16.0          14641
+10 GeoLocation character          7315          16.0          17101
+# ℹ 1 more variable: unique_rate &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="data-pre-processing" class="slide level2 smaller">
+<h2>Data pre-processing:</h2>
+<p>For our pre-processing, we have done the following:</p>
+<ul>
+<li><p>Dropped all the missing values to a get a new row value of 37,417.</p></li>
+<li><p>Filtered for mass greater than 1, as there were lot of values close to 0.</p></li>
+<li><p>Renamed and cleaned names of columns.</p></li>
+</ul>
 </section>
 <section>
-<section id="using-quarto-for-presentations" class="title-slide slide level1 center">
-<h1>Using Quarto for presentations</h1>
+<section id="plots" class="title-slide slide level1 center">
+<h1>Plots</h1>
 
 </section>
-<section id="quarto" class="slide level2">
-<h2>Quarto</h2>
-<ul>
-<li><p>The presentation is created using the Quarto CLI</p></li>
-<li><p><code>##</code> sets the start of a new slide</p></li>
-</ul>
+<section id="point-plot" class="slide level2 smaller">
+<h2>Point plot:</h2>
+<p>1). Which continents appear to have the highest density of meteorite impacts based on the data visualized in the provided plot?</p>
+
+<img data-src="images/point.JPG" class="r-stretch"></section>
+<section id="point-plots" class="slide level2 smaler">
+<h2>Point plots:</h2>
+<p>High Impact Density: Europe and North America show a high density of meteorite impacts. Moderate Impact Density: Parts of Asia and Africa display a moderate concentration of impacts. Lower Impact Density: South America and Australia have fewer impacts compared to Europe and North America. Minimal Impact Reporting: Antarctica has the least number of recorded impacts, potentially due to underreporting.</p>
 </section>
-<section id="layouts" class="slide level2">
-<h2>Layouts</h2>
-<p>You can use plain text</p>
-<div class="columns">
-<div class="column" style="width:40%;">
-<ul>
-<li>or bullet points<sup>1</sup></li>
-</ul>
-</div><div class="column" style="width:60%;">
-<p>or in two columns</p>
-</div>
-</div>
-<ul>
-<li><p>like</p></li>
-<li><p>this</p></li>
-</ul>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>And add footnotes</p></li></ol></aside></section>
-<section id="code" class="slide level2">
-<h2>Code</h2>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 5
-  term        estimate std.error statistic       p.value
-  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;
-1 (Intercept)   25.3      3.08        8.22 0.00000000358
-2 speed         -0.116    0.0642     -1.81 0.0806       </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 12
-  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC
-      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.
-# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
-</div>
-</div>
+<section id="density-plot" class="slide level2 smaller">
+<h2>Density plot:</h2>
+<p>2). What does the thermal map suggest about the geographical distribution of meteorite impacts across the world?</p>
+
+<img data-src="images/density.JPG" class="r-stretch"></section>
+<section id="density-plot-1" class="slide level2 smaller">
+<h2>Density plot:</h2>
+<p>Concentrated Zones: The map highlights areas with a significant concentration of meteorite impacts through thermal rings. Major Impact Regions: Regions with the densest meteorite activity include parts of North America, Europe, and Asia. Secondary Impact Zones: Lesser concentrations are visible in South America, Africa, and Australia. Oceans and Antarctica: The map shows minimal impact activity in the oceans and Antarctica. Data Interpretation: The thermal rings suggest areas where meteorites are most commonly found or reported. Reporting Bias: The concentration of impacts may be influenced by the ease of meteorite discovery and reporting mechanisms in different regions.</p>
 </section>
-<section id="plots" class="slide level2">
-<h2>Plots</h2>
+<section id="bubble-plot" class="slide level2 smaller">
+<h2>Bubble plot:</h2>
+<p>3). How does the mass of meteorites vary across different regions of the world?</p>
 
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-5-1.png" width="1800" class="r-stretch"></section>
-<section id="plot-and-text" class="slide level2">
-<h2>Plot and text</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><p>Some text</p></li>
-<li><p>goes here</p></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-6-1.png" width="1650"></p>
-</div>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="a-new-section" class="title-slide slide level1 center">
-<h1>A new section…</h1>
-
+<img data-src="images/bubble.JPG" class="r-stretch"></section>
+<section id="bubble-plot-1" class="slide level2 smaller">
+<h2>Bubble plot:</h2>
+<p>Variation in Mass: The map shows a variation in meteorite mass with some regions exhibiting larger meteorites than others. Larger Meteorites: Regions with notably larger meteorites, as indicated by bigger bubbles, include parts of North America, Europe, and Asia. Smaller Meteorites: Smaller meteorites, represented by smaller bubbles, are widely scattered across all continents. Mass Concentration: There is a concentration of larger meteorite masses in the northern hemisphere. Oceanic Impacts: Fewer large meteorites are noted in the oceans, likely due to the difficulty in discovering them.</p>
 </section>
-<section id="tables" class="slide level2">
-<h2>Tables</h2>
-<p>If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">species</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">island</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">bill_length_mm</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">bill_depth_mm</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">flipper_length_mm</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">body_mass_g</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">sex</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">39.1</td>
-<td style="text-align: right;">18.7</td>
-<td style="text-align: right;">181</td>
-<td style="text-align: right;">3750</td>
-<td style="text-align: left;">male</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">39.5</td>
-<td style="text-align: right;">17.4</td>
-<td style="text-align: right;">186</td>
-<td style="text-align: right;">3800</td>
-<td style="text-align: left;">female</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">40.3</td>
-<td style="text-align: right;">18.0</td>
-<td style="text-align: right;">195</td>
-<td style="text-align: right;">3250</td>
-<td style="text-align: left;">female</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">36.7</td>
-<td style="text-align: right;">19.3</td>
-<td style="text-align: right;">193</td>
-<td style="text-align: right;">3450</td>
-<td style="text-align: left;">female</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">39.3</td>
-<td style="text-align: right;">20.6</td>
-<td style="text-align: right;">190</td>
-<td style="text-align: right;">3650</td>
-<td style="text-align: left;">male</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-</section>
-<section id="images" class="slide level2">
-<h2>Images</h2>
-
-<img data-src="images/watercolour_sys02_img34_teacup-ocean.png" width="500" class="r-stretch quarto-figure-center"><p class="caption">Image credit: Danielle Navarro, Percolate.</p></section>
-<section id="math-expressions" class="slide level2 smaller">
-<h2>Math Expressions</h2>
-<p>You can write LaTeX math expressions inside a pair of dollar signs, e.g.&nbsp;$\alpha+\beta$ renders <span class="math inline">\(\alpha + \beta\)</span>. You can use the display style with double dollar signs:</p>
-<pre><code>$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$</code></pre>
-<p><span class="math display">\[
-\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
-\]</span></p>
-<p>Limitations:</p>
+<section id="designing-the-shiny-app" class="slide level2 smaller">
+<h2>Designing the Shiny App:</h2>
+<p>User Interactivity Features:</p>
 <ol type="1">
-<li><p>The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting <code>$$</code> must appear in the very beginning of a line, followed immediately by a non-space character, and the ending <code>$$</code> must be at the end of a line, led by a non-space character;</p></li>
-<li><p>There should not be spaces after the opening <code>$</code> or before the closing <code>$</code>.</p></li>
+<li><p>Temporal Analysis</p></li>
+<li><p>Spatial Distribution</p></li>
+<li><p>Size and Classification Analysis</p></li>
 </ol>
-</section></section>
-<section>
-<section id="wrap-up" class="title-slide slide level1 center">
-<h1>Wrap up</h1>
-
 </section>
-<section id="feeling-adventurous" class="slide level2">
-<h2>Feeling adventurous?</h2>
+<section id="r-shiny-application" class="slide level2 smaller">
+<h2>R Shiny application:</h2>
+<p>Link: <a href="https://rahulbangad.shinyapps.io/app1/" class="uri">https://rahulbangad.shinyapps.io/app1/</a></p>
+</section>
+<section id="impact-and-applications" class="slide level2 smaller">
+<h2>Impact and Applications:</h2>
 <ul>
-<li><p>You are welcomed to use the default styling of the slides. In fact, that’s what I expect majority of you will do. You will differentiate yourself with the content of your presentation.</p></li>
-<li><p>But some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs.</p></li>
+<li>This visualization serves as an engaging educational tool, aiding astronomy enthusiasts, students, and researchers in understanding meteorite impacts’ global distribution, sizes, and densities.</li>
+<li>Researchers can leverage this visualization to conduct in-depth studies on meteorite falls over time, identifying trends, hotspots, and variations in impact frequencies across different periods and regions.</li>
+</ul>
+</section>
+<section id="future-enhancements" class="slide level2 smaller">
+<h2>Future Enhancements:</h2>
+<p>Introducing a feature that allows users to access in-depth meteorite details simply by hovering over impact sites on the map. This enhancement will provide immediate access to essential specifics such as meteorite names, formation years, and other crucial attributes, facilitating deeper insights into each meteorite.</p>
+</section>
+<section id="challenges" class="slide level2 smaller">
+<h2>Challenges:</h2>
+<ul>
+<li><p>Data Limitations: Addressing the challenge of underrepresented areas due to lack of reporting or discovery, especially in remote regions.</p></li>
+<li><p>Technological Barriers: Overcoming technical limitations in handling and processing large datasets with high accuracy.</p></li>
+<li><p>Public Engagement: Ensuring the Shiny app remains user-friendly and engaging for a diverse audience, encouraging public interaction and education.</p></li>
+</ul>
+</section>
+<section id="conclusion-and-qa." class="slide level2 smaller">
+<h2>Conclusion and Q&amp;A.</h2>
+<ul>
+<li><p>Global Distribution: The data and visualizations reveal a global distribution of meteorite impacts, with varying densities and masses.</p></li>
+<li><p>Density Concentration: Impact density is higher in populated regions, suggesting better reporting or more extensive discoveries due to human activity.</p></li>
+<li><p>Mass Observations: Larger meteorite masses are found sporadically, with notable occurrences in the Northern Hemisphere, particularly North America, Europe, and Asia. Visualization Effectiveness:</p>
+<p>The Shiny app effectively visualizes complex data, allowing for interactive exploration of meteorite impacts by year and mass.</p></li>
 </ul>
 
 <div class="footer footer-default">
-
+<p><a href="https://info526-dataviz.github.io/project-final-Data-Dynamos/">⚙ Data Dynamos</a></p>
 </div>
 </section></section>
-
     </div>
   </div>
 
@@ -684,14 +637,14 @@ Author names
         previewLinks: false,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
+        transition: 'slide',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',
 
         // Transition style for full page slide backgrounds
         // (none/fade/slide/convex/concave/zoom)
-        backgroundTransition: 'none',
+        backgroundTransition: 'fade',
 
         // Number of slides away from the current that are visible
         viewDistance: 3,
