@@ -16,8 +16,8 @@ website:
         href: presentation.qmd
       - text: About
         href: about.qmd
-    logo: images\meteorite_icon.jpg
-  favicon: images\meteorite_icon.jpg
+    logo: images\logo_meter.jpg
+  favicon: images\logo_meter.jpg
 
 format:
   html:
