@@ -2,9 +2,9 @@
   {
     "objectID": "proposal.html",
     "href": "proposal.html",
-    "title": "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
     "section": "",
-    "text": "library(tidyverse)"
+    "text": "Installed Packages\n# GETTING THE LIBRARIES\nif (!require(pacman))\n  install.packages(pacman)\n\npacman::p_load(dplyr,\n               dlookr,\n               tidyverse,\n               ggplot2,\n               here,\n               janitor\n)"
   },
   {
     "objectID": "proposal.html#dataset",
@@ -16,30 +16,30 @@
   {
     "objectID": "proposal.html#did-you-know",
     "href": "proposal.html#did-you-know",
-    "title": "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
     "section": "Did You Know?",
-    "text": "Did You Know?\nDid you know that Tucson, Arizona, is a hotspot for asteroid discoveries, with its clear skies and advanced observatories playing a key role in identifying new celestial bodies?"
+    "text": "Did You Know?\nDid you know that Tucson, Arizona, stands as a pivotal hub for celestial revelations? Its pristine skies and cutting-edge observatories serve as crucial elements in discerning the trajectories and impact patterns of these cosmic entities."
   },
   {
     "objectID": "proposal.html#introduction",
     "href": "proposal.html#introduction",
-    "title": "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
     "section": "Introduction",
-    "text": "Introduction\nIn the boundless expanse of the solar system, a hidden universe of rocky wanderers awaits for exploration. The secrets to solving the riddles surrounding the genesis and evolution of the solar system can be found within these space nomads, also known as asteroids, which are frequently written off as nothing more than stray pieces of a chaotic universe. In this project, we aim to create an interactive website to examine the asteroids from the discoveries made in Tucson Research Centre.\nFor countless years, astrophysicists and enthusiasts have been enthralled with the fascinating universe of asteroids. These cosmic nomads captivate us with their enduring mystique; they are frequently perceived as leftovers of the birth of our solar system. This topic is brought to light by the enigmatic nature of asteroids and the mysteries they hold that have not yet been discovered. Motivated by the universe’s fascination and secrets, our research team discovered a shared passion for investigating the asteroidal realm. It will provide a unique opportunity to look into the unexplored regions of space and learn more about them."
+    "text": "Introduction\nIn the boundless expanse of the solar system, a hidden universe of rocky wanderers awaits for exploration. The secrets to solving the riddles surrounding the genesis and evolution of the solar system can be found within these space nomads, also known as meteorites, which are frequently written off as nothing more than stray pieces of a chaotic universe. In this project, we aim to create an interactive website to examine the meteorites impacts on Earth identified by Research centers.\nFor countless years, astrophysicists and enthusiasts have been enthralled with the fascinating universe of meteorites. These cosmic nomads captivate us with their enduring mystique; they are frequently perceived as leftovers of the birth of our solar system. This topic is brought to light by the enigmatic nature of meteorites and the mysteries they hold that have not yet been discovered. Motivated by the universe’s fascination and secrets, our research team discovered a shared passion for investigating the meteorites impact. It will provide a unique opportunity to look into the frequencies of these impacts and learn more about them."
   },
   {
     "objectID": "proposal.html#project-overview",
     "href": "proposal.html#project-overview",
-    "title": "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
     "section": "Project Overview",
-    "text": "Project Overview\nThe website will serve as an educational and exploratory tool for both astronomy enthusiasts and the general public. It will feature interactive visualizations that allow users to explore various aspects of the asteroids discovered in Tucson, including their names, designations, discovery dates, locations, and the names of discoverers."
+    "text": "Project Overview\nThe website will serve as an educational and exploratory tool for both astronomy enthusiasts and the general public. It will feature interactive visualizations that allow users to explore various aspects of the impacted meteorites."
   },
   {
     "objectID": "proposal.html#data-utilization",
     "href": "proposal.html#data-utilization",
-    "title": "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
     "section": "Data Utilization",
-    "text": "Data Utilization\nThe NASA Data Portal is the source of the Asteroid Dataset for the Project. The dataset offers information about the asteroids, including their names, designation, discovery date, discovery location and the names of the individuals or institutions responsible for the discoveries. The dataset retains its original presentation, without alterations to account for the loss of diacritical marks due to limitations in the ASCII character set. This version of dataset includes 9999 entries and contains the information for all asteroids numbered as of 2nd February 1999 batch of Minor planet Circulars. These informations were either supplied by the Minor Planet Center or taken from the Minor Planet Circular, which the organization distributed on behalf of Commission 20 of the International Astronomical Union.\nWe Will be Utilizing these entries\n• Catalog Number: The unique identifier for each asteroid, allowing us to track and reference them systematically.\n• Name: The official name of the asteroid, which can offer insights into cultural and historical contexts of the discovery.\n• Principal Provisional Designation: The initial temporary label given to the asteroid, crucial for cross-referencing with historical records and scientific literature.\n• Discovery Date: The date each asteroid was discovered, which will be used to create the temporal component of our visualizations.\n• Discovery Location: The geographic location where the asteroid was first observed, a key element in mapping the discoveries.\n• Discoverer(s) Name: Information about who discovered the asteroid, highlighting the human element in the field of astronomy."
+    "text": "Data Utilization\nThe NASA data portal is the source of the Meteorite Landings data set for the project. Collected by Javier de la Torre, this dataset is accessible in Fusion Table and XLS formats, documenting 34,513 meteorites and encompassing essential fields crucial for analysis and exploration purposes. The dataset provides information about meteorites, featuring details such as their names, IDs, name types, recclass, masses (in grams), fall occurrences, discovery years, reclat (latitude of the landing site), relong (longitude of the landing site), and precise geolocations.\nData Link: https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh\n\n\nBackup data file\n# Reading the data using read_csv\nmeteorite &lt;- read_csv(here(\"data\", \"Meteorite_Landings.csv\"))\n\nhead(meteorite)\n\n\n# A tibble: 6 × 10\n  name        id nametype recclass    `mass (g)` fall   year reclat reclong\n  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;\n1 Aachen       1 Valid    L5                  21 Fell   1880   50.8    6.08\n2 Aarhus       2 Valid    H6                 720 Fell   1951   56.2   10.2 \n3 Abee         6 Valid    EH4             107000 Fell   1952   54.2 -113   \n4 Acapulco    10 Valid    Acapulcoite       1914 Fell   1976   16.9  -99.9 \n5 Achiras    370 Valid    L6                 780 Fell   1902  -33.2  -65.0 \n6 Adhi Kot   379 Valid    EH4               4239 Fell   1919   32.1   71.8 \n# ℹ 1 more variable: GeoLocation &lt;chr&gt;\n\n\n\n\nExtracting relevant information from dataset\n#Extracting relevant columns from data\nmeteorite &lt;- subset(meteorite, select = -c(nametype, fall))\ndiagnose(meteorite)\n\n\n# A tibble: 8 × 6\n  variables   types     missing_count missing_percent unique_count unique_rate\n  &lt;chr&gt;       &lt;chr&gt;             &lt;int&gt;           &lt;dbl&gt;        &lt;int&gt;       &lt;dbl&gt;\n1 name        character             0           0            45716     1      \n2 id          numeric               0           0            45716     1      \n3 recclass    character             0           0              455     0.00995\n4 mass (g)    numeric             131           0.287        12577     0.275  \n5 year        numeric             291           0.637          266     0.00582\n6 reclat      numeric            7315          16.0          12739     0.279  \n7 reclong     numeric            7315          16.0          14641     0.320  \n8 GeoLocation character          7315          16.0          17101     0.374  \n\n\nFrom the above, we are going to use the `name`, `id`, `mass` to calculate the diameter of crater, `year` to create an interactive map visualization, `geolocation` to plot the location of the impact on a map plot."
   },
   {
     "objectID": "proposal.html#section",
@@ -58,23 +58,23 @@
   {
     "objectID": "proposal.html#plan-of-attack",
     "href": "proposal.html#plan-of-attack",
-    "title": "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson",
-    "section": "Plan Of Attack",
-    "text": "Plan Of Attack\n\nA plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any)."
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
+    "section": "Plan of attack:",
+    "text": "Plan of attack:\nWe want to visualize how the meteorite impact has changed over the years. To represent the available data best, we will be creating a geom map of the world that displays the impacts of various meteorite across the world. The comparison of the plot will be done through for each year from year 860 to year 2101 (in the future). We are planning to clean it further to only get certain parts that are required using `dplyr`. Additionally, data cleaning and preparation will be performed in order to account or omit the missing data.\n1. Data Load: The shiny package enables the creation of interactive web applications, with leaflet being a powerful tool for handling spatial data visualizations. sf is used for working with spatial data objects, and shinythemes provides a range of Bootstrap themes for customization.\n2. Creating Shiny UI: We will define the user interface (UI) of the Shiny app. In this step, we will choose a Bootstrap theme using shinythemes to enhance the overall visual appeal. We will add a title panel and navbar for easy navigation between different sections of your app. Inclusion of custom styling will be performed, such as changing the navbar color, can be achieved using additional HTML and CSS.\n3. Create Shiny app server: Develop the server logic for your Shiny app. In this approach, we will use the leaflet package to create an interactive map displaying asteroid impact data. The renderleaflet function generates the leaflet map dynamically based on the input data. Additional server logic will be added to handle interactions and updates as users interact with the app.\n4. Adding branding and responsive design: Enhance the app’s aesthetics by incorporating branding elements. Adjust the navbar styling to ensure consistent color schemes and improve overall branding. Additionally, we will ensure that the app has a responsive design, making it accessible and visually appealing across various devices and screen sizes. This can be achieved through Bootstrap’s inherent responsiveness and further customizations.\n5. Running Shiny app: Saving of shiny app code in a script file (e.g., “app.R”) and run it using the runApp(\"app.r\") command. This will launch a local web server and open the app in your default web browser."
   },
   {
     "objectID": "presentation.html",
     "href": "presentation.html",
     "title": "Project title",
     "section": "",
-    "text": "The presentation is created using the Quarto CLI\n## sets the start of a new slide\n\n\n\n\nYou can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\n\nlike\nthis\n\n\n\n\n\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic       p.value\n  <chr>          <dbl>     <dbl>     <dbl>         <dbl>\n1 (Intercept)   25.3      3.08        8.22 0.00000000358\n2 speed         -0.116    0.0642     -1.81 0.0806       \n\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC\n      <dbl>         <dbl> <dbl>     <dbl>   <dbl> <dbl>  <dbl> <dbl> <dbl>\n1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.\n# ℹ 3 more variables: deviance <dbl>, df.residual <int>, nobs <int>\n\n\n\n\n\n\n\nWarning: Removed 2 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\nSome text\ngoes here"
+    "text": "The presentation is created using the Quarto CLI\n## sets the start of a new slide\n\n\n\n\nYou can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\n\nlike\nthis\n\n\n\n\n\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic       p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 (Intercept)   25.3      3.08        8.22 0.00000000358\n2 speed         -0.116    0.0642     -1.81 0.0806       \n\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\n\n\n\n\n\n\nWarning: Removed 2 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\nSome text\ngoes here"
   },
   {
     "objectID": "presentation.html#tables",
     "href": "presentation.html#tables",
     "title": "Project title",
     "section": "Tables",
-    "text": "Tables\nIf you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,\n\n\n\n\n \n  \n    species \n    island \n    bill_length_mm \n    bill_depth_mm \n    flipper_length_mm \n    body_mass_g \n    sex \n  \n \n\n  \n    Adelie \n    Torgersen \n    39.1 \n    18.7 \n    181 \n    3750 \n    male \n  \n  \n    Adelie \n    Torgersen \n    39.5 \n    17.4 \n    186 \n    3800 \n    female \n  \n  \n    Adelie \n    Torgersen \n    40.3 \n    18.0 \n    195 \n    3250 \n    female \n  \n  \n    Adelie \n    Torgersen \n    NA \n    NA \n    NA \n    NA \n    NA \n  \n  \n    Adelie \n    Torgersen \n    36.7 \n    19.3 \n    193 \n    3450 \n    female \n  \n  \n    Adelie \n    Torgersen \n    39.3 \n    20.6 \n    190 \n    3650 \n    male"
+    "text": "Tables\nIf you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\n\n\n\n\nAdelie\nTorgersen\n39.1\n18.7\n181\n3750\nmale\n\n\nAdelie\nTorgersen\n39.5\n17.4\n186\n3800\nfemale\n\n\nAdelie\nTorgersen\n40.3\n18.0\n195\n3250\nfemale\n\n\nAdelie\nTorgersen\nNA\nNA\nNA\nNA\nNA\n\n\nAdelie\nTorgersen\n36.7\n19.3\n193\n3450\nfemale\n\n\nAdelie\nTorgersen\n39.3\n20.6\n190\n3650\nmale"
   },
   {
     "objectID": "presentation.html#images",
@@ -100,22 +100,127 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "Visualising the Heavens",
     "section": "",
-    "text": "This project was developed by [Team Name] For INFO 526 - Data Analysis & Visualization at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.\n\nTeam member 1: One sentence description of Team member 1 (e.g., year, major, etc.).\nTeam member 2: One sentence description of Team member 2 (e.g., year, major, etc.).\nTeam member 3: One sentence description of Team member 3 (e.g., year, major, etc.).\nTeam member 4: One sentence description of Team member 4 (e.g., year, major, etc.)."
+    "text": "This project was developed by Data Dynamos For INFO 526 - Data Analysis & Visualization at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.\n\nDeema Albluwi (Computational Linguistics, PhD).\nRahul Bangad (Data Science, Master’s).\nSwati Das (Data Science, Master’s).\nAnsh Kumar Dev (Data Science, Master’s).\nShakir Ahmed (Data Science, Master’s)"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Project title",
+    "title": "Visualising the Heavens",
     "section": "",
-    "text": "Add project abstract here."
+    "text": "Journey into the depths of our solar system and unveil the hidden realm of meteorites, often overlooked as mere space wanderers. These celestial nomads, scattered across the cosmos, hold the keys to unlocking the mysteries of our solar system’s origins. In our latest endeavor, we introduce an interactive website dedicated to exploring these fascinating celestial bodies, drawing from discoveries collected by Javier de la Torre.\nAstronomy enthusiasts and the wider public alike will find our website to be an educational and immersive tool. Users can explore diverse facets of meteorite discoveries through interactive visualizations, accessing information such as names, IDs, name types, recclass classifications, masses measured in grams, fall occurrences, discovery years, reclat (latitude of the landing site), relong (longitude of the landing site), and exact geolocations. Our project utilizes data from NASA’s comprehensive Meteorite Landings dataset, encompassing 34,513 meteorites. These meteorites are an integral part of our cosmic history, offering a window into the profound mysteries of our solar system’s evolution. Join us on this celestial odyssey and rediscover the wonders of meteorites."
   },
   {
     "objectID": "proposal.html#goal",
     "href": "proposal.html#goal",
-    "title": "Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
     "section": "Goal",
-    "text": "Goal\nThis project aims to create an interactive website, focusing on the visualization of data from asteroid discoveries made in Tucson, as detailed in the dataset \"Asteroid Names and Discovery V4.0\" (DATA_SET_ID: EAR-A-5-DDR-ASTNAMES-DISCOVERY-V4.0).\nVarious Components of dashboard includes:\n\n1. Timeline Visualization:\nAn interactive timeline will showcase the dates of asteroid discoveries. Users can slide through time to see the pace of discovery and significant milestones.\n\n\n2. Map Integration:\nUtilizing the discovery location data, we will provide a map visualization where users can zoom in on Tucson and surrounding discovery sites, providing a spatial context to the data.\n\n\n3. Discovery Details:\nBy selecting individual asteroids, users will be able to view detailed information such as the asteroid's catalog number, provisional designation, and the name(s) of the discoverer(s).\n\n\n4. Educational Information:\nThe website will also include educational resources about asteroids, their significance in our solar system, and the history of asteroid discovery in Tucson."
+    "text": "Goal\nThis project aims to create an interactive website, focusing on the visualization of data from asteroid impact discoveries, as detailed in the data set “Meteorite Landings” (DATA_SET_ID: Meteorite Landings) in NASA.\nProposed Features:\n\n1. Timeline Visualization:\nAn interactive timeline will showcase the dates of Meteorite discoveries. Users can slide through time to see the varying trends in meteorite impacts over the years.\n\n\n2. Map integration:\nUtilizing the geo-location data, we will provide a map visualization where users can zoom in to the sites, providing a spatial context to the data.\n\n\n3. Asteroid Details:\nBy selecting individual meteorite, users will be able to view detailed information including the position, names, crater diameter and class of the asteroid.\n4. R Shiny app development:\nIntegrating and rendering of these asteroid impact for a more user friendly design and visualization. This will be useful for easy comprehension and accessibility to the general public.\n\n\n5. Educational Information:\nThe website will also include educational resources about meteorite, their significance in our solar system, and the history of asteroid discovery in Tucson."
+  },
+  {
+    "objectID": "index.html#abstract",
+    "href": "index.html#abstract",
+    "title": "Visualising the Heavens",
+    "section": "",
+    "text": "Journey into the depths of our solar system and unveil the hidden realm of meteorites, often overlooked as mere space wanderers. These celestial nomads, scattered across the cosmos, hold the keys to unlocking the mysteries of our solar system’s origins. In our latest endeavor, we introduce an interactive website dedicated to exploring these fascinating celestial bodies, drawing from discoveries collected by Javier de la Torre.\nAstronomy enthusiasts and the wider public alike will find our website to be an educational and immersive tool. Users can explore diverse facets of meteorite discoveries through interactive visualizations, accessing information such as names, IDs, name types, recclass classifications, masses measured in grams, fall occurrences, discovery years, reclat (latitude of the landing site), relong (longitude of the landing site), and exact geolocations. Our project utilizes data from NASA’s comprehensive Meteorite Landings dataset, encompassing 34,513 meteorites. These meteorites are an integral part of our cosmic history, offering a window into the profound mysteries of our solar system’s evolution. Join us on this celestial odyssey and rediscover the wonders of meteorites."
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Visualising the Heavens",
+    "section": "Introduction",
+    "text": "Introduction\nMeteorites act as cosmic time capsules, preserving the mysteries of our solar system’s formation. These celestial travelers have voyaged through space, bearing witness to ancient cosmic events, their rocky surfaces preserving stories of our cosmic past. Scattered across the universe, these wanderers hold untold narratives that illuminate the genesis of our solar system. Our latest venture introduces an interactive online platform, drawn from Javier de la Torre’s dataset Meteorite Landings which is taken from NASA’s website, dedicated to unveiling the captivating world of these celestial marvels. Our objective is to present an interactive visualization spotlighting the annual distribution of meteorite falls across diverse global regions.\nOur dataset encompasses 34,513 meteorites, offering essential insights including name for meteorite identification, recclass denoting its classification, mass (g) providing mass specifics, fall characterizing the status of descent, year signifying the landing date, and reclat and reclong pinpointing latitude and longitude and precise geolocation. Using this data, our main goal is to build an interactive exhibit showing the yearly trends of meteorite falls globally. This aims to vividly depict how these celestial travelers have significantly impacted Earth’s history. It also enables a comprehensive comprehension of how these celestial remains are dispersed, their concentration, and their diverse sizes."
+  },
+  {
+    "objectID": "index.html#approach",
+    "href": "index.html#approach",
+    "title": "Visualising the Heavens",
+    "section": "Approach",
+    "text": "Approach\nIn our Shiny app, we’ve integrated three primary visualizations: a world map, a density map, and a bubble map, each depicting the meteorite landings across various regions over time. These visual representations offer distinct insights into the geographical distribution, concentration density, and mass significance of meteorite impacts. We initiated data exploration to extract relevant information and identify interesting details. The overall plan involves initially preparing and processing the data, followed by creating comprehensive visualizations. These visualizations are then seamlessly integrated into the Shiny app, providing an interactive user experience.\nIn our approach for preparing and processing the data, we first ensured the necessary libraries were loaded using the pacman package in R. After importing the data, we began the pre-processing phase. This involved renaming certain columns and eliminating irrelevant columns like ‘nametype’ and fall. Furthermore, we introduced a new column, decade, to categorize meteorite landings based on their respective years. This meticulous process aimed to refine the dataset, setting the groundwork for subsequent analysis and visualization steps.\nThe sf package is employed to showcase the locations of meteorite landings on a global map. It begins by tabulating meteorites on an annual basis. Subsequently, the ne_countries() function from the rnaturalearth package is employed to construct a world map, specifying the desired scale normal and return class. The geom_sf() function is then applied to layer this map, visually depicting meteorite impacts with longitude and latitude coordinates.\n\n\n\n\n\n\n\n\n\nSubsequently, we created a thermal density map illustrating the concentration of meteorite impacts across various geographical locations. Using the ne_countries() function from the rnaturalearth package, we generated a world map with a medium scale and specified return class. These maps were then overlaid with density contours formed by the geom_density_2d() function, visually depicting the meteorite impact density based on longitude and latitude coordinates.\n\n\n\n\n\n\n\n\n\nNext, we have constructed a bubble map showcasing meteorite mass distribution across various geographic locations. It integrates a world map as the base layer using geom_sf(), and then plots meteorite landings as individual points. Each point’s size represents the meteorite’s mass, creating a bubble map effect to visualize mass distribution.\n\n\n\n\n\n\n\n\n\n\n######HEAT MAP######\n\nlibrary(ggplot2)\n\nggplot() +\n  geom_sf(data = world, fill = \"lightgrey\") +\n  geom_bin2d(data = meteorite, aes(x = reclong, y = reclat, fill = ..count..), bins = 100) +\n  scale_fill_viridis_c() +\n  labs(title = \"Heatmap of Meteorite Impacts\")\n\n\n\n\n\n\n\n\n\n######HEXBIN PLOT#####\n\nlibrary(ggplot2)\nlibrary(hexbin)\n\nhex_meteorite &lt;- hexbin(meteorite$reclong, meteorite$reclat, xbins = 30)\n\n# Get hexagon data\nhex_df &lt;- data.frame(\n  x = hex_meteorite@xcm,\n  y = hex_meteorite@ycm,\n  count = hex_meteorite@count\n)\n\n# Create a world map\nworld &lt;- map_data(\"world\")\n\n# Plot hexbin map with ggplot2\nggplot() +\n  geom_polygon(data = world, aes(x = long, y = lat, group = group), fill = \"lightgrey\") +\n  geom_hex(data = hex_df, aes(x = x, y = y, fill = count), stat = \"identity\") +\n  scale_fill_viridis_c() +  # You can choose any color scale you prefer\n  geom_point(data = meteorite, aes(x = reclong, y = reclat), color = \"red\", size = 2, alpha = 0.5) +\n  labs(title = \"Hexbin Map of Meteorite Impacts\") +\n  coord_fixed()\n\n\n\n\n\n\n\n\nFinally, the Shiny app integrates user interaction with visual representations to enable a comprehensive exploration of meteorite impacts over different periods and mass ranges. It includes diverse visualizations like World Maps, Density Maps, and Bubble Maps, displaying the geographical spread, size, and density of meteorite impacts. Users have the option to choose specific criteria like year ranges and meteorite mass through sliders. Dropdown menus are integrated to select different map types, allowing the app to dynamically update the visualizations. This provides a comprehensive view of meteorite impacts on a global scale.\n\n#install.packages(\"shinythemes\")\nlibrary(shinythemes)\n\n# Load your data\nmeteorite &lt;- read_csv(\"https://raw.githubusercontent.com/INFO526-DataViz/project-final-Data-Dynamos/main/data/Meteorite_Landings.csv\")\n\n# Clean and Rename columns using dplyr::rename\nmeteorite &lt;- na.omit(meteorite) |&gt;\n  clean_names() |&gt;\n  rename(mass = mass_g, class= recclass)\n\nmeteorite &lt;- subset(meteorite, mass &gt;= 1)\n\n# Drop unnecessary columns\nmeteorite &lt;- meteorite[, !(names(meteorite) %in% c(\"nametype\", \"fall\"))]\n\n\n# Create the 'decade' column\nmeteorite &lt;- meteorite %&gt;%\n  mutate(decade = case_when(\n    year &lt; 1950 ~ \"Before 1950\",\n    between(year, 1951, 1960) ~ \"Decade 1951-1960\",\n    between(year, 1961, 1970) ~ \"Decade 1961-1970\",\n    between(year, 1971, 1980) ~ \"Decade 1971-1980\",\n    between(year, 1981, 1990) ~ \"Decade 1981-1990\",\n    between(year, 1991, 2000) ~ \"Decade 1991-2000\",\n    between(year, 2001, 2010) ~ \"Decade 2001-2010\",\n    between(year, 2011, 2020) ~ \"Decade 2011-2020\",\n    TRUE ~ \"NA\"\n  ))\n\n\n# UI logic\nui &lt;- fluidPage(\n  theme = shinytheme(\"darkly\"),\n  titlePanel(\"Meteorite Impact Visualization\"),\n  \n  sidebarLayout(\n    sidebarPanel(\n      sliderInput(\"year_slider\", \"Select Year:\",\n                  min = min(meteorite$year),\n                  max = max(meteorite$year),\n                  value = c(min(meteorite$year), max(meteorite$year)),\n                  step = 1),\n      \n      sliderInput(\"mass_slider\", \"Select Mass (g):\",\n                  min = min(meteorite$mass),\n                  max = max(meteorite$mass),\n                  value = c(min(meteorite$mass), max(meteorite$mass)),\n                  step = 100),\n      \n      selectInput(\"plot_type\", \"Select Visualization:\",\n                  choices = c(\"World Map\", \"Density Map\", \"Bubble Map\", \"Heatmap\", \"Hexbin Map\"))\n    ),\n    \n    mainPanel(\n      plotOutput(\"selected_plot\")\n    )\n  )\n)\n\n# Server logic\nserver &lt;- function(input, output) {\n  \n  # Reactive subset based on year and mass\n  filtered_data &lt;- reactive({\n    subset(meteorite, year %in% seq(input$year_slider[1], input$year_slider[2]) & mass &gt;= input$mass_slider[1] & mass &lt;= input$mass_slider[2])\n  })\n  \n  # Selected plot\n  output$selected_plot &lt;- renderPlot({\n    plot_type &lt;- switch(input$plot_type,\n                        \"World Map\" = world_map(filtered_data()),\n                        \"Density Map\" = thermal_map(filtered_data()),\n                        \"Bubble Map\" = bubble_map(filtered_data()),\n                        \"Heatmap\" = heatmap(filtered_data()),\n                        \"Hexbin Map\" = hexbin_map(filtered_data()))\n    print(plot_type)\n  })\n  \n  # Helper functions for different plots\n  world_map &lt;- function(data) {\n    ggplot() +\n      geom_sf(data = ne_countries(scale = \"medium\", returnclass = \"sf\"), fill = \"lightgrey\") +\n      geom_point(data = data, aes(x = reclong, y = reclat), color = \"red\", size = 1, alpha = 0.5) +\n      labs(title = \"World Map : Meteorite Impacts\", x = NULL, y = NULL) +\n      theme_minimal()\n  }\n  \n  thermal_map &lt;- function(data) {\n    ggplot() +\n      geom_sf(data = ne_countries(scale = \"medium\", returnclass = \"sf\"), fill = \"lightgrey\") +\n      geom_density_2d(data = data, aes(x = reclong, y = reclat), color = \"red\") +\n      labs(title = \"Density Map : Meteorite Impacts Density\", x = NULL, y = NULL) +\n      theme_minimal()\n  }\n  \n  bubble_map &lt;- function(data) {\n    ggplot() +\n      geom_sf(data = ne_countries(scale = \"medium\", returnclass = \"sf\"), fill = \"lightgrey\") +\n      geom_point(data = data, aes(x = reclong, y = reclat, size = mass), color = \"blue\", alpha = 0.5) +\n      labs(title = \"Bubble Map : Meteorite Mass\", x = NULL, y = NULL)\n  }\n  \n  heatmap &lt;- function(data) {\n    ggplot() +\n      geom_sf(data = ne_countries(scale = \"medium\", returnclass = \"sf\"), fill = \"lightgrey\") +\n      geom_bin2d(data = data, aes(x = reclong, y = reclat, fill = ..count..), bins = 100) +\n      scale_fill_viridis_c() +\n      labs(title = \"Heatmap : Meteorite Impacts\", x = NULL, y = NULL)\n  }\n  \n  hexbin_map &lt;- function(data) {\n    hex_meteorite &lt;- hexbin(data$reclong, data$reclat, xbins = 30)\n    hex_df &lt;- data.frame(\n      x = hex_meteorite@xcm,\n      y = hex_meteorite@ycm,\n      count = hex_meteorite@count\n    )\n    world &lt;- map_data(\"world\")\n    ggplot() +\n      geom_polygon(data = world, aes(x = long, y = lat, group = group), fill = \"lightgrey\") +\n      geom_hex(data = hex_df, aes(x = x, y = y, fill = count), stat = \"identity\") +\n      scale_fill_viridis_c() +\n      geom_point(data = data, aes(x = reclong, y = reclat), color = \"red\", size = 2, alpha = 0.5) +\n      labs(title = \"Hexbin Map : Meteorite Impacts\", x = NULL, y = NULL) +\n      coord_fixed()\n  }\n}\n\n# Run the application \nshinyApp(ui = ui, server = server)\n\nShiny applications not supported in static R Markdown documents"
+  },
+  {
+    "objectID": "presentation.html#quarto",
+    "href": "presentation.html#quarto",
+    "title": "Project title",
+    "section": "",
+    "text": "The presentation is created using the Quarto CLI\n## sets the start of a new slide"
+  },
+  {
+    "objectID": "presentation.html#layouts",
+    "href": "presentation.html#layouts",
+    "title": "Project title",
+    "section": "",
+    "text": "You can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\n\nlike\nthis"
+  },
+  {
+    "objectID": "presentation.html#code",
+    "href": "presentation.html#code",
+    "title": "Project title",
+    "section": "",
+    "text": "# A tibble: 2 × 5\n  term        estimate std.error statistic       p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 (Intercept)   25.3      3.08        8.22 0.00000000358\n2 speed         -0.116    0.0642     -1.81 0.0806       \n\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;"
+  },
+  {
+    "objectID": "presentation.html#plots",
+    "href": "presentation.html#plots",
+    "title": "Project title",
+    "section": "",
+    "text": "Warning: Removed 2 rows containing missing values (`geom_point()`)."
+  },
+  {
+    "objectID": "presentation.html#plot-and-text",
+    "href": "presentation.html#plot-and-text",
+    "title": "Project title",
+    "section": "",
+    "text": "Some text\ngoes here"
+  },
+  {
+    "objectID": "presentation.html#footnotes",
+    "href": "presentation.html#footnotes",
+    "title": "Project title",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nAnd add footnotes↩︎"
+  },
+  {
+    "objectID": "proposal.html#overview",
+    "href": "proposal.html#overview",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
+    "section": "Overview",
+    "text": "Overview\nCreation of an interactive application for visualization of meteor landings and visualize the location of asteroid impact on Earth, based on NASA’s asteroid data set."
+  },
+  {
+    "objectID": "proposal.html#plan-of-attack-1",
+    "href": "proposal.html#plan-of-attack-1",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
+    "section": "Plan Of Attack",
+    "text": "Plan Of Attack\n\nWeek 1: (Data gathering and preparation)\n\nDeema & Shakir - Data gathering from the NASA website for meteorite and data validation of all relevant variables.\nAnsh & Rahul - Begin the initial data cleaning process.\nSwati - Create a shared repository or document to organize the collected data efficiently.\nEveryone - Document the sources and formats of the collected data sets.\n\nWeek 2: (Data Exploration and Visualization)\n\nEveryone - Analyse the cleaned data set to understand its structure.\nShakir, Ansh & Deema - Begin the process of designing the initial map visualizations of meteorites’ positions.\nSwati & Rahul - Experiment with basic visualization techniques and work on creating visual representations.\n\nWeek 3: (Interactive Features Development)\n\nShakir, Ansh & Deema - Work on data integration for the interactive features within the visualization.\nSwati & Rahul - Try and implement additional enhancement features for the interactive plot.\nEveryone - Perform initial rounds of testing to validate the data from user perspective.\nSwati & Ansh - Peer review code and ensure smooth operation.\nEveryone - Dynamically come up with ways (ideas) to make the user experience better.\n\nWeek 4: (Testing, Refinement, and Documentation)\n\nEveryone - Address any issues or bugs identified during testing.\nShakir, Swati & Ansh - Enhance the aesthetics and user experience of the map visualizations based on user feedback.\nRahul & Deema - Work on final testing and quality assurance to guarantee a bug-free release. Host the project as a GitHub page and ensure no render issues.\nEveryone - Write comprehensive guide and complete documentation for the project in GitHub.\nEveryone - Work on final project presentation."
+  },
+  {
+    "objectID": "proposal.html#organization",
+    "href": "proposal.html#organization",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
+    "section": "Organization",
+    "text": "Organization\nThe following are the folders involved in the Project repository.\n\n‘data/’: Used for storing any necessary data files for the project, such as input files.\n‘images/’: Used for storing image files used in the project.\n‘_extra/’: Used to experiment on analysis which won’t impact our project workflow.\n‘_freeze/’: This folder is used to store the generated files during the build process. These files represent the frozen state of the website at a specific point in time.\n‘.github/’: Folder for storing github templates and workflow."
+  },
+  {
+    "objectID": "proposal.html#conclusion",
+    "href": "proposal.html#conclusion",
+    "title": "Celestial Convergence: Echoes of Impact and Revelation",
+    "section": "Conclusion",
+    "text": "Conclusion\nThis interactive website will not only fulfill the requirements for our final project but also serve as a bridge between historical astronomical data and modern-day data visualization techniques. It will contribute to the greater public understanding of the trends in asteroid impact and the importance of data visualization in narrating the story of our sky.\n\n\n\n\n\n\nNote:\n\n\n\nThese are the planned approaches, and we intend to explore and solve the problem statement which we came up with. Parts of our approach maychange in the final project."
+  },
+  {
+    "objectID": "index.html#discussion",
+    "href": "index.html#discussion",
+    "title": "Visualising the Heavens",
+    "section": "Discussion",
+    "text": "Discussion\nThe Shiny app serves as an interactive platform, empowering users to explore and gain insights into the intricate details of meteorite landings across the globe. It facilitates a comprehensive understanding of the distribution, density, and diverse sizes of these celestial remnants. By providing adjustable parameters and varied visualizations, users can dynamically tailor their explorations. The interactive sliders allow for the specific selection of years or meteorite mass ranges, offering a refined focus for analysis.\nThrough its visual representations, the app unfolds an array of maps: the World Map, a canvas revealing the precise locations of meteorite landings globally; Density maps, outlining concentration patterns across regions with distinct contour insights; and Bubble maps, where bubble sizes correspond to meteorite masses, offering a visual spectrum for understanding the range of meteorite sizes. These maps serve distinct analytical purposes, enabling users to delve deeper into the fascinating realm of meteorite impacts and uncover nuanced patterns and trends present in these cosmic phenomena."
+  },
+  {
+    "objectID": "index.html#future-scope",
+    "href": "index.html#future-scope",
+    "title": "Visualising the Heavens",
+    "section": "Future Scope",
+    "text": "Future Scope\nEnhancing the app’s interactivity might involve directly integrating precise meteorite details into the user interface. Enabling a feature where users can access comprehensive information about individual meteorites by hovering over impact sites would grant access to crucial data like the meteorite’s name, formation year, and other relevant attributes. This improvement would elevate the exploration of meteorite impacts, providing a more engaging and informative experience that allows users to explore the specifics of each meteorite seamlessly through the app’s interface."
   }
 ]

@@ -21,7 +21,7 @@ website:
 
 format:
   html:
-    theme: default
+    theme: spacelab
     toc: true
 
 execute:

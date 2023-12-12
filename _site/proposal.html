@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Data Dynamos">
 
-<title>Project Title - Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson</title>
+<title>Data Dynamos - Celestial Convergence: Echoes of Impact and Revelation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,9 +18,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,43 +48,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -134,39 +105,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Project Title</span>
+    <span class="navbar-title">Data Dynamos</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">
+    <a class="nav-link" href="./index.html" rel="" target="">
  <span class="menu-text">Project</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./proposal.html" aria-current="page">
+    <a class="nav-link active" href="./proposal.html" rel="" target="" aria-current="page">
  <span class="menu-text">Proposal</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./presentation.html">
+    <a class="nav-link" href="./presentation.html" rel="" target="">
  <span class="menu-text">Presentation</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">
+    <a class="nav-link" href="./about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/INFO526-DataViz/project-01"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/INFO526-DataViz/project-Data-Dynamos" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -180,13 +153,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#did-you-know" id="toc-did-you-know" class="nav-link active" data-scroll-target="#did-you-know">Did You Know?</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#did-you-know" id="toc-did-you-know" class="nav-link" data-scroll-target="#did-you-know">Did You Know?</a></li>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#project-overview" id="toc-project-overview" class="nav-link" data-scroll-target="#project-overview">Project Overview</a></li>
   <li><a href="#data-utilization" id="toc-data-utilization" class="nav-link" data-scroll-target="#data-utilization">Data Utilization</a></li>
   <li><a href="#goal" id="toc-goal" class="nav-link" data-scroll-target="#goal">Goal</a></li>
-  <li><a href="#implementation-plan" id="toc-implementation-plan" class="nav-link" data-scroll-target="#implementation-plan">Implementation Plan</a></li>
-  <li><a href="#plan-of-attack" id="toc-plan-of-attack" class="nav-link" data-scroll-target="#plan-of-attack">Plan Of Attack</a></li>
+  <li><a href="#plan-of-attack" id="toc-plan-of-attack" class="nav-link" data-scroll-target="#plan-of-attack">Plan of attack:</a></li>
+  <li><a href="#plan-of-attack-1" id="toc-plan-of-attack-1" class="nav-link" data-scroll-target="#plan-of-attack-1">Plan Of Attack</a></li>
+  <li><a href="#organization" id="toc-organization" class="nav-link" data-scroll-target="#organization">Organization</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -195,8 +171,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Visualising the Heavens: An Interactive Spatio-Temporal Visualization of Asteroid Discoveries in Tucson</h1>
-<p class="subtitle lead">Proposal</p>
+<h1 class="title">Celestial Convergence: Echoes of Impact and Revelation</h1>
+<p class="subtitle lead">An Interactive Visualization of Meteorites</p>
 </div>
 
 
@@ -218,76 +194,179 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Installed Packages</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># GETTING THE LIBRARIES</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(pacman)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(dplyr,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>               dlookr,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>               tidyverse,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>               ggplot2,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>               here,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>               janitor</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<div class="cell">
-
-</div>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Creation of an interactive application for visualization of meteor landings and visualize the location of asteroid impact on Earth, based on NASA’s asteroid data set.</p>
+</section>
 <section id="did-you-know" class="level2">
 <h2 class="anchored" data-anchor-id="did-you-know">Did You Know?</h2>
-<p>Did you know that Tucson, Arizona, is a hotspot for asteroid discoveries, with its clear skies and advanced observatories playing a key role in identifying new celestial bodies?</p>
+<p>Did you know that Tucson, Arizona, stands as a pivotal hub for celestial revelations? Its pristine skies and cutting-edge observatories serve as crucial elements in discerning the trajectories and impact patterns of these cosmic entities.</p>
 </section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In the boundless expanse of the solar system, a hidden universe of rocky wanderers awaits for exploration. The secrets to solving the riddles surrounding the genesis and evolution of the solar system can be found within these space nomads, also known as asteroids, which are frequently written off as nothing more than stray pieces of a chaotic universe. In this project, we aim to create an interactive website to examine the asteroids from the discoveries made in Tucson Research Centre.</p>
-<p>For countless years, astrophysicists and enthusiasts have been enthralled with the fascinating universe of asteroids. These cosmic nomads captivate us with their enduring mystique; they are frequently perceived as leftovers of the birth of our solar system. This topic is brought to light by the enigmatic nature of asteroids and the mysteries they hold that have not yet been discovered. Motivated by the universe’s fascination and secrets, our research team discovered a shared passion for investigating the asteroidal realm. It will provide a unique opportunity to look into the unexplored regions of space and learn more about them.</p>
+<p>In the boundless expanse of the solar system, a hidden universe of rocky wanderers awaits for exploration. The secrets to solving the riddles surrounding the genesis and evolution of the solar system can be found within these space nomads, also known as meteorites, which are frequently written off as nothing more than stray pieces of a chaotic universe. In this project, we aim to create an interactive website to examine the meteorites impacts on Earth identified by Research centers.</p>
+<p>For countless years, astrophysicists and enthusiasts have been enthralled with the fascinating universe of meteorites. These cosmic nomads captivate us with their enduring mystique; they are frequently perceived as leftovers of the birth of our solar system. This topic is brought to light by the enigmatic nature of meteorites and the mysteries they hold that have not yet been discovered. Motivated by the universe’s fascination and secrets, our research team discovered a shared passion for investigating the meteorites impact. It will provide a unique opportunity to look into the frequencies of these impacts and learn more about them.</p>
 </section>
 <section id="project-overview" class="level2">
 <h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
-<p>The website will serve as an educational and exploratory tool for both astronomy enthusiasts and the general public. It will feature interactive visualizations that allow users to explore various aspects of the asteroids discovered in Tucson, including their names, designations, discovery dates, locations, and the names of discoverers.&nbsp;</p>
+<p>The website will serve as an educational and exploratory tool for both astronomy enthusiasts and the general public. It will feature interactive visualizations that allow users to explore various aspects of the impacted meteorites.</p>
 </section>
 <section id="data-utilization" class="level2">
 <h2 class="anchored" data-anchor-id="data-utilization">Data Utilization</h2>
-<p>The NASA Data Portal is the source of the Asteroid Dataset for the Project. The dataset offers information about the asteroids, including their names, designation, discovery date, discovery location and the names of the individuals or institutions responsible for the discoveries. The dataset retains its original presentation, without alterations to account for the loss of diacritical marks due to limitations in the ASCII character set. This version of dataset includes 9999 entries and contains the information for all asteroids numbered as of 2nd February 1999 batch of Minor planet Circulars. These informations were either supplied by the Minor Planet Center or taken from the Minor Planet Circular, which the organization distributed on behalf of Commission 20 of the International Astronomical Union.</p>
-<p>We Will be Utilizing these entries</p>
-<p>• <strong>Catalog Number</strong>: The unique identifier for each asteroid, allowing us to track and reference them systematically.</p>
-<p>• <strong>Name</strong>: The official name of the asteroid, which can offer insights into cultural and historical contexts of the discovery.</p>
-<p>• <strong>Principal Provisional Designation</strong>: The initial temporary label given to the asteroid, crucial for cross-referencing with historical records and scientific literature.</p>
-<p>• <strong>Discovery Date</strong>: The date each asteroid was discovered, which will be used to create the temporal component of our visualizations.</p>
-<p>• <strong>Discovery Location</strong>: The geographic location where the asteroid was first observed, a key element in mapping the discoveries.</p>
-<p>• <strong>Discoverer(s) Name</strong>: Information about who discovered the asteroid, highlighting the human element in the field of astronomy.</p>
+<p>The NASA data portal is the source of the Meteorite Landings data set for the project. Collected by Javier de la Torre, this dataset is accessible in Fusion Table and XLS formats, documenting 34,513 meteorites and encompassing essential fields crucial for analysis and exploration purposes. The dataset provides information about meteorites, featuring details such as their names, IDs, name types, recclass, masses (in grams), fall occurrences, discovery years, reclat (latitude of the landing site), relong (longitude of the landing site), and precise geolocations.</p>
+<p>Data Link: <a href="https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh" class="uri">https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh</a></p>
+<div class="cell">
+<details>
+<summary>Backup data file</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading the data using read_csv</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>meteorite <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Meteorite_Landings.csv"</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(meteorite)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 10
+  name        id nametype recclass    `mass (g)` fall   year reclat reclong
+  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+1 Aachen       1 Valid    L5                  21 Fell   1880   50.8    6.08
+2 Aarhus       2 Valid    H6                 720 Fell   1951   56.2   10.2 
+3 Abee         6 Valid    EH4             107000 Fell   1952   54.2 -113   
+4 Acapulco    10 Valid    Acapulcoite       1914 Fell   1976   16.9  -99.9 
+5 Achiras    370 Valid    L6                 780 Fell   1902  -33.2  -65.0 
+6 Adhi Kot   379 Valid    EH4               4239 Fell   1919   32.1   71.8 
+# ℹ 1 more variable: GeoLocation &lt;chr&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Extracting relevant information from dataset</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Extracting relevant columns from data</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>meteorite <span class="ot">&lt;-</span> <span class="fu">subset</span>(meteorite, <span class="at">select =</span> <span class="sc">-</span><span class="fu">c</span>(nametype, fall))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">diagnose</span>(meteorite)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 6
+  variables   types     missing_count missing_percent unique_count unique_rate
+  &lt;chr&gt;       &lt;chr&gt;             &lt;int&gt;           &lt;dbl&gt;        &lt;int&gt;       &lt;dbl&gt;
+1 name        character             0           0            45716     1      
+2 id          numeric               0           0            45716     1      
+3 recclass    character             0           0              455     0.00995
+4 mass (g)    numeric             131           0.287        12577     0.275  
+5 year        numeric             291           0.637          266     0.00582
+6 reclat      numeric            7315          16.0          12739     0.279  
+7 reclong     numeric            7315          16.0          14641     0.320  
+8 GeoLocation character          7315          16.0          17101     0.374  </code></pre>
+</div>
+</div>
+<p>From the above, we are going to use the `name`, `id`, `mass` to calculate the diameter of crater, `year` to create an interactive map visualization, `geolocation` to plot the location of the impact on a map plot.</p>
 </section>
 <section id="goal" class="level2">
 <h2 class="anchored" data-anchor-id="goal">Goal</h2>
-<p>This project aims to create an interactive website, focusing on the visualization of data from asteroid discoveries made in Tucson, as detailed in the dataset "Asteroid Names and Discovery V4.0" (DATA_SET_ID: EAR-A-5-DDR-ASTNAMES-DISCOVERY-V4.0).</p>
-<p>Various Components of dashboard includes:</p>
+<p>This project aims to create an interactive website, focusing on the visualization of data from asteroid impact discoveries, as detailed in the data set “Meteorite Landings” (DATA_SET_ID: Meteorite Landings) in NASA.</p>
+<p><strong>Proposed Features:</strong></p>
 <section id="timeline-visualization" class="level4">
 <h4 class="anchored" data-anchor-id="timeline-visualization">1. Timeline Visualization:</h4>
-<p>An interactive timeline will showcase the dates of asteroid discoveries. Users can slide through time to see the pace of discovery and significant milestones.</p>
+<p>An interactive timeline will showcase the dates of Meteorite discoveries. Users can slide through time to see the varying trends in meteorite impacts over the years.</p>
 </section>
 <section id="map-integration" class="level4">
-<h4 class="anchored" data-anchor-id="map-integration">2. Map Integration:</h4>
-<p>Utilizing the discovery location data, we will provide a map visualization where users can zoom in on Tucson and surrounding discovery sites, providing a spatial context to the data.</p>
+<h4 class="anchored" data-anchor-id="map-integration">2. Map integration:</h4>
+<p>Utilizing the geo-location data, we will provide a map visualization where users can zoom in to the sites, providing a spatial context to the data.</p>
 </section>
-<section id="discovery-details" class="level4">
-<h4 class="anchored" data-anchor-id="discovery-details">3. Discovery Details:</h4>
-<p>By selecting individual asteroids, users will be able to view detailed information such as the asteroid's catalog number, provisional designation, and the name(s) of the discoverer(s).</p>
+<section id="asteroid-details" class="level4">
+<h4 class="anchored" data-anchor-id="asteroid-details">3. Asteroid Details:</h4>
+<p>By selecting individual meteorite, users will be able to view detailed information including the position, names, crater diameter and class of the asteroid.</p>
+<p><strong>4. R Shiny app development:</strong></p>
+<p>Integrating and rendering of these asteroid impact for a more user friendly design and visualization. This will be useful for easy comprehension and accessibility to the general public.</p>
 </section>
 <section id="educational-information" class="level4">
-<h4 class="anchored" data-anchor-id="educational-information">4. Educational Information:</h4>
-<p>The website will also include educational resources about asteroids, their significance in our solar system, and the history of asteroid discovery in Tucson.</p>
-</section>
-</section>
-<section id="implementation-plan" class="level2">
-<h2 class="anchored" data-anchor-id="implementation-plan">Implementation Plan</h2>
-<section id="technical-considerations" class="level4">
-<h4 class="anchored" data-anchor-id="technical-considerations">Technical Considerations:</h4>
-<p>The website will be developed using HTML, CSS, and JavaScript. The D3.js library will be instrumental for creating the data-driven visualizations. We will ensure the site is responsive and accessible across various devices and browsers.&nbsp;</p>
-</section>
-<section id="challenges-and-limitations" class="level4">
-<h4 class="anchored" data-anchor-id="challenges-and-limitations">Challenges and Limitations</h4>
-<p>A key challenge is the availability of the dataset since it has been removed from Nasa's website. Also, the presentation of the inconsistencies in the dataset, such as varying name presentations and location specifics will be challenging. We will need to decide whether to standardize these entries for consistency or to present them as they are, maintaining the dataset’s authenticity. Finally, the limitation of data stopping at 1999 requires a clear communication to the users that more recent discoveries will not be included.</p>
-</section>
-<section id="conclusion" class="level4">
-<h4 class="anchored" data-anchor-id="conclusion">Conclusion</h4>
-<p>This interactive website will not only fulfill the requirements for our final project but also serve as a bridge between historical astronomical data and modern-day data visualization techniques. It will contribute to the greater public understanding of Tucson’s role in asteroid discovery and the importance of data visualization in narrating the story of our skies.</p>
+<h4 class="anchored" data-anchor-id="educational-information">5. Educational Information:</h4>
+<p>The website will also include educational resources about meteorite, their significance in our solar system, and the history of asteroid discovery in Tucson.</p>
 </section>
 </section>
 <section id="plan-of-attack" class="level2">
-<h2 class="anchored" data-anchor-id="plan-of-attack">Plan Of Attack</h2>
+<h2 class="anchored" data-anchor-id="plan-of-attack">Plan of attack:</h2>
+<p>We want to visualize how the meteorite impact has changed over the years. To represent the available data best, we will be creating a geom map of the world that displays the impacts of various meteorite across the world. The comparison of the plot will be done through for each year from year 860 to year 2101 (in the future). We are planning to clean it further to only get certain parts that are required using `dplyr`. Additionally, data cleaning and preparation will be performed in order to account or omit the missing data.</p>
+<p><strong>1.</strong> <strong>Data Load:</strong> The <code>shiny</code> package enables the creation of interactive web applications, with <code>leaflet</code> being a powerful tool for handling spatial data visualizations. <code>sf</code> is used for working with spatial data objects, and <code>shinythemes</code> provides a range of Bootstrap themes for customization.</p>
+<p><strong>2. Creating Shiny UI:</strong> We will define the user interface (UI) of the Shiny app. In this step, we will choose a Bootstrap theme using <code>shinythemes</code> to enhance the overall visual appeal. We will add a title panel and navbar for easy navigation between different sections of your app. Inclusion of custom styling will be performed, such as changing the navbar color, can be achieved using additional HTML and CSS.</p>
+<p><strong>3. Create Shiny app server:</strong> Develop the server logic for your Shiny app. In this approach, we will use the <code>leaflet</code> package to create an interactive map displaying asteroid impact data. The <code>renderleaflet</code> function generates the leaflet map dynamically based on the input data. Additional server logic will be added to handle interactions and updates as users interact with the app.</p>
+<p><strong>4. Adding branding and responsive design:</strong> Enhance the app’s aesthetics by incorporating branding elements. Adjust the navbar styling to ensure consistent color schemes and improve overall branding. Additionally, we will ensure that the app has a responsive design, making it accessible and visually appealing across various devices and screen sizes. This can be achieved through Bootstrap’s inherent responsiveness and further customizations.</p>
+<p><strong>5. Running Shiny app:</strong> Saving of shiny app code in a script file (e.g., “app.R”) and run it using the <code>runApp("app.r")</code> command. This will launch a local web server and open the app in your default web browser.</p>
+</section>
+<section id="plan-of-attack-1" class="level2">
+<h2 class="anchored" data-anchor-id="plan-of-attack-1">Plan Of Attack</h2>
 <ul>
-<li>A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).</li>
+<li><p><strong>Week 1: (Data gathering and preparation)</strong></p>
+<ul>
+<li>Deema &amp; Shakir - Data gathering from the NASA website for meteorite and data validation of all relevant variables.</li>
+<li>Ansh &amp; Rahul - Begin the initial data cleaning process.</li>
+<li>Swati - Create a shared repository or document to organize the collected data efficiently.</li>
+<li>Everyone - Document the sources and formats of the collected data sets.</li>
+</ul></li>
+<li><p><strong>Week 2: (Data Exploration and Visualization)</strong></p>
+<ul>
+<li>Everyone - Analyse the cleaned data set to understand its structure.</li>
+<li>Shakir, Ansh &amp; Deema - Begin the process of designing the initial map visualizations of meteorites’ positions.</li>
+<li>Swati &amp; Rahul - Experiment with basic visualization techniques and work on creating visual representations.</li>
+</ul></li>
+<li><p><strong>Week 3: (Interactive Features Development)</strong></p>
+<ul>
+<li>Shakir, Ansh &amp; Deema - Work on data integration for the interactive features within the visualization.</li>
+<li>Swati &amp; Rahul - Try and implement additional enhancement features for the interactive plot.</li>
+<li>Everyone - Perform initial rounds of testing to validate the data from user perspective.</li>
+<li>Swati &amp; Ansh - Peer review code and ensure smooth operation.</li>
+<li>Everyone - Dynamically come up with ways (ideas) to make the user experience better.</li>
+</ul></li>
+<li><p><strong>Week 4: (Testing, Refinement, and Documentation)</strong></p>
+<ul>
+<li>Everyone - Address any issues or bugs identified during testing.</li>
+<li>Shakir, Swati &amp; Ansh - Enhance the aesthetics and user experience of the map visualizations based on user feedback.</li>
+<li>Rahul &amp; Deema - Work on final testing and quality assurance to guarantee a bug-free release. Host the project as a GitHub page and ensure no render issues.</li>
+<li>Everyone - Write comprehensive guide and complete documentation for the project in GitHub.</li>
+<li>Everyone - Work on final project presentation.</li>
+</ul></li>
 </ul>
+</section>
+<section id="organization" class="level2">
+<h2 class="anchored" data-anchor-id="organization">Organization</h2>
+<p>The following are the folders involved in the Project repository.</p>
+<ul>
+<li><p><strong>‘data/’:</strong> Used for storing any necessary data files for the project, such as input files.</p></li>
+<li><p><strong>‘images/’:</strong> Used for storing image files used in the project.</p></li>
+<li><p><strong>‘_extra/’:</strong> Used to experiment on analysis which won’t impact our project workflow.</p></li>
+<li><p><strong>‘_freeze/’:</strong> This folder is used to store the generated files during the build process. These files represent the frozen state of the website at a specific point in time.</p></li>
+<li><p><strong>‘.github/’:</strong> Folder for storing github templates and workflow.</p></li>
+</ul>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This interactive website will not only fulfill the requirements for our final project but also serve as a bridge between historical astronomical data and modern-day data visualization techniques. It will contribute to the greater public understanding of the trends in asteroid impact and the importance of data visualization in narrating the story of our sky.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These are the planned approaches, and we intend to explore and solve the problem statement which we came up with. Parts of our approach maychange in the final project.</p>
+</div>
+</div>
 
 
 </section>
@@ -320,9 +399,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -387,6 +480,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
