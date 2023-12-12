@@ -172,7 +172,7 @@
     "href": "presentation.html#point-plots",
     "title": "Visualizing Space",
     "section": "Point plots:",
-    "text": "Point plots:\nHigh Impact Density: Europe and North America show a high density of meteorite impacts. Moderate Impact Density: Parts of Asia and Africa display a moderate concentration of impacts. Lower Impact Density: South America and Australia have fewer impacts compared to Europe and North America. Minimal Impact Reporting: Antarctica has the least number of recorded impacts, potentially due to underreporting."
+    "text": "Point plots:\n\nHigh Impact Density: Europe and North America show a high density of meteorite impacts.\nModerate Impact Density: Parts of Asia and Africa display a moderate concentration of impacts.\nLower Impact Density: South America and Australia have fewer impacts compared to Europe and North America.\nMinimal Impact Reporting: Antarctica has the least number of recorded impacts, potentially due to underreporting."
   },
   {
     "objectID": "presentation.html#density-plot",
@@ -186,7 +186,7 @@
     "href": "presentation.html#density-plot-1",
     "title": "Visualizing Space",
     "section": "Density plot:",
-    "text": "Density plot:\nConcentrated Zones: The map highlights areas with a significant concentration of meteorite impacts through thermal rings. Major Impact Regions: Regions with the densest meteorite activity include parts of North America, Europe, and Asia. Secondary Impact Zones: Lesser concentrations are visible in South America, Africa, and Australia. Oceans and Antarctica: The map shows minimal impact activity in the oceans and Antarctica. Data Interpretation: The thermal rings suggest areas where meteorites are most commonly found or reported. Reporting Bias: The concentration of impacts may be influenced by the ease of meteorite discovery and reporting mechanisms in different regions."
+    "text": "Density plot:\n\nConcentrated Zones: The map highlights areas with a significant concentration of meteorite impacts through thermal rings.\nMajor Impact Regions: Regions with the densest meteorite activity include parts of North America, Europe, and Asia.\nSecondary Impact Zones: Lesser concentrations are visible in South America, Africa, and Australia. Oceans and Antarctica: The map shows minimal impact activity in the oceans and Antarctica. Data\nInterpretation: The thermal rings suggest areas where meteorites are most commonly found or reported. Reporting Bias: The concentration of impacts may be influenced by the ease of meteorite discovery and reporting mechanisms in different regions."
   },
   {
     "objectID": "presentation.html#bubble-plot",
@@ -200,7 +200,7 @@
     "href": "presentation.html#bubble-plot-1",
     "title": "Visualizing Space",
     "section": "Bubble plot:",
-    "text": "Bubble plot:\nVariation in Mass: The map shows a variation in meteorite mass with some regions exhibiting larger meteorites than others. Larger Meteorites: Regions with notably larger meteorites, as indicated by bigger bubbles, include parts of North America, Europe, and Asia. Smaller Meteorites: Smaller meteorites, represented by smaller bubbles, are widely scattered across all continents. Mass Concentration: There is a concentration of larger meteorite masses in the northern hemisphere. Oceanic Impacts: Fewer large meteorites are noted in the oceans, likely due to the difficulty in discovering them."
+    "text": "Bubble plot:\n\nVariation in Mass: The map shows a variation in meteorite mass with some regions exhibiting larger meteorites than others.\nLarger Meteorites: Regions with notably larger meteorites, as indicated by bigger bubbles, include parts of North America, Europe, and Asia. Smaller Meteorites:\nSmaller meteorites, represented by smaller bubbles, are widely scattered across all continents.\nMass Concentration: There is a concentration of larger meteorite masses in the northern hemisphere.\nOceanic Impacts: Fewer large meteorites are noted in the oceans, likely due to the difficulty in discovering them."
   },
   {
     "objectID": "presentation.html#designing-the-shiny-app",
@@ -228,7 +228,7 @@
     "href": "presentation.html#future-enhancements",
     "title": "Visualizing Space",
     "section": "Future Enhancements:",
-    "text": "Future Enhancements:\nIntroducing a feature that allows users to access in-depth meteorite details simply by hovering over impact sites on the map. This enhancement will provide immediate access to essential specifics such as meteorite names, formation years, and other crucial attributes, facilitating deeper insights into each meteorite."
+    "text": "Future Enhancements:\n\nIntroducing a feature that allows users to access in-depth meteorite details simply by hovering over impact sites on the map.\nThis enhancement will provide immediate access to essential specifics such as meteorite names, formation years, and other crucial attributes, facilitating deeper insights into each meteorite."
   },
   {
     "objectID": "presentation.html#challenges",
