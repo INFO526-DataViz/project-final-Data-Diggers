@@ -16,8 +16,6 @@ website:
         href: presentation.qmd
       - text: About
         href: about.qmd
-    logo: images\logo_meter.jpg
-  favicon: images\logo_meter.jpg
 
 format:
   html:
