@@ -3,23 +3,19 @@ title: "Visualizing Space"
 subtitle: "An Interactive Spatio-Temporal Visualization of Meteorites Discoveries"
 author: "Data Dynamos - Deema, Rahul, Swati, Ansh & Shakir"
 
-
 title-slide-attributes:
   data-background-image: images/slide_background.jpg
   data-background-size: stretch
   data-background-opacity: "0.7"
   data-slide-number: none
+
 format:
   revealjs: 
-    theme: moon
+    theme:  ['data/customtheming.scss']
     transition: slide
     background-transition: fade
     footer: "[⚙ Data Dynamos](https://info526-dataviz.github.io/project-final-Data-Dynamos/)"
     scrollable: true
-    style: |
-      body {
-        font-size: 12px; /* Set your desired font size here */
-      }
     
 editor: visual
 execute:
@@ -74,8 +70,6 @@ knitr::opts_chunk$set(
 )
 
 ```
-
-## R Shiny App Code
 
 ```{r shiny_app_render_pres, warning=FALSE, message=FALSE}
 
@@ -215,26 +209,82 @@ shinyApp(ui, server)
 
 ```
 
-# Introduction
+## Introduction: {.smaller}
 
-## Introduction
+-   Meteorites are like celestial time capsules, encapsulate the enigmatic history of our solar system.
+-   Our initiative introduces an interactive platform sourced from NASA's Meteorite Landings, aiming to unveil the enthralling saga of these cosmic wonders.
 
--   Significance of meteorites in understanding our solar system.
+## Goal and problem statement: {.smaller}
 
-## Project Objective
+-   Our Shiny app features three key visualizations---world map, density map, and bubble map---showcasing meteorite landings across regions, offering insights into their distribution, density, and mass significance.
 
-The aim is to create an interactive visualization of meteorite discoveries
+-   The question we will be answering is- "What are the noticeable trends in meteor impact on Earth?"
 
-# Data Overview
+## Execution of plan: {.smaller}
 
-## Data Overview
+-   Plotting of individual impact of meteor with various parameters like- mass and year.
+
+-   Integration into an R Shiny application.
+
+-   Revision and building on responsiveness of plot.
+
+## Data Overview: {.smaller}
 
 -   Data source: NASA's Meteorite Landings dataset.
--   Data Scope : Name, Recclass, Mass (g), Fall, Year...
+-   Data Scope : Name, Recclass, Mass (g), Fall, Year
 
-# Designing the Shiny App
+```{r slide4, warning=FALSE, message=FALSE}
+#| code-fold: true
+#| code-summary: "Data Read"
 
-## Designing the Shiny App
+meteorite = read_csv("https://raw.githubusercontent.com/INFO526-DataViz/project-final-Data-Dynamos/main/data/Meteorite_Landings.csv")
+
+diagnose(meteorite)
+```
+
+## Data pre-processing: {.smaller}
+
+For our pre-processing, we have done the following:
+
+-   Dropped all the missing values to a get a new row value of 37,417.
+
+-   Filtered for mass greater than 1, as there were lot of values close to 0.
+
+-   Renamed and cleaned names of columns.
+
+# Plots
+
+## Point plot: {.smaller}
+
+1). Which continents appear to have the highest density of meteorite impacts based on the data visualized in the provided plot?
+
+![](images/point.JPG)
+
+## Point plots: {.smaler}
+
+High Impact Density: Europe and North America show a high density of meteorite impacts. Moderate Impact Density: Parts of Asia and Africa display a moderate concentration of impacts. Lower Impact Density: South America and Australia have fewer impacts compared to Europe and North America. Minimal Impact Reporting: Antarctica has the least number of recorded impacts, potentially due to underreporting.
+
+## Density plot: {.smaller}
+
+2). What does the thermal map suggest about the geographical distribution of meteorite impacts across the world?
+
+![](images/density.JPG)
+
+## Density plot: {.smaller}
+
+Concentrated Zones: The map highlights areas with a significant concentration of meteorite impacts through thermal rings. Major Impact Regions: Regions with the densest meteorite activity include parts of North America, Europe, and Asia. Secondary Impact Zones: Lesser concentrations are visible in South America, Africa, and Australia. Oceans and Antarctica: The map shows minimal impact activity in the oceans and Antarctica. Data Interpretation: The thermal rings suggest areas where meteorites are most commonly found or reported. Reporting Bias: The concentration of impacts may be influenced by the ease of meteorite discovery and reporting mechanisms in different regions.
+
+## Bubble plot: {.smaller}
+
+3). How does the mass of meteorites vary across different regions of the world?
+
+![](images/bubble.JPG)
+
+## Bubble plot: {.smaller}
+
+Variation in Mass: The map shows a variation in meteorite mass with some regions exhibiting larger meteorites than others. Larger Meteorites: Regions with notably larger meteorites, as indicated by bigger bubbles, include parts of North America, Europe, and Asia. Smaller Meteorites: Smaller meteorites, represented by smaller bubbles, are widely scattered across all continents. Mass Concentration: There is a concentration of larger meteorite masses in the northern hemisphere. Oceanic Impacts: Fewer large meteorites are noted in the oceans, likely due to the difficulty in discovering them.
+
+## Designing the Shiny App: {.smaller}
 
 User Interactivity Features:
 
@@ -244,26 +294,33 @@ User Interactivity Features:
 
 3.  Size and Classification Analysis
 
-## Temporal Analysis
+## R Shiny application: {.smaller}
 
--   Analysis of meteorite falls over time (code hidden).
+Link: <https://rahulbangad.shinyapps.io/app1/>
 
-## Spatial Distribution
+## Impact and Applications: {.smaller}
 
--   Visualization of spatial distribution of meteorites (code hidden).
+-   This visualization serves as an engaging educational tool, aiding astronomy enthusiasts, students, and researchers in understanding meteorite impacts' global distribution, sizes, and densities.
+-   Researchers can leverage this visualization to conduct in-depth studies on meteorite falls over time, identifying trends, hotspots, and variations in impact frequencies across different periods and regions.
 
-## Size and Classification Analysis
+## Future Enhancements: {.smaller}
 
--   Analysis based on size and classification of meteorites (code hidden).
+Introducing a feature that allows users to access in-depth meteorite details simply by hovering over impact sites on the map. This enhancement will provide immediate access to essential specifics such as meteorite names, formation years, and other crucial attributes, facilitating deeper insights into each meteorite.
 
-# Challenges and Solutions
+## Challenges: {.smaller}
 
-# Impact and Applications
+-   Data Limitations: Addressing the challenge of underrepresented areas due to lack of reporting or discovery, especially in remote regions.
 
--   This visualization can be used for educational and research purposes.
+-   Technological Barriers: Overcoming technical limitations in handling and processing large datasets with high accuracy.
 
-# Future Enhancements
+-   Public Engagement: Ensuring the Shiny app remains user-friendly and engaging for a diverse audience, encouraging public interaction and education.
 
-# Conclusion and Q&A.
+## Conclusion and Q&A. {.smaller}
 
-#Thank you!
+-   Global Distribution: The data and visualizations reveal a global distribution of meteorite impacts, with varying densities and masses.
+
+-   Density Concentration: Impact density is higher in populated regions, suggesting better reporting or more extensive discoveries due to human activity.
+
+-   Mass Observations: Larger meteorite masses are found sporadically, with notable occurrences in the Northern Hemisphere, particularly North America, Europe, and Asia. Visualization Effectiveness:
+
+    The Shiny app effectively visualizes complex data, allowing for interactive exploration of meteorite impacts by year and mass.
