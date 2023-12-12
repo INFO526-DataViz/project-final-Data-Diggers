@@ -16,13 +16,16 @@ Astronomy enthusiasts and the wider public alike will find our website to be an 
 
 Meteorites act as cosmic time capsules, preserving the mysteries of our solar system's formation. These celestial travelers have voyaged through space, bearing witness to ancient cosmic events, their rocky surfaces preserving stories of our cosmic past. Scattered across the universe, these wanderers hold untold narratives that illuminate the genesis of our solar system. Our latest venture introduces an interactive online platform, drawn from Javier de la Torre's dataset [Meteorite Landings](https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh/about_data) which is taken from NASA's website, dedicated to unveiling the captivating world of these celestial marvels. Our objective is to present an interactive visualization spotlighting the annual distribution of meteorite falls across diverse global regions.
 
-Our dataset encompasses 34,513 meteorites, offering essential insights including `name` for meteorite identification, `recclass` denoting its classification, `mass (g)` providing mass specifics, `fall` characterizing the status of descent, `year` signifying the landing date, and `reclat` and `reclong` pinpointing latitude and longitude and precise `geolocation`. Using this data, our main goal is to build an interactive exhibit showing the yearly trends of meteorite falls globally. This aims to vividly depict how these celestial travelers have significantly impacted Earth's history. It also enables a comprehensive comprehension of how these celestial remains are dispersed, their concentration, and their diverse sizes. 
+Our dataset encompasses 34,513 meteorites, offering essential insights including `name` for meteorite identification, `recclass` denoting its classification, `mass (g)` providing mass specifics, `fall` characterizing the status of descent, `year` signifying the landing date, and `reclat` and `reclong` pinpointing latitude and longitude and precise `geolocation`. Using this data, our main goal is to build an interactive exhibit showing the yearly trends of meteorite falls globally. This aims to vividly depict how these celestial travelers have significantly impacted Earth's history. It also enables a comprehensive comprehension of how these celestial remains are dispersed, their concentration, and their diverse sizes.
 
 ## Approach
 
 In our Shiny app, we've integrated three primary visualizations: a world map, a density map, and a bubble map, each depicting the meteorite landings across various regions over time. These visual representations offer distinct insights into the geographical distribution, concentration density, and mass significance of meteorite impacts. We initiated data exploration to extract relevant information and identify interesting details. The overall plan involves initially preparing and processing the data, followed by creating comprehensive visualizations. These visualizations are then seamlessly integrated into the Shiny app, providing an interactive user experience.
 
 ```{r setup, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results='hide'}
+#| code-fold: true
+#| code-summary: "Installed Packages"
+
 
 # GETTING THE LIBRARIES
 if (!require("pacman"))
@@ -40,10 +43,12 @@ pacman::p_load(tidyverse,
                leaflet,
                ggplot2,
                rnaturalearth,
+               rworldmap,
                dlookr,
                IRdisplay,
                ggmap,
-               shiny
+               shiny,
+               shinydashboard
 )
 
 theme_set(theme_minimal(base_size = 11))
@@ -66,26 +71,30 @@ knitr::opts_chunk$set(
 ```
 
 ```{r read, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results='hide'}
+#| code-fold: true
+#| code-summary: "Data Read"
 
 meteorite = read_csv("https://raw.githubusercontent.com/INFO526-DataViz/project-final-Data-Dynamos/main/data/Meteorite_Landings.csv")
 
-meteorite
+diagnose(meteorite)
 ```
 
 In our approach for preparing and processing the data, we first ensured the necessary libraries were loaded using the `pacman` package in R. After importing the data, we began the pre-processing phase. This involved renaming certain columns and eliminating irrelevant columns like 'nametype' and `fall`. Furthermore, we introduced a new column, `decade`, to categorize meteorite landings based on their respective years. This meticulous process aimed to refine the dataset, setting the groundwork for subsequent analysis and visualization steps.
 
 ```{r process, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results='hide'}
+#| code-fold: true
+#| code-summary: "Data Pre-Processing"
 
 # Rename columns using dplyr::rename
 meteorite <- na.omit(meteorite) |>
  clean_names() |>
  rename(mass = mass_g, class= recclass)
 
+#Selecting columns where mass >1 gram
 meteorite <- subset(meteorite, mass >= 1)
 
 # Drop unnecessary columns
 meteorite <- meteorite[, !(names(meteorite) %in% c("nametype", "fall"))]
-
 
 # Create the 'decade' column
 meteorite <- meteorite %>%
@@ -97,7 +106,7 @@ meteorite <- meteorite %>%
     between(year, 1981, 1990) ~ "Decade 1981-1990",
     between(year, 1991, 2000) ~ "Decade 1991-2000",
     between(year, 2001, 2010) ~ "Decade 2001-2010",
-    between(year, 2011, 2020) ~ "Decade 2011-2020",  # Replace 'n' with the appropriate value for the last decade
+    between(year, 2011, 2020) ~ "Decade 2011-2020",
     TRUE ~ "NA"  # Default case if none of the conditions are met
   ))
 
@@ -106,6 +115,10 @@ meteorite <- meteorite %>%
 The `sf` package is employed to showcase the locations of meteorite landings on a global map. It begins by tabulating meteorites on an annual basis. Subsequently, the `ne_countries()` function from the `rnaturalearth` package is employed to construct a world map, specifying the desired scale `normal` and return class. The `geom_sf()` function is then applied to layer this map, visually depicting meteorite impacts with longitude and latitude coordinates.
 
 ```{r plot1, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+#| code-fold: true
+#| code-summary: "Installed Packages"
+
+#####Point plot of meteor#####
 
 # Count meteorites per year
 meteor_count <- table(meteorite$Year)
@@ -117,10 +130,14 @@ world <- ne_countries(scale = "medium", returnclass = "sf")
 p1 <- ggplot() +
   geom_sf(data = world, fill = "lightgrey") +
   geom_point(data = meteorite, aes(x = reclong, y = reclat), color = "red", size = 1, alpha = 0.5) +
-  labs(title = "World Map: Meteorite Impacts",
-       x= "Longiude",
-       y= "Latitude") +
-  theme_minimal()
+  labs(title = "World Map: Meteorite Impacts\n",
+       x = "Longitude",
+       y = "Latitude") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 20),
+    axis.text = element_text(size = 14)
+  )
 
 # Set custom plot size for R Studio display
 knitr::opts_chunk$set(fig.width = 12, fig.height = 8)
@@ -134,7 +151,7 @@ Subsequently, we created a thermal density map illustrating the concentration of
 
 ```{r plot2, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
-## THERMAL DENSITY MAP## 
+#####THERMAL DENSITY MAP##### 
 
 # Count meteorites per year
 meteor_count <- table(meteorite$year)
@@ -149,7 +166,11 @@ p2 <- ggplot() +
   labs(title = "Thermal Map: Meteorite Impacts Density",
        x="Longitude",
        y="Latitude") +
-  theme_minimal()
+  theme_minimal()+
+  theme(
+    plot.title = element_text(size = 20),
+    axis.text = element_text(size = 14)
+  )
 
 # Display the plot
 print(p2)
@@ -161,33 +182,27 @@ Next, we have constructed a bubble map showcasing meteorite mass distribution ac
 
 #####BUBBLE PLOT#####
 
-library(ggplot2)
-
+#Point plot with variable size to show the variable size of the meteor based on mass of mteor
 ggplot() +
   geom_sf(data = world, fill = "lightgrey") +
-  geom_point(data = meteorite, aes(x = reclong, y = reclat, size = mass), color = "blue", alpha= 0.5) +
-  labs(title = "Bubble Map of Meteorite Mass")
+  geom_point(data = meteorite, aes(x = reclong, y = reclat, size = mass), color = "blue", alpha = 0.5) +
+  labs(title = "Bubble Map of Meteorite Mass",
+       x="Longitude",
+       y="Latitude") +
+  theme_minimal()+
+  theme(
+    plot.title = element_text(size = 20),
+    axis.text = element_text(size = 14)
+  )+
+  scale_size_continuous(labels = function(x) 
+                                 scales::number_format(scale = 1e-6,
+                                 suffix = "M (g)")(x) |>
+  str_replace_all("\\.", ","))
 ```
 
 ```{r plot4, warning=FALSE, message=FALSE}
 
-######HEAT MAP######
-
-library(ggplot2)
-
-ggplot() +
-  geom_sf(data = world, fill = "lightgrey") +
-  geom_bin2d(data = meteorite, aes(x = reclong, y = reclat, fill = ..count..), bins = 100) +
-  scale_fill_viridis_c() +
-  labs(title = "Heatmap of Meteorite Impacts")
-```
-
-```{r plot5, warning=FALSE, message=FALSE}
-
 ######HEXBIN PLOT#####
-
-library(ggplot2)
-library(hexbin)
 
 hex_meteorite <- hexbin(meteorite$reclong, meteorite$reclat, xbins = 30)
 
@@ -204,11 +219,21 @@ world <- map_data("world")
 # Plot hexbin map with ggplot2
 ggplot() +
   geom_polygon(data = world, aes(x = long, y = lat, group = group), fill = "lightgrey") +
-  geom_hex(data = hex_df, aes(x = x, y = y, fill = count), stat = "identity") +
-  scale_fill_viridis_c() +  # You can choose any color scale you prefer
-  geom_point(data = meteorite, aes(x = reclong, y = reclat), color = "red", size = 2, alpha = 0.5) +
-  labs(title = "Hexbin Map of Meteorite Impacts") +
-  coord_fixed()
+  scale_fill_distiller(name = "Count", palette = "RdYlBu", direction = 1) +  # Light to dark diverging fill color palette
+  geom_point(data = meteorite, aes(x = reclong, y = reclat, color = mass), size = 1.5, alpha = 1) +
+  scale_color_distiller(name = "Mass", palette = "RdYlBu", direction = 1, labels = scales::number_format(scale = 1e-6, suffix = "M (g)")) +  # Light to dark diverging color palette for mass
+  labs(title = "Hexbin Map of Meteorite Impacts",
+       x = "Longitude",
+       y = "Latitude") +
+  coord_fixed() +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 20),
+    axis.text = element_text(size = 14)
+  ) +
+  guides(fill = guide_legend(title = "Count"),
+         color = guide_legend(title = "Mass"))
+
 ```
 
 Finally, the Shiny app integrates user interaction with visual representations to enable a comprehensive exploration of meteorite impacts over different periods and mass ranges. It includes diverse visualizations like World Maps, Density Maps, and Bubble Maps, displaying the geographical spread, size, and density of meteorite impacts. Users have the option to choose specific criteria like year ranges and meteorite mass through sliders. Dropdown menus are integrated to select different map types, allowing the app to dynamically update the visualizations. This provides a comprehensive view of meteorite impacts on a global scale.
@@ -218,19 +243,19 @@ Finally, the Shiny app integrates user interaction with visual representations t
 #install.packages("shinythemes")
 library(shinythemes)
 
-# Load your data
+# Read meteorite data
 meteorite <- read_csv("https://raw.githubusercontent.com/INFO526-DataViz/project-final-Data-Dynamos/main/data/Meteorite_Landings.csv")
 
-# Clean and Rename columns using dplyr::rename
-meteorite <- na.omit(meteorite) |>
-  clean_names() |>
-  rename(mass = mass_g, class= recclass)
+# Rename columns using dplyr::rename
+meteorite <- na.omit(meteorite) %>%
+  clean_names() %>%
+  rename(mass = mass_g, class = recclass)
 
+# Selecting columns where mass > 1 gram
 meteorite <- subset(meteorite, mass >= 1)
 
 # Drop unnecessary columns
 meteorite <- meteorite[, !(names(meteorite) %in% c("nametype", "fall"))]
-
 
 # Create the 'decade' column
 meteorite <- meteorite %>%
@@ -243,110 +268,111 @@ meteorite <- meteorite %>%
     between(year, 1991, 2000) ~ "Decade 1991-2000",
     between(year, 2001, 2010) ~ "Decade 2001-2010",
     between(year, 2011, 2020) ~ "Decade 2011-2020",
-    TRUE ~ "NA"
+    TRUE ~ "NA"  # Default case if none of the conditions are met
   ))
 
+# Create a world map
+world <- ne_countries(scale = "medium", returnclass = "sf")
 
-# UI logic
+# Define UI for the Shiny app
 ui <- fluidPage(
   theme = shinytheme("darkly"),
   titlePanel("Meteorite Impact Visualization"),
-  
   sidebarLayout(
     sidebarPanel(
-      sliderInput("year_slider", "Select Year:",
-                  min = min(meteorite$year),
-                  max = max(meteorite$year),
+      sliderInput("year_range", "Select Year Range:",
+                  min = min(meteorite$year), max = max(meteorite$year),
                   value = c(min(meteorite$year), max(meteorite$year)),
                   step = 1),
-      
-      sliderInput("mass_slider", "Select Mass (g):",
-                  min = min(meteorite$mass),
-                  max = max(meteorite$mass),
+      sliderInput("mass_range", "Select Mass Range (g):",
+                  min = min(meteorite$mass), max = max(meteorite$mass),
                   value = c(min(meteorite$mass), max(meteorite$mass)),
-                  step = 100),
-      
-      selectInput("plot_type", "Select Visualization:",
-                  choices = c("World Map", "Density Map", "Bubble Map", "Heatmap", "Hexbin Map"))
+                  step = 1),
+      selectInput("plot_type", "Select Plot Type:",
+                  choices = c("Point Plot", "Thermal Density Map", "Bubble Plot"),
+                  selected = "Point Plot")
     ),
-    
     mainPanel(
-      plotOutput("selected_plot")
+      plotOutput("meteor_map")
     )
   )
 )
 
-# Server logic
+# Server for Shiny app
 server <- function(input, output) {
-  
-  # Reactive subset based on year and mass
+  # Filter data based on user input
   filtered_data <- reactive({
-    subset(meteorite, year %in% seq(input$year_slider[1], input$year_slider[2]) & mass >= input$mass_slider[1] & mass <= input$mass_slider[2])
+    meteorite %>%
+      filter(year >= input$year_range[1], year <= input$year_range[2],
+             mass >= input$mass_range[1], mass <= input$mass_range[2])
   })
-  
-  # Selected plot
-  output$selected_plot <- renderPlot({
-    plot_type <- switch(input$plot_type,
-                        "World Map" = world_map(filtered_data()),
-                        "Density Map" = thermal_map(filtered_data()),
-                        "Bubble Map" = bubble_map(filtered_data()),
-                        "Heatmap" = heatmap(filtered_data()),
-                        "Hexbin Map" = hexbin_map(filtered_data()))
-    print(plot_type)
-  })
-  
-  # Helper functions for different plots
-  world_map <- function(data) {
+
+  # Function to create Point Plot
+  create_point_plot <- function(data) {
     ggplot() +
-      geom_sf(data = ne_countries(scale = "medium", returnclass = "sf"), fill = "lightgrey") +
+      geom_sf(data = world, fill = "lightgrey") +
       geom_point(data = data, aes(x = reclong, y = reclat), color = "red", size = 1, alpha = 0.5) +
-      labs(title = "World Map : Meteorite Impacts", x = NULL, y = NULL) +
-      theme_minimal()
+      labs(title = "World Map: Meteorite Impacts\n",
+           x = "Longitude",
+           y = "Latitude") +
+      theme_minimal() +
+      theme(
+        plot.title = element_text(size = 14),
+        axis.text = element_text(size = 8)
+      )
   }
-  
-  thermal_map <- function(data) {
+
+  # Function to create Thermal Density Map
+  create_density_map <- function(data) {
     ggplot() +
-      geom_sf(data = ne_countries(scale = "medium", returnclass = "sf"), fill = "lightgrey") +
+      geom_sf(data = world, fill = "lightgrey") +
       geom_density_2d(data = data, aes(x = reclong, y = reclat), color = "red") +
-      labs(title = "Density Map : Meteorite Impacts Density", x = NULL, y = NULL) +
-      theme_minimal()
+      labs(title = "Thermal Map: Meteorite Impacts Density",
+           x = "Longitude",
+           y = "Latitude") +
+      theme_minimal() +
+      theme(
+        plot.title = element_text(size = 14),
+        axis.text = element_text(size = 8)
+      )
   }
-  
-  bubble_map <- function(data) {
+
+  # Function to create Bubble Plot
+  create_bubble_plot <- function(data) {
     ggplot() +
-      geom_sf(data = ne_countries(scale = "medium", returnclass = "sf"), fill = "lightgrey") +
+      geom_sf(data = world, fill = "lightgrey") +
       geom_point(data = data, aes(x = reclong, y = reclat, size = mass), color = "blue", alpha = 0.5) +
-      labs(title = "Bubble Map : Meteorite Mass", x = NULL, y = NULL)
+      labs(title = "Bubble Map of Meteorite Mass",
+           x = "Longitude",
+           y = "Latitude") +
+      theme_minimal() +
+      theme(
+        plot.title = element_text(size = 14),
+        axis.text = element_text(size = 8)
+      ) +
+      scale_size_continuous(labels = function(x)
+        scales::number_format(scale = 1e-6,
+                               suffix = "M (g)")(x) |>
+        str_replace_all("\\.", ","))
   }
-  
-  heatmap <- function(data) {
-    ggplot() +
-      geom_sf(data = ne_countries(scale = "medium", returnclass = "sf"), fill = "lightgrey") +
-      geom_bin2d(data = data, aes(x = reclong, y = reclat, fill = ..count..), bins = 100) +
-      scale_fill_viridis_c() +
-      labs(title = "Heatmap : Meteorite Impacts", x = NULL, y = NULL)
-  }
-  
-  hexbin_map <- function(data) {
-    hex_meteorite <- hexbin(data$reclong, data$reclat, xbins = 30)
-    hex_df <- data.frame(
-      x = hex_meteorite@xcm,
-      y = hex_meteorite@ycm,
-      count = hex_meteorite@count
-    )
-    world <- map_data("world")
-    ggplot() +
-      geom_polygon(data = world, aes(x = long, y = lat, group = group), fill = "lightgrey") +
-      geom_hex(data = hex_df, aes(x = x, y = y, fill = count), stat = "identity") +
-      scale_fill_viridis_c() +
-      geom_point(data = data, aes(x = reclong, y = reclat), color = "red", size = 2, alpha = 0.5) +
-      labs(title = "Hexbin Map : Meteorite Impacts", x = NULL, y = NULL) +
-      coord_fixed()
-  }
+
+  # Define the reactive plot
+  output$meteor_map <- renderPlot({
+    data <- filtered_data()
+    plot_type <- input$plot_type
+
+    if (plot_type == "Point Plot") {
+      create_point_plot(data)
+    } else if (plot_type == "Thermal Density Map") {
+      create_density_map(data)
+    } else if (plot_type == "Bubble Plot") {
+      create_bubble_plot(data)
+    }
+  })
 }
 
-# Run the application 
-shinyApp(ui = ui, server = server)
+# Run the Shiny app
+shinyApp(ui, server)
 
 ```
 
