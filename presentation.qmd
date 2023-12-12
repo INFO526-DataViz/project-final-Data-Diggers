@@ -3,9 +3,23 @@ title: "Visualizing Space"
 subtitle: "An Interactive Spatio-Temporal Visualization of Meteorites Discoveries"
 author: "Data Dynamos - Deema, Rahul, Swati, Ansh & Shakir"
 
+
+title-slide-attributes:
+  data-background-image: images/slide_background.jpg
+  data-background-size: stretch
+  data-background-opacity: "0.7"
+  data-slide-number: none
 format:
   revealjs: 
     theme: moon
+    transition: slide
+    background-transition: fade
+    footer: "[⚙ Data Dynamos](https://info526-dataviz.github.io/project-final-Data-Dynamos/)"
+    scrollable: true
+    style: |
+      body {
+        font-size: 12px; /* Set your desired font size here */
+      }
     
 editor: visual
 execute:
@@ -60,8 +74,6 @@ knitr::opts_chunk$set(
 )
 
 ```
-
-
 
 ## R Shiny App Code
 
@@ -205,43 +217,24 @@ shinyApp(ui, server)
 
 # Introduction
 
-
-
 ## Introduction
-
-
-
 
 -   Significance of meteorites in understanding our solar system.
 
-
-
 ## Project Objective
-
-
-
 
 The aim is to create an interactive visualization of meteorite discoveries
 
 # Data Overview
 
-
 ## Data Overview
-
-
-
 
 -   Data source: NASA's Meteorite Landings dataset.
 -   Data Scope : Name, Recclass, Mass (g), Fall, Year...
 
-
-
 # Designing the Shiny App
 
-
 ## Designing the Shiny App
-
-
 
 User Interactivity Features:
 
@@ -251,40 +244,26 @@ User Interactivity Features:
 
 3.  Size and Classification Analysis
 
-
 ## Temporal Analysis
-
 
 -   Analysis of meteorite falls over time (code hidden).
 
-
 ## Spatial Distribution
-
 
 -   Visualization of spatial distribution of meteorites (code hidden).
 
-
 ## Size and Classification Analysis
 
-
 -   Analysis based on size and classification of meteorites (code hidden).
-
-
 
 # Challenges and Solutions
 
 # Impact and Applications
 
-- This visualization can be used for educational and research purposes.
-
+-   This visualization can be used for educational and research purposes.
 
 # Future Enhancements
 
-
 # Conclusion and Q&A.
-
-
-
-
 
 #Thank you!
