@@ -16,12 +16,12 @@ website:
         href: presentation.qmd
       - text: About
         href: about.qmd
-    logo: images\logo.jpg
-  favicon: images\logo.jpg
+    logo: images\logo1.jpg
+  favicon: images\logo1.jpg
 
 format:
   html:
-    theme: spacelab
+    theme: flatly
     toc: true
 
 execute:
