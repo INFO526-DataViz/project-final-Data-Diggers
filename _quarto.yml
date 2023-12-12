@@ -16,6 +16,8 @@ website:
         href: presentation.qmd
       - text: About
         href: about.qmd
+      - text: Shiny App  
+        href: https://rahulbangad.shinyapps.io/app1/
     logo: images\logo2.jpg
   favicon: images\logo2.jpg
 
