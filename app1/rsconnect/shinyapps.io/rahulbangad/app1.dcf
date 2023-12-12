@@ -1,0 +1,12 @@
+name: app1
+title: app1
+username: rahulbangad
+account: rahulbangad
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10730586
+bundleId: 8042029
+url: https://rahulbangad.shinyapps.io/app1/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
