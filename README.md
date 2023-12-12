@@ -1,4 +1,6 @@
-# project-final
+# Visualising the Heavens
+
+## An Interactive Spatio-Temporal Visualization of Meteorites Discoveries
 
 This project was developed by Data Dynamos For INFO 526 - Data Analysis & Visualization at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.
 
