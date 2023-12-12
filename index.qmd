@@ -132,8 +132,8 @@ p1 <- ggplot() +
   geom_sf(data = world, fill = "lightgrey") +
   geom_point(data = meteorite, aes(x = reclong, y = reclat), color = "red", size = 1, alpha = 0.5) +
   labs(title = "World Map: Meteorite Impacts\n",
-       x = "Longitude",
-       y = "Latitude") +
+       x = NULL,
+       y = NULL) +
   theme_minimal() +
   theme(
     plot.title = element_text(size = 20),
@@ -165,8 +165,8 @@ p2 <- ggplot() +
   geom_sf(data = world, fill = "lightgrey") +
   geom_density_2d(data = meteorite, aes(x = reclong, y = reclat), color= "red") +
   labs(title = "Thermal Map: Meteorite Impacts Density",
-       x="Longitude",
-       y="Latitude") +
+       x=NULL,
+       y=NULL) +
   theme_minimal()+
   theme(
     plot.title = element_text(size = 20),
@@ -201,7 +201,7 @@ ggplot() +
   str_replace_all("\\.", ","))
 ```
 
-```{r plot4, warning=FALSE, message=FALSE}
+```{r plot4, warning=FALSE, message=FALSE, include=FALSE, render="FALSE"}
 
 ######HEXBIN PLOT#####
 
@@ -373,8 +373,7 @@ server <- function(input, output) {
 }
 
 # Run the Shiny app
-shinyApp(ui, server)
-
+#shinyApp(ui, server)
 ```
 
 ## Discussion
